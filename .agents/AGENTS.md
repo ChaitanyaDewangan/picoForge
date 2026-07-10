@@ -1,8 +1,8 @@
 # AGENTS.md — PicoForge Build Playbook
 
-You are the implementing agent (Antigravity IDE, Claude Code, or equivalent). This file is your standing orders for building PicoForge from the spec pack in `docs/`. It is loaded every session. Follow it exactly; when it conflicts with your instincts, it wins.
+You are the implementing agent (Antigravity IDE, Claude Code, or equivalent). This file is your standing orders for building PicoForge from the spec pack in `KNOWLEDGE_BASE/`. It is loaded every session. Follow it exactly; when it conflicts with your instincts, it wins.
 
-**The pack:** `docs/README.md` (overview) · `docs/SYS_DESIGN.md` (architecture) · `docs/DATA_SCHEMA.md` (DB) · `docs/LLM_HARNESS.md` (agent core) · `docs/PICOGK_KNOWLEDGE.md` (kernel/Kit/physics) · `docs/UIUX.md` (design system) · `docs/RENDERING.md` (viewport) · `docs/USER_FLOWS.md` (acceptance scripts). Section references like "SYS_DESIGN §6" point there. Read the referenced section *before* implementing, not after failing.
+**The pack:** `KNOWLEDGE_BASE/README.md` (overview) · `KNOWLEDGE_BASE/SYS_DESIGN.md` (architecture) · `KNOWLEDGE_BASE/DATA_SCHEMA.md` (DB) · `KNOWLEDGE_BASE/LLM_HARNESS.md` (agent core) · `KNOWLEDGE_BASE/PICOGK_KNOWLEDGE.md` (kernel/Kit/physics) · `KNOWLEDGE_BASE/UIUX.md` (design system) · `KNOWLEDGE_BASE/RENDERING.md` (viewport) · `KNOWLEDGE_BASE/USER_FLOWS.md` (acceptance scripts). Section references like "SYS_DESIGN §6" point there. Read the referenced section *before* implementing, not after failing.
 
 ---
 
