@@ -200,7 +200,9 @@ async function runStream(
         }
         if (currentToolId) {
           let toolInput: unknown = {};
-          try { toolInput = JSON.parse(currentToolJson); } catch { /* malformed → empty */ }
+          try {
+            toolInput = JSON.parse(currentToolJson);
+          } catch { /* malformed → empty */ }
           toolCalls.push({ id: currentToolId, name: currentToolName, input: toolInput });
           currentToolId = "";
           currentToolName = "";
@@ -215,13 +217,21 @@ async function runStream(
     }
   }
 
-  log.debug("Anthropic turn complete", { stopReason, inputTokens, outputTokens, toolCalls: toolCalls.length });
+  log.debug("Anthropic turn complete", {
+    stopReason,
+    inputTokens,
+    outputTokens,
+    toolCalls: toolCalls.length,
+  });
   return { stopReason, textBlocks, toolCalls, inputTokens, outputTokens };
 }
 
 function sleep(ms: number, signal?: AbortSignal): Promise<void> {
   return new Promise((resolve, reject) => {
     const t = setTimeout(resolve, ms);
-    signal?.addEventListener("abort", () => { clearTimeout(t); reject(new Error("CANCELLED")); });
+    signal?.addEventListener("abort", () => {
+      clearTimeout(t);
+      reject(new Error("CANCELLED"));
+    });
   });
 }

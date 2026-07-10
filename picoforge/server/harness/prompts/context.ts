@@ -18,7 +18,7 @@ export interface HistoryEntry {
   codeVersion?: number;
   codeLines?: number;
   codeOk?: boolean;
-  captureIncluded?: boolean;  // images only kept for the turn they were requested
+  captureIncluded?: boolean; // images only kept for the turn they were requested
 }
 
 /**
@@ -82,8 +82,8 @@ export function buildContextMessages(
       if (block.type === "tool_result") {
         // Drop image blocks from past captures (keep only text)
         const filteredContent = block.content
-          .filter(c => c.type === "text" || entry.captureIncluded)
-          .map(c => c as { type: "text"; text: string });
+          .filter((c) => c.type === "text" || entry.captureIncluded)
+          .map((c) => c as { type: "text"; text: string });
         content.push({ ...block, content: filteredContent });
         continue;
       }

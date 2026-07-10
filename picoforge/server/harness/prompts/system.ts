@@ -8,8 +8,7 @@ const log = makeLogger("harness.prompts.system");
 
 // ─── Compact material table ───────────────────────────────────────────────────
 
-const MATERIAL_TABLE_COMPACT =
-  "PLA(ρ=1.24 g/cm³,σy=45 MPa,E=3.5 GPa,wall≥1.0mm,max55°C) | " +
+const MATERIAL_TABLE_COMPACT = "PLA(ρ=1.24 g/cm³,σy=45 MPa,E=3.5 GPa,wall≥1.0mm,max55°C) | " +
   "PETG(1.27,50,2.1,≥1.0,75°C) | " +
   "ABS(1.05,40,2.0,≥1.2,95°C) | " +
   "PA12(1.01,48,1.7,≥0.8,120°C) | " +
@@ -95,9 +94,20 @@ Current project defaults: material {{PROJECT_MATERIAL}}, envelope
 
 // ─── API card compression ─────────────────────────────────────────────────────
 
-interface ApiEntry { name: string; sig: string; doc?: string }
-interface ApiType { name: string; namespace: string; members: ApiEntry[] }
-interface ApiManifest { types: ApiType[]; picogkVersion?: string }
+interface ApiEntry {
+  name: string;
+  sig: string;
+  doc?: string;
+}
+interface ApiType {
+  name: string;
+  namespace: string;
+  members: ApiEntry[];
+}
+interface ApiManifest {
+  types: ApiType[];
+  picogkVersion?: string;
+}
 
 function buildApiCard(manifest: ApiManifest, namespace: string): string {
   const lines: string[] = [];

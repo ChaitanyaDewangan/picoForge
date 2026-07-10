@@ -1,7 +1,7 @@
 // server/harness/tools/exportArtifact.ts — tool 5.6
 // LLM_HARNESS §5.6: export geometry for user (STL, 3MF, GLB, VDB, CLI)
 
-import { z, ok, err, makeDef, type RunCtx, type ToolModule } from "./_base.ts";
+import { err, makeDef, ok, type RunCtx, type ToolModule, z } from "./_base.ts";
 
 const zodInput = z.object({
   format: z.enum(["stl", "3mf", "glb", "vdb", "cli"]),
@@ -25,7 +25,8 @@ export const exportArtifactTool: ToolModule<Input> = {
     "Export the current geometry for the user. Only call when the user asks for a file/download/print.",
   zodInput,
   jsonSchema,
-  def: makeDef("export_artifact",
+  def: makeDef(
+    "export_artifact",
     "Export the current geometry for the user. Only call when the user asks for a file/download/print.",
     jsonSchema,
   ),
@@ -33,7 +34,9 @@ export const exportArtifactTool: ToolModule<Input> = {
   async execute(input, ctx: RunCtx) {
     try {
       const parsed = zodInput.safeParse(input);
-      if (!parsed.success) return err(new Error(`export_artifact validation: ${parsed.error.message}`));
+      if (!parsed.success) {
+        return err(new Error(`export_artifact validation: ${parsed.error.message}`));
+      }
       const { format, filename } = parsed.data;
 
       if (!ctx.lastArtifactId) {
@@ -47,7 +50,11 @@ export const exportArtifactTool: ToolModule<Input> = {
       }
 
       const engine = ctx.engineClient as {
-        export(artifactId: string, format: string, filename: string): Promise<{ ok: boolean; value?: { downloadUrl: string }; error?: Error }>;
+        export(
+          artifactId: string,
+          format: string,
+          filename: string,
+        ): Promise<{ ok: boolean; value?: { downloadUrl: string }; error?: Error }>;
       };
 
       const result = await engine.export(ctx.lastArtifactId, format, defaultName);

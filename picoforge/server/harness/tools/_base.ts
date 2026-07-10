@@ -3,10 +3,10 @@
 
 import { z } from "npm:zod@^3.23.0";
 import { ToolDefinition } from "../anthropic.ts";
-import { ok, err, Result } from "../../domain/result.ts";
+import { err, ok, Result } from "../../domain/result.ts";
 
 export type { ToolDefinition };
-export { z, ok, err };
+export { err, ok, z };
 export type { Result };
 
 /** Every run context the tools need (engine, db, ws hub refs). */
@@ -16,10 +16,10 @@ export interface RunCtx {
   conversationId: string;
   signal: AbortSignal;
   // Injected by orchestrator before calling tools
-  engineClient?: unknown;    // EngineClient from engine/client.ts — typed in M3
-  db?: unknown;              // DB from db/db.ts — typed in M3
-  wsHub?: unknown;           // WsHub from ws/hub.ts — typed in M4
-  lastArtifactId?: string;   // set by run_picogk on success
+  engineClient?: unknown; // EngineClient from engine/client.ts — typed in M3
+  db?: unknown; // DB from db/db.ts — typed in M3
+  wsHub?: unknown; // WsHub from ws/hub.ts — typed in M4
+  lastArtifactId?: string; // set by run_picogk on success
 }
 
 /** Shape every tool module must export. */
@@ -34,6 +34,10 @@ export interface ToolModule<TInput> {
 }
 
 /** Build the ToolDefinition from module fields (call at module bottom). */
-export function makeDef(name: string, description: string, schema: ToolDefinition["input_schema"]): ToolDefinition {
+export function makeDef(
+  name: string,
+  description: string,
+  schema: ToolDefinition["input_schema"],
+): ToolDefinition {
   return { name, description, input_schema: schema };
 }

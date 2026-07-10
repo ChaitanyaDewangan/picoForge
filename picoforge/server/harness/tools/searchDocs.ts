@@ -1,7 +1,7 @@
 // server/harness/tools/searchDocs.ts — tool 5.1
 // LLM_HARNESS §5.1: FTS5 bm25 over kb_fts, returns [{title, section, content}]
 
-import { z, ok, err, makeDef, type RunCtx, type ToolModule } from "./_base.ts";
+import { err, makeDef, ok, type RunCtx, type ToolModule, z } from "./_base.ts";
 
 const zodInput = z.object({
   query: z.string().min(1).max(512),
@@ -25,7 +25,8 @@ export const searchDocsTool: ToolModule<Input> = {
     "Full-text search over the local PicoGK/Kit API reference, engineering recipes (turbine, bracket, heat exchanger, gear, enclosure...), and the physics formula pack. Use before coding anything unfamiliar. Query with 2-6 keywords.",
   zodInput,
   jsonSchema,
-  def: makeDef("search_docs",
+  def: makeDef(
+    "search_docs",
     "Full-text search over the local PicoGK/Kit API reference, engineering recipes (turbine, bracket, heat exchanger, gear, enclosure...), and the physics formula pack. Use before coding anything unfamiliar. Query with 2-6 keywords.",
     jsonSchema,
   ),
@@ -38,11 +39,20 @@ export const searchDocsTool: ToolModule<Input> = {
 
       // M3 will inject the DB; stub returns empty in headless tests
       if (!ctx.db) {
-        return ok([{ title: "stub", section: "stub", content: `[search_docs stub — DB not wired: "${query}"]` }]);
+        return ok([{
+          title: "stub",
+          section: "stub",
+          content: `[search_docs stub — DB not wired: "${query}"]`,
+        }]);
       }
 
       // DB will be wired in M3: ctx.db.searchKb(query, k)
-      const rows = await (ctx.db as { searchKb(q: string, k: number): Promise<{title:string;section:string;content:string}[]> })
+      const rows = await (ctx.db as {
+        searchKb(
+          q: string,
+          k: number,
+        ): Promise<{ title: string; section: string; content: string }[]>;
+      })
         .searchKb(query, k);
       return ok(rows);
     } catch (e) {

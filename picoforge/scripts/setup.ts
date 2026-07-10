@@ -48,8 +48,10 @@ async function main(): Promise<void> {
   await step("DumpApi → picogk_api.json", async () => {
     const outPath = join(ROOT, "picogk_api.json");
     await run([
-      "dotnet", "run",
-      "--project", join(ROOT, "engine", "tools", "DumpApi"),
+      "dotnet",
+      "run",
+      "--project",
+      join(ROOT, "engine", "tools", "DumpApi"),
       "--no-build",
       "--",
       outPath,

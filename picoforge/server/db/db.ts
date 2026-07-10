@@ -7,22 +7,30 @@ import { makeLogger } from "../log.ts";
 const log = makeLogger("db");
 
 // node:sqlite types — Deno ships this natively since 2.2
-// deno-lint-ignore-file no-explicit-any
-type DatabaseSync = any;
+// Minimal structural interface to avoid `any` while remaining driver-agnostic
+interface DatabaseSync {
+  exec(sql: string): void;
+  prepare(sql: string): { get(...args: unknown[]): unknown; run(...args: unknown[]): void };
+  close?(): void;
+}
 let DatabaseSyncCtor: new (path: string) => DatabaseSync;
+
+interface SqliteModule {
+  DatabaseSync?: new (path: string) => DatabaseSync;
+  default?: new (path: string) => DatabaseSync;
+  Database?: new (path: string) => DatabaseSync;
+}
 
 async function loadDriver(): Promise<new (path: string) => DatabaseSync> {
   if (DatabaseSyncCtor) return DatabaseSyncCtor;
   try {
-    // deno-lint-ignore no-explicit-any
-    const mod = await (eval('import("node:sqlite")') as Promise<any>);
-    DatabaseSyncCtor = mod.DatabaseSync;
+    const mod = await (eval('import("node:sqlite")') as Promise<SqliteModule>);
+    DatabaseSyncCtor = mod.DatabaseSync!;
     return DatabaseSyncCtor;
   } catch {
     // Fallback: jsr:@db/sqlite (bundles FTS5) per DATA_SCHEMA §1
-    // deno-lint-ignore no-explicit-any
-    const mod = await (eval('import("jsr:@db/sqlite")') as Promise<any>);
-    DatabaseSyncCtor = mod.default ?? mod.Database;
+    const mod = await (eval('import("jsr:@db/sqlite")') as Promise<SqliteModule>);
+    DatabaseSyncCtor = (mod.default ?? mod.Database)!;
     return DatabaseSyncCtor;
   }
 }

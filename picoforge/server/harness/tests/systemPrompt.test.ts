@@ -8,7 +8,11 @@ Deno.test("system prompt: renders without placeholders", () => {
   const prompt = buildSystemPrompt();
   // All {{X}} substitutions must be gone
   const unresolved = [...prompt.matchAll(/\{\{[A-Z_]+\}\}/g)];
-  assertEquals(unresolved.length, 0, `Unresolved placeholders: ${unresolved.map(m => m[0]).join(", ")}`);
+  assertEquals(
+    unresolved.length,
+    0,
+    `Unresolved placeholders: ${unresolved.map((m) => m[0]).join(", ")}`,
+  );
 });
 
 Deno.test("system prompt: contains Code Contract", () => {

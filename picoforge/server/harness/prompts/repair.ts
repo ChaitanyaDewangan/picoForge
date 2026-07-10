@@ -1,26 +1,22 @@
 // server/harness/prompts/repair.ts — LLM_HARNESS §8 repair hint injector
 // "REPAIR CONTEXT (attempt {n}/{max} for {code}) ... Strategy ..."
 
-import { makeLogger } from "../../log.ts";
-
-const log = makeLogger("harness.repair");
-
 // ─── Repair budgets per error class ──────────────────────────────────────────
 
 export const REPAIR_BUDGETS: Record<string, number> = {
   CONTRACT_VIOLATION: 3,
-  BANNED_API:         3,
-  UNKNOWN_SYMBOL:     3,
-  COMPILE_ERROR:      3,
-  RUNTIME_ERROR:      2,
-  TIMEOUT:            2,
-  OOM:                2,
-  SANDBOX_CRASH:      1,
-  EMPTY_GEOMETRY:     2,
-  NOT_WATERTIGHT:     2,
-  ENVELOPE_EXCEEDED:  2,
-  BELOW_MIN_WALL:     2,
-  BRIEF_MISMATCH:     2,
+  BANNED_API: 3,
+  UNKNOWN_SYMBOL: 3,
+  COMPILE_ERROR: 3,
+  RUNTIME_ERROR: 2,
+  TIMEOUT: 2,
+  OOM: 2,
+  SANDBOX_CRASH: 1,
+  EMPTY_GEOMETRY: 2,
+  NOT_WATERTIGHT: 2,
+  ENVELOPE_EXCEEDED: 2,
+  BELOW_MIN_WALL: 2,
+  BRIEF_MISMATCH: 2,
 };
 
 // ─── Per-attempt strategy text per LLM_HARNESS §8 ────────────────────────────
@@ -85,8 +81,8 @@ const STRATEGIES: Record<string, string[]> = {
 
 export interface RepairCtx {
   errorCode: string;
-  attempt: number;           // 1-indexed
-  payload: unknown;          // typed error payload from §7
+  attempt: number; // 1-indexed
+  payload: unknown; // typed error payload from §7
 }
 
 /**
@@ -95,7 +91,8 @@ export interface RepairCtx {
  */
 export function buildRepairHint(ctx: RepairCtx): string {
   const max = REPAIR_BUDGETS[ctx.errorCode] ?? 2;
-  const strategies = STRATEGIES[ctx.errorCode] ?? ["Fix the root cause and return the full corrected file."];
+  const strategies = STRATEGIES[ctx.errorCode] ??
+    ["Fix the root cause and return the full corrected file."];
   const strategy = strategies[Math.min(ctx.attempt - 1, strategies.length - 1)];
 
   const payloadText = typeof ctx.payload === "string"

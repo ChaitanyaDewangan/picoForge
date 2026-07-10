@@ -1,7 +1,7 @@
 // server/harness/tools/askUser.ts — tool 5.7
 // LLM_HARNESS §5.7: ask ONE question with 2–4 options; terminates the model's turn
 
-import { z, ok, err, makeDef, type RunCtx, type ToolModule } from "./_base.ts";
+import { err, makeDef, ok, type RunCtx, type ToolModule, z } from "./_base.ts";
 
 const zodInput = z.object({
   question: z.string().min(1).max(500),
@@ -25,7 +25,8 @@ export const askUserTool: ToolModule<Input> = {
     "Ask the user ONE question that forks the design, with 2-4 concrete options (include your recommended default first). Ends your turn.",
   zodInput,
   jsonSchema,
-  def: makeDef("ask_user",
+  def: makeDef(
+    "ask_user",
     "Ask the user ONE question that forks the design, with 2-4 concrete options (include your recommended default first). Ends your turn.",
     jsonSchema,
   ),

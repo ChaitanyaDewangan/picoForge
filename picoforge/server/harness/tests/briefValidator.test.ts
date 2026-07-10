@@ -2,7 +2,7 @@
 // 40+ unit tests on the brief validator (each rule, boundary values)
 
 import { assertEquals, assertStringIncludes } from "jsr:@std/assert@^1.0.0";
-import { validateBrief, CATEGORIES } from "../tools/submitDesignBrief.ts";
+import { CATEGORIES, validateBrief } from "../tools/submitDesignBrief.ts";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 

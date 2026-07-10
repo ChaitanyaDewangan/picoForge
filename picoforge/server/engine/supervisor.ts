@@ -44,8 +44,12 @@ export class EngineSupervisor {
     this._onOrphanRun = opts?.onOrphanRun;
   }
 
-  get state(): SupervisorState { return { ...this._state }; }
-  get client(): EngineClient | null { return this._client; }
+  get state(): SupervisorState {
+    return { ...this._state };
+  }
+  get client(): EngineClient | null {
+    return this._client;
+  }
 
   async start(): Promise<void> {
     log.info("Supervisor starting engine", { bin: this.engineBin });
@@ -105,7 +109,7 @@ export class EngineSupervisor {
   private async _restart(): Promise<void> {
     const now = Date.now();
     // Trim restart history older than 10 min
-    this._restartTimestamps = this._restartTimestamps.filter(t => now - t < 10 * 60_000);
+    this._restartTimestamps = this._restartTimestamps.filter((t) => now - t < 10 * 60_000);
 
     if (this._restartTimestamps.length >= MAX_RESTARTS_PER_10MIN) {
       log.error("Engine restart limit reached", {

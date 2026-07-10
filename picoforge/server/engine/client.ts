@@ -3,7 +3,7 @@
 // Full implementation in M3; this module exists for type safety at M0/M1.
 
 import { makeLogger } from "../log.ts";
-import { Result, ok, err } from "../domain/result.ts";
+import { err, ok, Result } from "../domain/result.ts";
 
 const log = makeLogger("engine.client");
 
@@ -106,10 +106,14 @@ export class EngineClient {
   }
 
   async cancel(runId: string): Promise<void> {
-    try { await this.call("engine.cancel", { runId }); } catch { /* best effort */ }
+    try {
+      await this.call("engine.cancel", { runId });
+    } catch { /* best effort */ }
   }
 
-  get isReady(): boolean { return this._ready; }
+  get isReady(): boolean {
+    return this._ready;
+  }
 
   private async call<T>(method: string, params: unknown): Promise<T> {
     if (!this._process) throw new Error("Engine not started");
@@ -155,9 +159,11 @@ export class EngineClient {
     }
   }
 
-  async stop(): Promise<void> {
+  stop(): void {
     this._ready = false;
-    try { this._process?.kill(); } catch { }
+    try {
+      this._process?.kill();
+    } catch { /* process may already be dead */ }
     this._process = null;
   }
 }

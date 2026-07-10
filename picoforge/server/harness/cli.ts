@@ -3,9 +3,6 @@
 // LLM_HARNESS §2 M2 gate: "CLI runner deno task harness:once 'prompt' against real engine"
 
 import { driveRun } from "./orchestrator.ts";
-import { makeLogger } from "../log.ts";
-
-const log = makeLogger("harness.cli");
 
 const userPrompt = Deno.args.join(" ").trim();
 if (!userPrompt) {
@@ -35,7 +32,7 @@ const { state } = await driveRun({
   history: [],
   signal: ac.signal,
   callbacks: {
-    onStateChange: (id, s) => console.log(`  → state: ${s}`),
+    onStateChange: (_id, s) => console.log(`  → state: ${s}`),
     onTextDelta: (_id, delta) => process.stdout.write(delta),
     onGeometryReady: (_id, artifactId, stats) => {
       console.log(`\n\n[harness:once] ✅ geometry ready: artifactId=${artifactId}`);

@@ -2,10 +2,14 @@
 // driveRun: tool budget, repair loop, cancel, queue, state emission
 
 import { makeLogger } from "../log.ts";
-import { createMessageStream, type AnthropicMessage, type ToolDefinition } from "./anthropic.ts";
+import { type AnthropicMessage, createMessageStream, type ToolDefinition } from "./anthropic.ts";
 import { TOOL_MAP, TOOLS } from "./tools/index.ts";
 import type { RunCtx } from "./tools/_base.ts";
-import { buildRepairHint, buildBudgetExhaustedInstruction, isBudgetExhausted, REPAIR_BUDGETS } from "./prompts/repair.ts";
+import {
+  buildBudgetExhaustedInstruction,
+  buildRepairHint,
+  isBudgetExhausted,
+} from "./prompts/repair.ts";
 import { buildContextMessages, type HistoryEntry } from "./prompts/context.ts";
 import { buildSystemPrompt } from "./prompts/system.ts";
 
@@ -21,7 +25,7 @@ const DEFAULT_SETTINGS = {
 
 // ─── Tool budget ─────────────────────────────────────────────────────────────
 
-const TOOL_CALL_BUDGET = 14;   // LLM_HARNESS §6
+const TOOL_CALL_BUDGET = 14; // LLM_HARNESS §6
 
 // ─── Run state type ──────────────────────────────────────────────────────────
 
@@ -86,7 +90,7 @@ export async function driveRun(
   };
 
   // Tool definitions for the API
-  const toolDefs: ToolDefinition[] = TOOLS.map(t => t.def);
+  const toolDefs: ToolDefinition[] = TOOLS.map((t) => t.def);
 
   const emit = (state: RunState, detail?: unknown) => {
     callbacks?.onStateChange?.(runId, state, detail);
@@ -128,7 +132,10 @@ export async function driveRun(
 
     if (!turnResult.ok) {
       const errMsg = turnResult.error.message;
-      if (errMsg === "CANCELLED") { emit("cancelled"); return { state: "cancelled" }; }
+      if (errMsg === "CANCELLED") {
+        emit("cancelled");
+        return { state: "cancelled" };
+      }
       emit("failed", { code: "ANTHROPIC_ERROR", detail: errMsg });
       callbacks?.onError?.(runId, "ANTHROPIC_ERROR", errMsg);
       return { state: "failed" };
@@ -156,7 +163,10 @@ export async function driveRun(
     const toolResultContent: AnthropicMessage["content"] = [];
 
     for (const call of turn.toolCalls) {
-      if (signal.aborted) { emit("cancelled"); return { state: "cancelled" }; }
+      if (signal.aborted) {
+        emit("cancelled");
+        return { state: "cancelled" };
+      }
 
       // Budget check
       if (toolCallsLeft <= 0) {
@@ -172,12 +182,16 @@ export async function driveRun(
       toolCallsLeft--;
 
       // State transition based on tool
-      const nextState: RunState =
-        call.name === "submit_design_brief" ? "briefing"
-        : call.name === "run_picogk" ? "building"
-        : call.name === "inspect_geometry" ? "inspecting"
-        : call.name === "capture_viewport" ? "inspecting"
-        : call.name === "ask_user" ? "awaiting_user"
+      const nextState: RunState = call.name === "submit_design_brief"
+        ? "briefing"
+        : call.name === "run_picogk"
+        ? "building"
+        : call.name === "inspect_geometry"
+        ? "inspecting"
+        : call.name === "capture_viewport"
+        ? "inspecting"
+        : call.name === "ask_user"
+        ? "awaiting_user"
         : "understanding";
       emit(nextState);
 

@@ -1,8 +1,7 @@
 // server/harness/tools/runPicoGK.ts — tool 5.3
 // LLM_HARNESS §5.3: compile + execute C# design, return typed ladder result
 
-import { z, ok, err, makeDef, type RunCtx, type ToolModule } from "./_base.ts";
-import { validateBrief } from "./submitDesignBrief.ts";
+import { err, makeDef, ok, type RunCtx, type ToolModule, z } from "./_base.ts";
 
 const zodInput = z.object({
   code: z.string().min(10).max(200_000),
@@ -15,7 +14,10 @@ const jsonSchema = {
   type: "object",
   properties: {
     code: { type: "string", description: "Complete C# file. No markdown fences." },
-    notes: { type: "string", description: "One line: what changed vs previous attempt (repair loop) or 'initial'." },
+    notes: {
+      type: "string",
+      description: "One line: what changed vs previous attempt (repair loop) or 'initial'.",
+    },
   },
   required: ["code"],
 };
@@ -37,12 +39,16 @@ function lintContract(code: string): string[] {
   // Exactly one public static class Design
   const classMatches = [...code.matchAll(/public\s+static\s+class\s+(\w+)/g)];
   if (classMatches.length !== 1 || classMatches[0][1] !== "Design") {
-    violations.push("Must have exactly one 'public static class Design'. Found: " +
-      (classMatches.length === 0 ? "none" : classMatches.map(m => m[1]).join(", ")));
+    violations.push(
+      "Must have exactly one 'public static class Design'. Found: " +
+        (classMatches.length === 0 ? "none" : classMatches.map((m) => m[1]).join(", ")),
+    );
   }
 
   // Exactly one voxBuild method matching signature
-  const voxBuildMatch = /public\s+static\s+(?:PicoGK\.)?Voxels\s+voxBuild\s*\(\s*(?:PicoForge\.Kit\.)?Ctx\s+\w+\s*\)/.test(code);
+  const voxBuildMatch =
+    /public\s+static\s+(?:PicoGK\.)?Voxels\s+voxBuild\s*\(\s*(?:PicoForge\.Kit\.)?Ctx\s+\w+\s*\)/
+      .test(code);
   if (!voxBuildMatch) {
     violations.push("Missing 'public static PicoGK.Voxels voxBuild(PicoForge.Kit.Ctx ctx)' method");
   }
@@ -50,7 +56,9 @@ function lintContract(code: string): string[] {
   // File length
   const lines = code.split("\n").length;
   if (lines > 1200) {
-    violations.push(`File exceeds 1200 lines (${lines} lines). Split into private static helpers within Design.`);
+    violations.push(
+      `File exceeds 1200 lines (${lines} lines). Split into private static helpers within Design.`,
+    );
   }
 
   // Using whitelist
@@ -73,7 +81,8 @@ export const runPicoGKTool: ToolModule<Input> = {
     "Compile and execute a complete C# design file under the Code Contract. On success the part appears in the user's viewport automatically and you receive geometry statistics. On failure you receive a typed error with diagnostics — fix the root cause and call again with the FULL corrected file.",
   zodInput,
   jsonSchema,
-  def: makeDef("run_picogk",
+  def: makeDef(
+    "run_picogk",
     "Compile and execute a complete C# design file under the Code Contract. On success the part appears in the user's viewport automatically and you receive geometry statistics. On failure you receive a typed error with diagnostics — fix the root cause and call again with the FULL corrected file.",
     jsonSchema,
   ),
@@ -102,7 +111,10 @@ export const runPicoGKTool: ToolModule<Input> = {
       }
 
       const engine = ctx.engineClient as {
-        compile(code: string, codeId?: string): Promise<{ ok: boolean; value?: unknown; error?: Error }>;
+        compile(
+          code: string,
+          codeId?: string,
+        ): Promise<{ ok: boolean; value?: unknown; error?: Error }>;
         run(params: unknown): Promise<{ ok: boolean; value?: unknown; error?: Error }>;
       };
 
@@ -110,7 +122,8 @@ export const runPicoGKTool: ToolModule<Input> = {
       const codeId = `run-${ctx.runId}`;
       const compileResult = await engine.compile(code, codeId);
       if (!compileResult.ok) {
-        return ok({ ok: false, error: { code: "COMPILE_ERROR", ...(compileResult as { error?: unknown }).error } });
+        const compileError = (compileResult as { error?: Record<string, unknown> }).error ?? {};
+        return ok({ ok: false, error: { code: "COMPILE_ERROR", ...compileError } });
       }
 
       // L2: Execute
