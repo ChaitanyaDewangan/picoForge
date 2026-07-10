@@ -1,0 +1,252 @@
+{
+  "app/package.json": {
+    "mtime": 1783656447.140857,
+    "ast_hash": "37dbb37aac6679e9879ac9b7df70656d",
+    "semantic_hash": ""
+  },
+  "app/src/App.tsx": {
+    "mtime": 1783656230.0492496,
+    "ast_hash": "6692c2768efe8fb0808470dd27b89867",
+    "semantic_hash": ""
+  },
+  "app/src/main.tsx": {
+    "mtime": 1783656650.351765,
+    "ast_hash": "f9a9f9bdc997121979c35982e36cc082",
+    "semantic_hash": ""
+  },
+  "app/tsconfig.app.json": {
+    "mtime": 1783656081.8018079,
+    "ast_hash": "d824db93b59e9b36bde396ec5731da3e",
+    "semantic_hash": ""
+  },
+  "app/tsconfig.json": {
+    "mtime": 1783656073.4513373,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "app/tsconfig.node.json": {
+    "mtime": 1783656089.7417183,
+    "ast_hash": "ddf99e9d95c147963a8a128ea527174f",
+    "semantic_hash": ""
+  },
+  "app/vite.config.ts": {
+    "mtime": 1783656064.910285,
+    "ast_hash": "6495f13335916c662762d61df7c485bf",
+    "semantic_hash": ""
+  },
+  "deno.json": {
+    "mtime": 1783655854.55227,
+    "ast_hash": "6cc3d6e88f7d9930b88c754abf51a41d",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/Analyzers.cs": {
+    "mtime": 1783656868.5463183,
+    "ast_hash": "eac2dff74940b344d80a277b176de312",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/Compiler.cs": {
+    "mtime": 1783656848.505043,
+    "ast_hash": "282f82fc66ed5a53035928fed5f36d73",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/ForgeEngine.csproj": {
+    "mtime": 1783656968.6374526,
+    "ast_hash": "105a994776362e17022e5e016108d922",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/Program.cs": {
+    "mtime": 1783656957.0097065,
+    "ast_hash": "e9a6f8a0024a7b108ccf113482ffdb49",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/Rpc.cs": {
+    "mtime": 1783656814.1600618,
+    "ast_hash": "b6dc7e5043b391ff9e6c983272ae8da4",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/SandboxPool.cs": {
+    "mtime": 1783656918.6910205,
+    "ast_hash": "f30511ab02c5cc108d0d8cc40566efc3",
+    "semantic_hash": ""
+  },
+  "engine/ForgeEngine/SymbolTable.cs": {
+    "mtime": 1783656886.263862,
+    "ast_hash": "4aa696d4faed2e3bafd0a53f5cee56d2",
+    "semantic_hash": ""
+  },
+  "engine/ForgeSandbox/ForgeSandbox.csproj": {
+    "mtime": 1783656294.0569162,
+    "ast_hash": "4b00a0362c0ff3298abc821b296b9f38",
+    "semantic_hash": ""
+  },
+  "engine/ForgeSandbox/Kit/Ctx.cs": {
+    "mtime": 1783657074.8906252,
+    "ast_hash": "adb923a52376a1bb703dc4302af6f92e",
+    "semantic_hash": ""
+  },
+  "engine/ForgeSandbox/Kit/Kit.cs": {
+    "mtime": 1783657171.5505373,
+    "ast_hash": "37100d14d94f9c7d57a58cd0eed106fe",
+    "semantic_hash": ""
+  },
+  "engine/ForgeSandbox/Program.cs": {
+    "mtime": 1783657044.6913712,
+    "ast_hash": "dbcbaef3d664fc4c4e7f17896dab0ae8",
+    "semantic_hash": ""
+  },
+  "engine/ForgeSandbox/Runner.cs": {
+    "mtime": 1783657012.0697315,
+    "ast_hash": "8fe2539ffde913ce76aa85dc31a527b0",
+    "semantic_hash": ""
+  },
+  "engine/Kit.Tests/Kit.Tests.csproj": {
+    "mtime": 1783656315.6458979,
+    "ast_hash": "04dfaff923e1b37930557d213de837ab",
+    "semantic_hash": ""
+  },
+  "engine/Kit.Tests/PlaceholderTest.cs": {
+    "mtime": 1783657215.1764596,
+    "ast_hash": "10bf6fc826b5f064415a35211bb0555d",
+    "semantic_hash": ""
+  },
+  "engine/PicoForge.sln": {
+    "mtime": 1783656257.1230395,
+    "ast_hash": "fdc72675da2595c16b61d620142954a2",
+    "semantic_hash": ""
+  },
+  "engine/tools/DumpApi/DumpApi.csproj": {
+    "mtime": 1783656338.373934,
+    "ast_hash": "1d4191af0d54536d993b30b9b0614f46",
+    "semantic_hash": ""
+  },
+  "engine/tools/DumpApi/Program.cs": {
+    "mtime": 1783657247.570321,
+    "ast_hash": "e4902d307dac56f30aa9bff2f9fbb0bb",
+    "semantic_hash": ""
+  },
+  "scripts/setup.ts": {
+    "mtime": 1783656371.4660995,
+    "ast_hash": "d92296c6b289a53e446af95785cd2db5",
+    "semantic_hash": ""
+  },
+  "server/config.ts": {
+    "mtime": 1783655937.1027884,
+    "ast_hash": "10207716c9746eb1ee1a487130daca63",
+    "semantic_hash": ""
+  },
+  "server/db/db.ts": {
+    "mtime": 1783656008.2789936,
+    "ast_hash": "8e919642806042f054a553a4ebe1fbd4",
+    "semantic_hash": ""
+  },
+  "server/db/migrations/0001_init.sql": {
+    "mtime": 1783655974.6310427,
+    "ast_hash": "10883594e57bc654fac5a8b64fba373e",
+    "semantic_hash": ""
+  },
+  "server/domain/events.ts": {
+    "mtime": 1783655911.8720183,
+    "ast_hash": "4a5ff698e9e33f0aeaa7b0a297c22acb",
+    "semantic_hash": ""
+  },
+  "server/domain/ids.ts": {
+    "mtime": 1783655888.3596778,
+    "ast_hash": "3a3fd0766d653018ff644f58474ad38a",
+    "semantic_hash": ""
+  },
+  "server/domain/result.ts": {
+    "mtime": 1783655878.4418955,
+    "ast_hash": "0e4224b9f563772f68292f2d875cf8c8",
+    "semantic_hash": ""
+  },
+  "server/engine/client.ts": {
+    "mtime": 1783657277.568282,
+    "ast_hash": "3ccb6eadc62c499cfd57ebb6d245f0bc",
+    "semantic_hash": ""
+  },
+  "server/engine/supervisor.ts": {
+    "mtime": 1783657303.133466,
+    "ast_hash": "288bfa98d8feafcad41edcd32a1e784e",
+    "semantic_hash": ""
+  },
+  "server/http/router.ts": {
+    "mtime": 1783656020.5255766,
+    "ast_hash": "2b7d591bb2a813096bc5ce8475ecd402",
+    "semantic_hash": ""
+  },
+  "server/log.ts": {
+    "mtime": 1783655868.4980795,
+    "ast_hash": "2a551643a2720c9b00abde5710344a13",
+    "semantic_hash": ""
+  },
+  "server/main.ts": {
+    "mtime": 1783656030.264609,
+    "ast_hash": "40b503a5d7369fa5640736c07cac3516",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "299f8188ae7da6478e13ca13cb72acf8",
+    "semantic_hash": ""
+  },
+  "app/index.html": {
+    "mtime": 1783656042.4640555,
+    "ast_hash": "136d2236210ad7f111f2174bab782a88",
+    "semantic_hash": ""
+  },
+  "conversations/10-7-26_BUILD_CONVERSATION.md": {
+    "mtime": 1783657397.0991557,
+    "ast_hash": "096722c8704d79deed7c1492d2b8a80a",
+    "semantic_hash": ""
+  },
+  "conversations/build_log.md": {
+    "mtime": 1783657343.5797489,
+    "ast_hash": "462e3dbab4a2bc434d6ab12b99a63fec",
+    "semantic_hash": ""
+  },
+  "docs/DATA_SCHEMA.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "5a9320dc781462c668b5c91ccf8e3db7",
+    "semantic_hash": ""
+  },
+  "docs/LLM_HARNESS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "c63c4155a1e68fd4a475a3133877dba6",
+    "semantic_hash": ""
+  },
+  "docs/MCP_SERVER_GUIDE.MD": {
+    "mtime": 1783656983.138101,
+    "ast_hash": "998b918ceb9c01fc2ac111e9d99633cf",
+    "semantic_hash": ""
+  },
+  "docs/PICOGK_KNOWLEDGE.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "1e81433adf76b22196242a0f3c8ebe89",
+    "semantic_hash": ""
+  },
+  "docs/README.md": {
+    "mtime": 1783657089.38923,
+    "ast_hash": "1780b27bbecabe5df8f25a8cab3f92d7",
+    "semantic_hash": ""
+  },
+  "docs/RENDERING.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "bf119f902ac8034dafe026f7fda10f72",
+    "semantic_hash": ""
+  },
+  "docs/SYS_DESIGN.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d242299943a490149b3cef309c408bed",
+    "semantic_hash": ""
+  },
+  "docs/UIUX.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d8db2b6a82efff75f97925bba3e79b4b",
+    "semantic_hash": ""
+  },
+  "docs/USER_FLOWS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "6eb209526ead917a8585e7cb2375000b",
+    "semantic_hash": ""
+  }
+}

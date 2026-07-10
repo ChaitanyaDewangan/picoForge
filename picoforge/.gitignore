@@ -1,0 +1,22 @@
+# --- runtime & secrets ---
+.env
+secret.env
+*.log
+
+# --- js/deno ---
+node_modules/
+dist/
+app/dist/
+server/public/
+coverage/
+
+# --- dotnet ---
+bin/
+obj/
+*.user
+
+# --- graphify (commit the graph, not local cost data) ---
+graphify-out/cost.json
+
+# --- local tool checkouts ---
+.tools/

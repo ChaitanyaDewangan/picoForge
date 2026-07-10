@@ -1,0 +1,227 @@
+/*
+ * tokens.css — PicoForge design system
+ * SINGLE SOURCE OF VISUAL TRUTH — UIUX §2
+ *
+ * Design direction: precision instrument, not SaaS dashboard.
+ * World: machine shop, CNC DROs, anodized fixtures, first-article inspection sheets.
+ * Dark theme is the only theme in v1.
+ *
+ * FORBIDDEN: drop shadows as depth · border-radius other than 0/2px ·
+ *            purple/violet anywhere · glassmorphism · gradients except the two
+ *            sanctioned ambients below · Inter as a lazy default ·
+ *            gray-500-style secondary text (use --ink-2)
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* ─── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Tokens ────────────────────────────────────────────────────────────────── */
+:root {
+  /* palette — pulled from the machine-shop world; max 3 active per view */
+  --bg-0:      #0D0E0C;   /* case black (warm, never #000) */
+  --bg-1:      #141613;   /* panel */
+  --bg-2:      #1B1E19;   /* raised: cards, drawer */
+  --ink:       #E9E7E1;   /* dirty white text */
+  --ink-2:     #98978C;   /* secondary — from palette, not gray-500 */
+  --line:      #2A2D27;   /* hairline rules, 1px */
+  --amber:     #FFB000;   /* THE accent: DRO amber. links, focus, live values, primary btn */
+  --amber-dim: #8A6200;
+  --ok:        #8FBF6A;   /* functional only: checks passed */
+  --err:       #E5533D;   /* functional only: failures */
+
+  /* type */
+  --font-display: 'Space Grotesk', sans-serif;    /* wordmark, big numbers, empty states */
+  --font-body:    'Instrument Sans', sans-serif;  /* chat prose, controls */
+  --font-mono:    'IBM Plex Mono', monospace;     /* code, logs, ALL measurements */
+
+  /* geometry of the UI itself */
+  --r:      2px;    /* the only radius (0 for full-bleed bands) */
+  --bw:     1px;    /* border width; 2px only for focus */
+  --pad:    12px;
+  --pad-lg: 20px;
+
+  /* motion — mechanical, not bouncy */
+  --t-micro: 120ms linear;                      /* hovers, toggles */
+  --t-state: 240ms steps(3, end);               /* card state flips: detented, like a rotary switch */
+  --t-cam:   480ms cubic-bezier(.2,.7,.2,1);    /* camera moves only */
+
+  /* type scale (applied via utility classes below) */
+  --text-display:  44px;
+  --text-section:  20px;
+  --text-body:     15px;
+  --text-readout:  13px;
+  --text-micro:    10.5px;
+
+  /* layout */
+  --topbar-h:      44px;
+  --console-h-collapsed: 28px;
+  --console-h-open:      200px;
+  --chat-pane-default:   40%;
+  --chat-pane-min:       420px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-micro: 0ms linear;
+    --t-state: 0ms linear;
+    --t-cam:   0ms linear;
+  }
+  /* Kill turntable via class; steps() → instant */
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-0);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Numbers always mono + tabular — a measurement never renders in body face */
+.readout, [data-readout] {
+  font-family: var(--font-mono);
+  font-size: var(--text-readout);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.micro-label, [data-micro-label] {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
+}
+
+/* ─── Sanctioned ambients (only two permitted) ─────────────────────────────── */
+
+/* 1. Viewport backdrop: "studio-light" wall */
+.viewport-backdrop {
+  background: radial-gradient(ellipse at 32% 22%, #1A1D18 0%, var(--bg-0) 72%);
+}
+
+/* 2. SVG grain — 4% opacity, empty states only */
+.empty-state-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+
+/* Primary: amber bg, dark text, no shadow */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--amber);
+  color: #141613;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: background var(--t-micro), transform var(--t-micro);
+  white-space: nowrap;
+}
+.btn-primary:hover  { background: #FFC02E; transform: translateY(-1px); }
+.btn-primary:active { background: #FFB000; transform: translateY(0); }
+.btn-primary:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Secondary: transparent, 1px --line border */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 15px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  border: var(--bw) solid var(--line);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: border-color var(--t-micro);
+}
+.btn-secondary:hover { border-color: var(--ink-2); }
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Tertiary: mono amber text link */
+.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: var(--text-readout);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--t-micro);
+}
+.btn-tertiary:hover { opacity: 0.8; }
+
+/* Destructive: err border, fills on hover */
+.btn-destructive {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 15px;
+  background: transparent;
+  color: var(--err);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  border: var(--bw) solid var(--err);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: background var(--t-micro), color var(--t-micro);
+}
+.btn-destructive:hover { background: var(--err); color: #fff; }
+
+/* ─── Focus ring (global) ───────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ─── Hairline rules ────────────────────────────────────────────────────────── */
+.rule-h { height: 1px; background: var(--line); }
+.rule-v { width: 1px;  background: var(--line); }
+
+/* ─── Scrollbar (chromium) ──────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-2); }

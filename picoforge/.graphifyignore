@@ -1,0 +1,11 @@
+# keep the knowledge graph focused on source + specs
+graphify-out/
+.tools/
+node_modules/
+dist/
+bin/
+obj/
+coverage/
+*.stl
+*.glb
+*.vdb
