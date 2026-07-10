@@ -1154,6 +1154,16 @@
       "norm_label": "ulid"
     },
     {
+      "label": "@anthropic-ai/sdk",
+      "file_type": "code",
+      "source_file": "deno.json",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "deno_imports_anthropic_ai_sdk",
+      "community": 4,
+      "norm_label": "@anthropic-ai/sdk"
+    },
+    {
       "label": "Analyzers.cs",
       "file_type": "code",
       "source_file": "engine/ForgeEngine/Analyzers.cs",
@@ -2139,7 +2149,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx",
-      "community": 0,
+      "community": 15,
       "norm_label": "ctx.cs"
     },
     {
@@ -2154,7 +2164,7 @@
       },
       "_origin": "ast",
       "id": "csharp_namespace:dc28aecf66c9294d",
-      "community": 0,
+      "community": 15,
       "norm_label": "picoforge.kit"
     },
     {
@@ -2228,7 +2238,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_params",
-      "community": 27,
+      "community": 15,
       "norm_label": "params"
     },
     {
@@ -2238,7 +2248,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_cs_dictionary",
-      "community": 27,
+      "community": 15,
       "norm_label": "dictionary"
     },
     {
@@ -2254,7 +2264,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_params_f",
-      "community": 27,
+      "community": 15,
       "norm_label": ".f()"
     },
     {
@@ -2270,7 +2280,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_params_n",
-      "community": 27,
+      "community": 15,
       "norm_label": ".n()"
     },
     {
@@ -2286,7 +2296,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_params_vec",
-      "community": 27,
+      "community": 15,
       "norm_label": ".vec()"
     },
     {
@@ -2296,7 +2306,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_cs_vector3",
-      "community": 27,
+      "community": 15,
       "norm_label": "vector3"
     },
     {
@@ -2312,7 +2322,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_params_has",
-      "community": 27,
+      "community": 15,
       "norm_label": ".has()"
     },
     {
@@ -2328,7 +2338,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_material",
-      "community": 0,
+      "community": 15,
       "norm_label": "material"
     },
     {
@@ -2344,7 +2354,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_material_fromname",
-      "community": 0,
+      "community": 15,
       "norm_label": ".fromname()"
     },
     {
@@ -2360,7 +2370,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_rng",
-      "community": 0,
+      "community": 15,
       "norm_label": "rng"
     },
     {
@@ -2370,7 +2380,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "random",
-      "community": 0,
+      "community": 15,
       "norm_label": "random"
     },
     {
@@ -2386,7 +2396,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_rng_nextfloat",
-      "community": 0,
+      "community": 15,
       "norm_label": ".nextfloat()"
     },
     {
@@ -2402,7 +2412,7 @@
       },
       "_origin": "ast",
       "id": "engine_forgesandbox_kit_ctx_picoforge_kit_rng_nextint",
-      "community": 0,
+      "community": 15,
       "norm_label": ".nextint()"
     },
     {
@@ -3213,7 +3223,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "engine_kit_tests_placeholdertest",
-      "community": 0,
+      "community": 15,
       "norm_label": "placeholdertest.cs"
     },
     {
@@ -3228,7 +3238,7 @@
       },
       "_origin": "ast",
       "id": "csharp_namespace:ee6401c7695c1f8a",
-      "community": 0,
+      "community": 15,
       "norm_label": "kit.tests"
     },
     {
@@ -4312,7 +4322,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_engine_supervisor",
-      "community": 2,
+      "community": 5,
       "norm_label": "supervisor.ts"
     },
     {
@@ -4322,7 +4332,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "server_engine_supervisor_log",
-      "community": 2,
+      "community": 5,
       "norm_label": "log"
     },
     {
@@ -4332,7 +4342,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginestatus",
-      "community": 2,
+      "community": 5,
       "norm_label": "enginestatus"
     },
     {
@@ -4342,7 +4352,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "server_engine_supervisor_supervisorstate",
-      "community": 2,
+      "community": 5,
       "norm_label": "supervisorstate"
     },
     {
@@ -4352,7 +4362,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "server_engine_supervisor_backoff_ms",
-      "community": 2,
+      "community": 5,
       "norm_label": "backoff_ms"
     },
     {
@@ -4362,7 +4372,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor",
-      "community": 2,
+      "community": 35,
       "norm_label": "enginesupervisor"
     },
     {
@@ -4372,7 +4382,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_constructor",
-      "community": 2,
+      "community": 35,
       "norm_label": ".constructor()"
     },
     {
@@ -4382,7 +4392,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_state",
-      "community": 2,
+      "community": 16,
       "norm_label": ".state()"
     },
     {
@@ -4392,7 +4402,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_client",
-      "community": 2,
+      "community": 35,
       "norm_label": ".client()"
     },
     {
@@ -4402,7 +4412,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_start",
-      "community": 2,
+      "community": 35,
       "norm_label": ".start()"
     },
     {
@@ -4412,7 +4422,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_startengine",
-      "community": 2,
+      "community": 35,
       "norm_label": "._startengine()"
     },
     {
@@ -4422,7 +4432,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_scheduleheartbeat",
-      "community": 2,
+      "community": 35,
       "norm_label": "._scheduleheartbeat()"
     },
     {
@@ -4432,7 +4442,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_heartbeat",
-      "community": 2,
+      "community": 35,
       "norm_label": "._heartbeat()"
     },
     {
@@ -4442,7 +4452,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_restart",
-      "community": 2,
+      "community": 35,
       "norm_label": "._restart()"
     },
     {
@@ -4452,7 +4462,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_repairorphanruns",
-      "community": 2,
+      "community": 35,
       "norm_label": ".repairorphanruns()"
     },
     {
@@ -4462,8 +4472,1028 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "server_engine_supervisor_enginesupervisor_stop",
-      "community": 2,
+      "community": 35,
       "norm_label": ".stop()"
+    },
+    {
+      "label": "anthropic.ts",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_anthropic",
+      "community": 16,
+      "norm_label": "anthropic.ts"
+    },
+    {
+      "label": "log",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_log",
+      "community": 16,
+      "norm_label": "log"
+    },
+    {
+      "label": "AnthropicMessage",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_anthropicmessage",
+      "community": 16,
+      "norm_label": "anthropicmessage"
+    },
+    {
+      "label": "MessageContent",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_messagecontent",
+      "community": 16,
+      "norm_label": "messagecontent"
+    },
+    {
+      "label": "ToolResultContent",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_toolresultcontent",
+      "community": 16,
+      "norm_label": "toolresultcontent"
+    },
+    {
+      "label": "ToolDefinition",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_tooldefinition",
+      "community": 33,
+      "norm_label": "tooldefinition"
+    },
+    {
+      "label": "StreamCallbacks",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_streamcallbacks",
+      "community": 16,
+      "norm_label": "streamcallbacks"
+    },
+    {
+      "label": "TurnResult",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_turnresult",
+      "community": 16,
+      "norm_label": "turnresult"
+    },
+    {
+      "label": "RETRYABLE",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_retryable",
+      "community": 16,
+      "norm_label": "retryable"
+    },
+    {
+      "label": "BACKOFF_MS",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_backoff_ms",
+      "community": 16,
+      "norm_label": "backoff_ms"
+    },
+    {
+      "label": "getClient()",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_getclient",
+      "community": 16,
+      "norm_label": "getclient()"
+    },
+    {
+      "label": "createMessageStream()",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_createmessagestream",
+      "community": 16,
+      "norm_label": "createmessagestream()"
+    },
+    {
+      "label": "runStream()",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_runstream",
+      "community": 16,
+      "norm_label": "runstream()"
+    },
+    {
+      "label": "sleep()",
+      "file_type": "code",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "server_harness_anthropic_sleep",
+      "community": 16,
+      "norm_label": "sleep()"
+    },
+    {
+      "label": "cli.ts",
+      "file_type": "code",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_cli",
+      "community": 16,
+      "norm_label": "cli.ts"
+    },
+    {
+      "label": "log",
+      "file_type": "code",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "server_harness_cli_log",
+      "community": 16,
+      "norm_label": "log"
+    },
+    {
+      "label": "userPrompt",
+      "file_type": "code",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "server_harness_cli_userprompt",
+      "community": 16,
+      "norm_label": "userprompt"
+    },
+    {
+      "label": "ac",
+      "file_type": "code",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_cli_ac",
+      "community": 16,
+      "norm_label": "ac"
+    },
+    {
+      "label": "orchestrator.ts",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator",
+      "community": 16,
+      "norm_label": "orchestrator.ts"
+    },
+    {
+      "label": "log",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator_log",
+      "community": 16,
+      "norm_label": "log"
+    },
+    {
+      "label": "DEFAULT_SETTINGS",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator_default_settings",
+      "community": 16,
+      "norm_label": "default_settings"
+    },
+    {
+      "label": "RunState",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator_runstate",
+      "community": 16,
+      "norm_label": "runstate"
+    },
+    {
+      "label": "OrchestratorCallbacks",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator_orchestratorcallbacks",
+      "community": 16,
+      "norm_label": "orchestratorcallbacks"
+    },
+    {
+      "label": "driveRun()",
+      "file_type": "code",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "server_harness_orchestrator_driverun",
+      "community": 16,
+      "norm_label": "driverun()"
+    },
+    {
+      "label": "context.ts",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_prompts_context",
+      "community": 16,
+      "norm_label": "context.ts"
+    },
+    {
+      "label": "HistoryEntry",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "server_harness_prompts_context_historyentry",
+      "community": 16,
+      "norm_label": "historyentry"
+    },
+    {
+      "label": "buildContextMessages()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "server_harness_prompts_context_buildcontextmessages",
+      "community": 16,
+      "norm_label": "buildcontextmessages()"
+    },
+    {
+      "label": "repair.ts",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair",
+      "community": 16,
+      "norm_label": "repair.ts"
+    },
+    {
+      "label": "log",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_log",
+      "community": 16,
+      "norm_label": "log"
+    },
+    {
+      "label": "REPAIR_BUDGETS",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_repair_budgets",
+      "community": 16,
+      "norm_label": "repair_budgets"
+    },
+    {
+      "label": "STRATEGIES",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_strategies",
+      "community": 16,
+      "norm_label": "strategies"
+    },
+    {
+      "label": "RepairCtx",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_repairctx",
+      "community": 16,
+      "norm_label": "repairctx"
+    },
+    {
+      "label": "buildRepairHint()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_buildrepairhint",
+      "community": 16,
+      "norm_label": "buildrepairhint()"
+    },
+    {
+      "label": "buildBudgetExhaustedInstruction()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_buildbudgetexhaustedinstruction",
+      "community": 16,
+      "norm_label": "buildbudgetexhaustedinstruction()"
+    },
+    {
+      "label": "isBudgetExhausted()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "server_harness_prompts_repair_isbudgetexhausted",
+      "community": 16,
+      "norm_label": "isbudgetexhausted()"
+    },
+    {
+      "label": "system.ts",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system",
+      "community": 16,
+      "norm_label": "system.ts"
+    },
+    {
+      "label": "log",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_log",
+      "community": 16,
+      "norm_label": "log"
+    },
+    {
+      "label": "ApiEntry",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_apientry",
+      "community": 16,
+      "norm_label": "apientry"
+    },
+    {
+      "label": "ApiType",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_apitype",
+      "community": 16,
+      "norm_label": "apitype"
+    },
+    {
+      "label": "ApiManifest",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_apimanifest",
+      "community": 16,
+      "norm_label": "apimanifest"
+    },
+    {
+      "label": "buildApiCard()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_buildapicard",
+      "community": 16,
+      "norm_label": "buildapicard()"
+    },
+    {
+      "label": "SystemPromptParams",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_systempromptparams",
+      "community": 16,
+      "norm_label": "systempromptparams"
+    },
+    {
+      "label": "buildSystemPrompt()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_buildsystemprompt",
+      "community": 16,
+      "norm_label": "buildsystemprompt()"
+    },
+    {
+      "label": "estimateTokens()",
+      "file_type": "code",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L163",
+      "_origin": "ast",
+      "id": "server_harness_prompts_system_estimatetokens",
+      "community": 16,
+      "norm_label": "estimatetokens()"
+    },
+    {
+      "label": "briefValidator.test.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tests_briefvalidator_test",
+      "community": 34,
+      "norm_label": "briefvalidator.test.ts"
+    },
+    {
+      "label": "base()",
+      "file_type": "code",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "server_harness_tests_briefvalidator_test_base",
+      "community": 34,
+      "norm_label": "base()"
+    },
+    {
+      "label": "systemPrompt.test.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tests/systemPrompt.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tests_systemprompt_test",
+      "community": 16,
+      "norm_label": "systemprompt.test.ts"
+    },
+    {
+      "label": "_base.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_base",
+      "community": 33,
+      "norm_label": "_base.ts"
+    },
+    {
+      "label": "RunCtx",
+      "file_type": "code",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_tools_base_runctx",
+      "community": 33,
+      "norm_label": "runctx"
+    },
+    {
+      "label": "ToolModule",
+      "file_type": "code",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "server_harness_tools_base_toolmodule",
+      "community": 33,
+      "norm_label": "toolmodule"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "server_harness_tools_base_toolmodule_execute",
+      "community": 33,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "makeDef()",
+      "file_type": "code",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "server_harness_tools_base_makedef",
+      "community": 33,
+      "norm_label": "makedef()"
+    },
+    {
+      "label": "askUser.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_askuser",
+      "community": 33,
+      "norm_label": "askuser.ts"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_harness_tools_askuser_zodinput",
+      "community": 33,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "server_harness_tools_askuser_input",
+      "community": 33,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_tools_askuser_jsonschema",
+      "community": 33,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "askUserTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_askuser_askusertool",
+      "community": 36,
+      "norm_label": "askusertool"
+    },
+    {
+      "label": "captureViewport.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_captureviewport",
+      "community": 33,
+      "norm_label": "captureviewport.ts"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "server_harness_tools_captureviewport_zodinput",
+      "community": 33,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "server_harness_tools_captureviewport_input",
+      "community": 33,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_tools_captureviewport_jsonschema",
+      "community": 33,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "captureViewportTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_captureviewport_captureviewporttool",
+      "community": 36,
+      "norm_label": "captureviewporttool"
+    },
+    {
+      "label": "exportArtifact.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_exportartifact",
+      "community": 33,
+      "norm_label": "exportartifact.ts"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_harness_tools_exportartifact_zodinput",
+      "community": 33,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "server_harness_tools_exportartifact_input",
+      "community": 33,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_tools_exportartifact_jsonschema",
+      "community": 33,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "exportArtifactTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_exportartifact_exportartifacttool",
+      "community": 33,
+      "norm_label": "exportartifacttool"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_index",
+      "community": 36,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "Tool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "server_harness_tools_index_tool",
+      "community": 36,
+      "norm_label": "tool"
+    },
+    {
+      "label": "TOOLS",
+      "file_type": "code",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_index_tools",
+      "community": 16,
+      "norm_label": "tools"
+    },
+    {
+      "label": "TOOL_MAP",
+      "file_type": "code",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "server_harness_tools_index_tool_map",
+      "community": 16,
+      "norm_label": "tool_map"
+    },
+    {
+      "label": "inspectGeometry.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry",
+      "community": 38,
+      "norm_label": "inspectgeometry.ts"
+    },
+    {
+      "label": "opSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry_opschema",
+      "community": 38,
+      "norm_label": "opschema"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry_zodinput",
+      "community": 38,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry_input",
+      "community": 38,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry_jsonschema",
+      "community": 38,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "inspectGeometryTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "server_harness_tools_inspectgeometry_inspectgeometrytool",
+      "community": 38,
+      "norm_label": "inspectgeometrytool"
+    },
+    {
+      "label": "runPicoGK.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk",
+      "community": 37,
+      "norm_label": "runpicogk.ts"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_zodinput",
+      "community": 37,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_input",
+      "community": 37,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_jsonschema",
+      "community": 37,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "ALLOWED_USINGS",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_allowed_usings",
+      "community": 37,
+      "norm_label": "allowed_usings"
+    },
+    {
+      "label": "lintContract()",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_lintcontract",
+      "community": 37,
+      "norm_label": "lintcontract()"
+    },
+    {
+      "label": "runPicoGKTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "server_harness_tools_runpicogk_runpicogktool",
+      "community": 37,
+      "norm_label": "runpicogktool"
+    },
+    {
+      "label": "searchDocs.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_searchdocs",
+      "community": 36,
+      "norm_label": "searchdocs.ts"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_harness_tools_searchdocs_zodinput",
+      "community": 36,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "server_harness_tools_searchdocs_input",
+      "community": 36,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_harness_tools_searchdocs_jsonschema",
+      "community": 36,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "searchDocsTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "server_harness_tools_searchdocs_searchdocstool",
+      "community": 36,
+      "norm_label": "searchdocstool"
+    },
+    {
+      "label": "submitDesignBrief.ts",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief",
+      "community": 34,
+      "norm_label": "submitdesignbrief.ts"
+    },
+    {
+      "label": "parameterSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_parameterschema",
+      "community": 34,
+      "norm_label": "parameterschema"
+    },
+    {
+      "label": "physicsCheckSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_physicscheckschema",
+      "community": 34,
+      "norm_label": "physicscheckschema"
+    },
+    {
+      "label": "CATEGORIES",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_categories",
+      "community": 34,
+      "norm_label": "categories"
+    },
+    {
+      "label": "REQUIRED_CHECKS",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_required_checks",
+      "community": 34,
+      "norm_label": "required_checks"
+    },
+    {
+      "label": "MATERIALS",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_materials",
+      "community": 34,
+      "norm_label": "materials"
+    },
+    {
+      "label": "zodInput",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_zodinput",
+      "community": 34,
+      "norm_label": "zodinput"
+    },
+    {
+      "label": "Input",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_input",
+      "community": 34,
+      "norm_label": "input"
+    },
+    {
+      "label": "jsonSchema",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_jsonschema",
+      "community": 34,
+      "norm_label": "jsonschema"
+    },
+    {
+      "label": "PROJECT_ENVELOPE_MM",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_project_envelope_mm",
+      "community": 34,
+      "norm_label": "project_envelope_mm"
+    },
+    {
+      "label": "BriefValidationResult",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_briefvalidationresult",
+      "community": 34,
+      "norm_label": "briefvalidationresult"
+    },
+    {
+      "label": "validateBrief()",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_validatebrief",
+      "community": 34,
+      "norm_label": "validatebrief()"
+    },
+    {
+      "label": "submitDesignBriefTool",
+      "file_type": "code",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L172",
+      "_origin": "ast",
+      "id": "server_harness_tools_submitdesignbrief_submitdesignbrieftool",
+      "community": 36,
+      "norm_label": "submitdesignbrieftool"
     },
     {
       "label": "router.ts",
@@ -4942,7 +5972,7 @@
       "source_location": "L265",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_the_github_repo_role",
-      "community": 16,
+      "community": 1,
       "norm_label": "the github repo role"
     },
     {
@@ -4952,7 +5982,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_278",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -4962,7 +5992,7 @@
       "source_location": "L284",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_284",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -4972,7 +6002,7 @@
       "source_location": "L308",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_308",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -4982,7 +6012,7 @@
       "source_location": "L324",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_324",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -4992,7 +6022,7 @@
       "source_location": "L334",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_334",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5002,7 +6032,7 @@
       "source_location": "L358",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_358",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5012,7 +6042,7 @@
       "source_location": "L364",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_364",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5022,7 +6052,7 @@
       "source_location": "L370",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_370",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5032,7 +6062,7 @@
       "source_location": "L378",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_378",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5042,7 +6072,7 @@
       "source_location": "L388",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_388",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5052,7 +6082,7 @@
       "source_location": "L396",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_396",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5062,7 +6092,7 @@
       "source_location": "L400",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_400",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5072,7 +6102,7 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_406",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5082,7 +6112,7 @@
       "source_location": "L412",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_412",
-      "community": 16,
+      "community": 1,
       "norm_label": "planner response"
     },
     {
@@ -5092,7 +6122,7 @@
       "source_location": "L414",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_m0_complete",
-      "community": 1,
+      "community": 32,
       "norm_label": "m0 complete \u2705"
     },
     {
@@ -5102,7 +6132,7 @@
       "source_location": "L418",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_files_created_24_total",
-      "community": 1,
+      "community": 32,
       "norm_label": "files created (24 total)"
     },
     {
@@ -5112,7 +6142,7 @@
       "source_location": "L426",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_verified_live",
-      "community": 1,
+      "community": 32,
       "norm_label": "verified live"
     },
     {
@@ -5122,7 +6152,7 @@
       "source_location": "L430",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_two_prerequisites_needed_for_full_m0_gate",
-      "community": 1,
+      "community": 32,
       "norm_label": "two prerequisites needed for full m0 gate"
     },
     {
@@ -5132,7 +6162,7 @@
       "source_location": "L438",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_user_input_438",
-      "community": 1,
+      "community": 32,
       "norm_label": "user input"
     },
     {
@@ -5142,7 +6172,7 @@
       "source_location": "L442",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_442",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5152,7 +6182,7 @@
       "source_location": "L448",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_448",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5162,7 +6192,7 @@
       "source_location": "L454",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_454",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5172,7 +6202,7 @@
       "source_location": "L470",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_470",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5182,7 +6212,7 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_476",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5192,7 +6222,7 @@
       "source_location": "L482",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_482",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5202,7 +6232,7 @@
       "source_location": "L490",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_490",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5212,7 +6242,7 @@
       "source_location": "L498",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_498",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5222,7 +6252,7 @@
       "source_location": "L504",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_504",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5232,7 +6262,7 @@
       "source_location": "L510",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_510",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5242,7 +6272,7 @@
       "source_location": "L518",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_518",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5252,7 +6282,7 @@
       "source_location": "L524",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_524",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5262,7 +6292,7 @@
       "source_location": "L530",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_530",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5272,7 +6302,7 @@
       "source_location": "L536",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_planner_response_536",
-      "community": 1,
+      "community": 32,
       "norm_label": "planner response"
     },
     {
@@ -5282,7 +6312,7 @@
       "source_location": "L542",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_m1_engine_complete",
-      "community": 1,
+      "community": 27,
       "norm_label": "m1 engine \u2014 complete \u2705"
     },
     {
@@ -5292,7 +6322,7 @@
       "source_location": "L544",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_what_was_built_this_session",
-      "community": 1,
+      "community": 27,
       "norm_label": "what was built this session"
     },
     {
@@ -5302,18 +6332,178 @@
       "source_location": "L546",
       "_origin": "ast",
       "id": "conversations_10_7_26_build_conversation_forgeengine_c_managed_only_host",
-      "community": 1,
+      "community": 27,
       "norm_label": "forgeengine (c# \u2014 managed-only host)"
     },
     {
-      "label": "ForgeSandbox (C# \u2014 only project",
+      "label": "ForgeSandbox (C# \u2014 only project touching PicoGK)",
       "file_type": "document",
       "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
       "source_location": "L556",
       "_origin": "ast",
-      "id": "conversations_10_7_26_build_conversation_forgesandbox_c_only_project",
-      "community": 1,
-      "norm_label": "forgesandbox (c# \u2014 only project"
+      "id": "conversations_10_7_26_build_conversation_forgesandbox_c_only_project_touching_picogk",
+      "community": 27,
+      "norm_label": "forgesandbox (c# \u2014 only project touching picogk)"
+    },
+    {
+      "label": "Kit.Tests \u2014 [8 golden-volume tests](file:///v:/_PORJECTS/001_picogk_X7/picoforge/engine/Kit.Tests/PlaceholderTest.cs)",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L564",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_kit_tests_8_golden_volume_tests_file_v_porjects_001_picogk_x7_picoforge_engine_kit_tests_placeholdertest_cs",
+      "community": 27,
+      "norm_label": "kit.tests \u2014 [8 golden-volume tests](file:///v:/_porjects/001_picogk_x7/picoforge/engine/kit.tests/placeholdertest.cs)"
+    },
+    {
+      "label": "Deno Server (M1 additions)",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L567",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_deno_server_m1_additions",
+      "community": 27,
+      "norm_label": "deno server (m1 additions)"
+    },
+    {
+      "label": "TypeScript typecheck \u2705 0 errors",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L571",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_typescript_typecheck_0_errors",
+      "community": 27,
+      "norm_label": "typescript typecheck \u2705 0 errors"
+    },
+    {
+      "label": "Still needs .NET 9 SDK to actually compile + run",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L573",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_still_needs_net_9_sdk_to_actually_compile_run",
+      "community": 27,
+      "norm_label": "still needs .net 9 sdk to actually compile + run"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L576",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_576",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L582",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_582",
+      "community": 27,
+      "norm_label": "planner response"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L593",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_593",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L608",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_608",
+      "community": 27,
+      "norm_label": "planner response"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L612",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_612",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L620",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_620",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L666",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_666",
+      "community": 27,
+      "norm_label": "planner response"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L672",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_672",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L690",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_690",
+      "community": 27,
+      "norm_label": "planner response"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L708",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_708",
+      "community": 27,
+      "norm_label": "planner response"
+    },
+    {
+      "label": "User Input",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L716",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_user_input_716",
+      "community": 27,
+      "norm_label": "user input"
+    },
+    {
+      "label": "Planner Response",
+      "file_type": "document",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L726",
+      "_origin": "ast",
+      "id": "conversations_10_7_26_build_conversation_planner_response_726",
+      "community": 27,
+      "norm_label": "planner response"
     },
     {
       "label": "build_log.md",
@@ -7713,6 +8903,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "deno.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "deno_imports",
+      "target": "deno_imports_anthropic_ai_sdk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deno.json",
       "source_location": "L46",
       "weight": 1.0,
       "source": "deno_imports",
@@ -8307,6 +9507,17 @@
       "source": "engine_forgeengine_compiler_forgeengine_compiler_checkcontract",
       "target": "engine_forgeengine_compiler_cs_list",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "engine/ForgeEngine/Compiler.cs",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "engine_forgeengine_compiler_forgeengine_compiler_checkcontract",
+      "target": "server_harness_tools_runpicogk_allowed_usings"
     },
     {
       "relation": "references",
@@ -12444,6 +13655,28 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_domain_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_domain_result",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -12497,6 +13730,116 @@
       "weight": 1.0,
       "source": "server_engine_client_engineclient_start",
       "target": "server_domain_result_ok"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_domain_result_ok"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_domain_result_ok",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -12557,6 +13900,116 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_domain_result_err"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_domain_result_err",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "server/engine/client.ts",
       "source_location": "L6",
       "weight": 1.0,
@@ -12605,6 +14058,39 @@
       "source_location": "L66",
       "weight": 1.0,
       "source": "server_engine_client_engineclient_start",
+      "target": "server_domain_result_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_domain_result_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_domain_result_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "server_harness_tools_base_toolmodule_execute",
       "target": "server_domain_result_result",
       "confidence_score": 1.0
     },
@@ -13039,6 +14525,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_engine_supervisor_enginesupervisor_state"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -13092,6 +14589,1956 @@
       "source": "server_engine_supervisor_enginesupervisor_heartbeat",
       "target": "server_engine_supervisor_enginesupervisor_restart",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_anthropicmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_backoff_ms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_createmessagestream",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_getclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_messagecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_retryable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_runstream",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_sleep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_streamcallbacks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_tooldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_toolresultcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_harness_anthropic_turnresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_anthropic",
+      "target": "server_log_makelogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_prompts_context",
+      "target": "server_harness_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_harness_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_anthropic_anthropicmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_prompts_context",
+      "target": "server_harness_anthropic_anthropicmessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_anthropic_tooldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_harness_anthropic_tooldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "server_harness_tools_base_toolmodule",
+      "target": "server_harness_anthropic_tooldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_runstream",
+      "target": "server_harness_anthropic_streamcallbacks"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_harness_anthropic_retryable"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_harness_anthropic_getclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_harness_anthropic_runstream",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/anthropic.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "server_harness_anthropic_createmessagestream",
+      "target": "server_harness_anthropic_sleep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_anthropic_createmessagestream",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_anthropic_createmessagestream"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_harness_cli_ac",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_harness_cli_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_harness_cli_userprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_harness_orchestrator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_harness_orchestrator_driverun",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/cli.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_cli",
+      "target": "server_log_makelogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_orchestrator_default_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_orchestrator_driverun",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_orchestrator_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_orchestrator_orchestratorcallbacks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_orchestrator_runstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_context_buildcontextmessages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_context_historyentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_repair",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_repair_buildbudgetexhaustedinstruction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_repair_buildrepairhint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_repair_isbudgetexhausted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_repair_repair_budgets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_prompts_system_buildsystemprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_tools_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_tools_index_tool_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_harness_tools_index_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator",
+      "target": "server_log_makelogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_prompts_context_buildcontextmessages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_prompts_repair_buildbudgetexhaustedinstruction"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_prompts_repair_buildrepairhint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_prompts_repair_isbudgetexhausted"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/orchestrator.ts",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "server_harness_orchestrator_driverun",
+      "target": "server_harness_prompts_system_buildsystemprompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "server_harness_prompts_context",
+      "target": "server_harness_prompts_context_buildcontextmessages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/context.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_prompts_context",
+      "target": "server_harness_prompts_context_historyentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_buildbudgetexhaustedinstruction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_buildrepairhint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_isbudgetexhausted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_repair_budgets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_repairctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_harness_prompts_repair_strategies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/repair.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_prompts_repair",
+      "target": "server_log_makelogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_apientry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_apimanifest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_apitype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_buildapicard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_buildsystemprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L163",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_estimatetokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_harness_prompts_system_systempromptparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system",
+      "target": "server_log_makelogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/systemPrompt.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_systemprompt_test",
+      "target": "server_harness_prompts_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/prompts/system.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "server_harness_prompts_system_buildsystemprompt",
+      "target": "server_harness_prompts_system_buildapicard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/systemPrompt.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_systemprompt_test",
+      "target": "server_harness_prompts_system_buildsystemprompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/systemPrompt.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_systemprompt_test",
+      "target": "server_harness_prompts_system_estimatetokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_tests_briefvalidator_test",
+      "target": "server_harness_tests_briefvalidator_test_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_briefvalidator_test",
+      "target": "server_harness_tools_submitdesignbrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_briefvalidator_test",
+      "target": "server_harness_tools_submitdesignbrief_categories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tests/briefValidator.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tests_briefvalidator_test",
+      "target": "server_harness_tools_submitdesignbrief_validatebrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "server_harness_tools_base",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_base_runctx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/_base.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "server_harness_tools_base_toolmodule",
+      "target": "server_harness_tools_base_toolmodule_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_base_toolmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_base_makedef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_askuser_askusertool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_askuser_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_askuser_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/askUser.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_askuser",
+      "target": "server_harness_tools_askuser_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_askuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_askuser_askusertool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_captureviewport_captureviewporttool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_captureviewport_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_captureviewport_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/captureViewport.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_tools_captureviewport",
+      "target": "server_harness_tools_captureviewport_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_captureviewport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_captureviewport_captureviewporttool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_exportartifact_exportartifacttool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_exportartifact_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_exportartifact_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/exportArtifact.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_exportartifact",
+      "target": "server_harness_tools_exportartifact_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_exportartifact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_exportartifact_exportartifacttool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_index_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_index_tool_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_index_tools",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_inspectgeometry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_inspectgeometry_inspectgeometrytool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_runpicogk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_runpicogk_runpicogktool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_searchdocs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_searchdocs_searchdocstool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_submitdesignbrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_index",
+      "target": "server_harness_tools_submitdesignbrief_submitdesignbrieftool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_inspectgeometry_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_inspectgeometry_inspectgeometrytool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_inspectgeometry_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_inspectgeometry_opschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/inspectGeometry.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "server_harness_tools_inspectgeometry",
+      "target": "server_harness_tools_inspectgeometry_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_allowed_usings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_lintcontract",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_runpicogktool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_runpicogk_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_submitdesignbrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk",
+      "target": "server_harness_tools_submitdesignbrief_validatebrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/tools/runPicoGK.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "server_harness_tools_runpicogk_lintcontract",
+      "target": "server_harness_tools_runpicogk_allowed_usings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_searchdocs_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_searchdocs_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_searchdocs_searchdocstool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/searchDocs.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_harness_tools_searchdocs",
+      "target": "server_harness_tools_searchdocs_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_briefvalidationresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_categories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_jsonschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_materials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_parameterschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_physicscheckschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_project_envelope_mm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_required_checks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_submitdesignbrieftool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_validatebrief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief",
+      "target": "server_harness_tools_submitdesignbrief_zodinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/harness/tools/submitDesignBrief.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "server_harness_tools_submitdesignbrief_validatebrief",
+      "target": "server_harness_tools_submitdesignbrief_materials"
     },
     {
       "relation": "contains",
@@ -13977,10 +17424,160 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L582",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_582",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L608",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_608",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L666",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_666",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L690",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_690",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L708",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_708",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L726",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_planner_response_726",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L573",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_still_needs_net_9_sdk_to_actually_compile_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L571",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_typescript_typecheck_0_errors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L576",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_576",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L593",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_593",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L612",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_612",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L620",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_620",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L672",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_672",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L716",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
+      "target": "conversations_10_7_26_build_conversation_user_input_716",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
       "source_location": "L544",
       "weight": 1.0,
       "source": "conversations_10_7_26_build_conversation_m1_engine_complete",
       "target": "conversations_10_7_26_build_conversation_what_was_built_this_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L567",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_what_was_built_this_session",
+      "target": "conversations_10_7_26_build_conversation_deno_server_m1_additions",
       "confidence_score": 1.0
     },
     {
@@ -14000,7 +17597,17 @@
       "source_location": "L556",
       "weight": 1.0,
       "source": "conversations_10_7_26_build_conversation_what_was_built_this_session",
-      "target": "conversations_10_7_26_build_conversation_forgesandbox_c_only_project",
+      "target": "conversations_10_7_26_build_conversation_forgesandbox_c_only_project_touching_picogk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "conversations/10-7-26_BUILD_CONVERSATION.md",
+      "source_location": "L564",
+      "weight": 1.0,
+      "source": "conversations_10_7_26_build_conversation_what_was_built_this_session",
+      "target": "conversations_10_7_26_build_conversation_kit_tests_8_golden_volume_tests_file_v_porjects_001_picogk_x7_picoforge_engine_kit_tests_placeholdertest_cs",
       "confidence_score": 1.0
     },
     {
@@ -15235,5 +18842,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4edf1f8a314d25cbfd36c2441340a79f4d601010"
+  "built_at_commit": "88fa4accb0a5753c0d70a3b6b835fbc51c1ea6da"
 }

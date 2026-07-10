@@ -1,16 +1,16 @@
 # Graph Report - picoforge  (2026-07-10)
 
 ## Corpus Check
-- 66 files · ~44,020 words
+- 49 files · ~34,128 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 723 nodes · 1019 edges · 39 communities (37 shown, 2 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.8)
+- 604 nodes · 790 edges · 32 communities (31 shown, 1 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `88fa4acc`
+- Built from commit: `4edf1f8a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,13 +45,6 @@
 - Params
 - Program.cs
 - tsconfig.json
-- M0 Complete ✅
-- _base.ts
-- submitDesignBrief.ts
-- EngineSupervisor
-- index.ts
-- runPicoGK.ts
-- inspectGeometry.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `Kit` - 27 edges
@@ -59,40 +52,40 @@
 3. `compilerOptions` - 19 edges
 4. `M0 Complete ✅` - 19 edges
 5. `KitGoldenTests` - 16 edges
-6. `ok` - 16 edges
-7. `err` - 16 edges
-8. `PicoForge — What I Understood` - 16 edges
-9. `M1 Engine — Complete ✅` - 16 edges
-10. `USER_FLOWS.md — End-to-End Flows (with failure branches)` - 16 edges
+6. `PicoForge — What I Understood` - 16 edges
+7. `USER_FLOWS.md — End-to-End Flows (with failure branches)` - 16 edges
+8. `compilerOptions` - 15 edges
+9. `The GitHub Repo Role` - 15 edges
+10. `EngineClient` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `buildRouter()` --references--> `hono`  [EXTRACTED]
   server/http/router.ts → deno.json
-- `createMessageStream()` --calls--> `ok`  [EXTRACTED]
-  server/harness/anthropic.ts → server/domain/result.ts
-- `createMessageStream()` --calls--> `err`  [EXTRACTED]
-  server/harness/anthropic.ts → server/domain/result.ts
-- `EngineSupervisor` --references--> `EngineClient`  [EXTRACTED]
-  server/engine/supervisor.ts → server/engine/client.ts
 - `BannedSymbolAnalyzer` --references--> `Diagnostic`  [EXTRACTED]
   engine/ForgeEngine/Analyzers.cs → engine/ForgeEngine/Compiler.cs
+- `BannedSymbolAnalyzer` --references--> `SymbolTable`  [EXTRACTED]
+  engine/ForgeEngine/Analyzers.cs → engine/ForgeEngine/SymbolTable.cs
+- `main()` --calls--> `loadConfig()`  [EXTRACTED]
+  server/main.ts → server/config.ts
+- `main()` --calls--> `openDb()`  [EXTRACTED]
+  server/main.ts → server/db/db.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 2 thin omitted)
+## Communities (32 total, 1 thin omitted)
 
 ### Community 0 - "Kit"
-Cohesion: 0.13
-Nodes (14): BBox3, Action, Ctx, IReadOnlyList, List, Vector3, Voxels, BladeSpec (+6 more)
+Cohesion: 0.10
+Nodes (19): BBox3, PicoForge.Kit, Kit.Tests, Action, Ctx, Material, Rng, IReadOnlyList (+11 more)
 
 ### Community 1 - "M0 Complete ✅"
-Cohesion: 0.05
-Nodes (37): Chat Conversation, Current State of the Workspace, How PicoGK is Used, PicoForge — What I Understood, Planner Response, Planner Response, Planner Response, Planner Response (+29 more)
+Cohesion: 0.04
+Nodes (45): Chat Conversation, Current State of the Workspace, Files created (24 total), ForgeEngine (C# — managed-only host), ForgeSandbox (C# — only project, How PicoGK is Used, M0 Complete ✅, M1 Engine — Complete ✅ (+37 more)
 
 ### Community 2 - "client.ts"
-Cohesion: 0.13
-Nodes (10): err, ok, Result, EngineClient, EngineCompileResult, EngineHelloResult, EnginePingResult, EngineRunParams (+2 more)
+Cohesion: 0.08
+Nodes (15): err, ok, Result, EngineClient, EngineCompileResult, EngineHelloResult, EnginePingResult, EngineRunParams (+7 more)
 
 ### Community 3 - "Compiler"
 Cohesion: 0.07
@@ -100,11 +93,11 @@ Nodes (23): AttributeSyntax, ConcurrentDictionary, CSharpSyntaxWalker, HashSet, 
 
 ### Community 4 - "tasks"
 Cohesion: 0.05
-Nodes (38): compilerOptions, lib, noFallthroughCasesInSwitch, noImplicitAny, noUnusedLocals, noUnusedParameters, strict, strictNullChecks (+30 more)
+Nodes (37): compilerOptions, lib, noFallthroughCasesInSwitch, noImplicitAny, noUnusedLocals, noUnusedParameters, strict, strictNullChecks (+29 more)
 
 ### Community 5 - "log.ts"
-Cohesion: 0.09
-Nodes (32): log, main(), ROOT, run(), step(), Config, ConfigSchema, loadApiKey() (+24 more)
+Cohesion: 0.11
+Nodes (28): log, main(), ROOT, run(), step(), Config, ConfigSchema, loadApiKey() (+20 more)
 
 ### Community 6 - "SandboxPool"
 Cohesion: 0.09
@@ -143,12 +136,12 @@ Cohesion: 0.12
 Nodes (16): F0 · First run, F10 · Engine dies mid-run, F11 · API unreachable / 429, F12 · Reload / resume, F13 · Inspect & section, F14 · Showcase render, F1 · Create project, F2 · "Build a turbine for my fan" — the golden path (full trace) (+8 more)
 
 ### Community 15 - "KitGoldenTests"
-Cohesion: 0.11
-Nodes (12): PicoForge.Kit, Kit.Tests, Dictionary, Vector3, Material, Params, Rng, KitGoldenTests (+4 more)
+Cohesion: 0.34
+Nodes (4): KitGoldenTests, Fact, float, Func
 
 ### Community 16 - "The GitHub Repo Role"
-Cohesion: 0.07
-Nodes (39): AnthropicMessage, BACKOFF_MS, createMessageStream(), getClient(), log, MessageContent, RETRYABLE, runStream() (+31 more)
+Cohesion: 0.13
+Nodes (15): Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+7 more)
 
 ### Community 17 - "MCP_SERVER.md — PicoForge as an MCP Server ("Bring Your Own Model" Mode)"
 Cohesion: 0.13
@@ -191,56 +184,32 @@ Cohesion: 0.29
 Nodes (6): 10/07/2026 09:24 AM, 10/07/2026 09:25 AM, 10/07/2026 09:26 AM, 10/07/2026 09:42 AM → M1 ENGINE IN PROGRESS, 10/07/2026 09:57 AM → M0 SCAFFOLD COMPLETE, PicoForge Build Log
 
 ### Community 27 - "Params"
-Cohesion: 0.10
-Nodes (20): Deno Server (M1 additions), ForgeEngine (C# — managed-only host), ForgeSandbox (C# — only project touching PicoGK), Kit.Tests — [8 golden-volume tests](file:///v:/_PORJECTS/001_picogk_X7/picoforge/engine/Kit.Tests/PlaceholderTest.cs), M1 Engine — Complete ✅, Planner Response, Planner Response, Planner Response (+12 more)
+Cohesion: 0.29
+Nodes (3): Dictionary, Vector3, Params
 
 ### Community 28 - "Program.cs"
 Cohesion: 0.83
 Nodes (3): ApiManifest, ApiMember, ApiType
 
-### Community 32 - "M0 Complete ✅"
-Cohesion: 0.11
-Nodes (19): Files created (24 total), M0 Complete ✅, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+11 more)
-
-### Community 33 - "_base.ts"
-Cohesion: 0.16
-Nodes (14): ToolDefinition, Input, jsonSchema, zodInput, makeDef(), RunCtx, ToolModule, Input (+6 more)
-
-### Community 34 - "submitDesignBrief.ts"
-Cohesion: 0.18
-Nodes (11): BriefValidationResult, CATEGORIES, Input, jsonSchema, MATERIALS, parameterSchema, physicsCheckSchema, PROJECT_ENVELOPE_MM (+3 more)
-
-### Community 36 - "index.ts"
-Cohesion: 0.22
-Nodes (8): askUserTool, captureViewportTool, Tool, Input, jsonSchema, searchDocsTool, zodInput, submitDesignBriefTool
-
-### Community 37 - "runPicoGK.ts"
-Cohesion: 0.33
-Nodes (6): ALLOWED_USINGS, Input, jsonSchema, lintContract(), runPicoGKTool, zodInput
-
-### Community 38 - "inspectGeometry.ts"
-Cohesion: 0.33
-Nodes (5): Input, inspectGeometryTool, jsonSchema, opSchema, zodInput
-
 ## Knowledge Gaps
-- **381 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+376 more)
+- **316 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+311 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ALLOWED_USINGS` connect `runPicoGK.ts` to `Compiler`?**
-  _High betweenness centrality (0.132) - this node is a cross-community bridge._
+- **Why does `KitGoldenTests` connect `KitGoldenTests` to `Kit`, `SandboxPool`?**
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `ForgeEngine` connect `SandboxPool` to `Compiler`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _381 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _316 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Kit` be split into smaller, more focused modules?**
-  _Cohesion score 0.13067552602436322 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09579100145137881 - nodes in this community are weakly interconnected._
 - **Should `M0 Complete ✅` be split into smaller, more focused modules?**
-  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
 - **Should `client.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.12923076923076923 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07665505226480836 - nodes in this community are weakly interconnected._
 - **Should `Compiler` be split into smaller, more focused modules?**
   _Cohesion score 0.06970128022759602 - nodes in this community are weakly interconnected._

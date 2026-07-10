@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "deno.json": {
-    "mtime": 1783659567.3646197,
-    "ast_hash": "4f245ab665e0d255f3643b43a6f6beb6",
+    "mtime": 1783655854.55227,
+    "ast_hash": "6cc3d6e88f7d9930b88c754abf51a41d",
     "semantic_hash": ""
   },
   "engine/ForgeEngine/Analyzers.cs": {
@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "conversations/10-7-26_BUILD_CONVERSATION.md": {
-    "mtime": 1783658770.318046,
-    "ast_hash": "61e76226eec7cd6929b2c22076e6574f",
+    "mtime": 1783657397.0991557,
+    "ast_hash": "096722c8704d79deed7c1492d2b8a80a",
     "semantic_hash": ""
   },
   "conversations/build_log.md": {
@@ -247,91 +247,6 @@
   "docs/USER_FLOWS.md": {
     "mtime": 1783635638.0,
     "ast_hash": "6eb209526ead917a8585e7cb2375000b",
-    "semantic_hash": ""
-  },
-  "server/harness/anthropic.ts": {
-    "mtime": 1783659116.0288827,
-    "ast_hash": "061cf8e724a561ad9d2e2cf5df7c8850",
-    "semantic_hash": ""
-  },
-  "server/harness/cli.ts": {
-    "mtime": 1783659586.1207547,
-    "ast_hash": "83fd1984bf0551a6fa3616c7fa4e308b",
-    "semantic_hash": ""
-  },
-  "server/harness/orchestrator.ts": {
-    "mtime": 1783659480.176081,
-    "ast_hash": "d70b125b967ac6d0d63ee6d21dd8ce36",
-    "semantic_hash": ""
-  },
-  "server/harness/prompts/context.ts": {
-    "mtime": 1783659441.2327385,
-    "ast_hash": "a8c85d229fe6a9a57c11af317df1ae94",
-    "semantic_hash": ""
-  },
-  "server/harness/prompts/repair.ts": {
-    "mtime": 1783659362.4363258,
-    "ast_hash": "aa204dc20649dc81ae84274eb706016d",
-    "semantic_hash": ""
-  },
-  "server/harness/prompts/system.ts": {
-    "mtime": 1783659417.9369807,
-    "ast_hash": "9a9837dee3bd9af3024e1622b10131c6",
-    "semantic_hash": ""
-  },
-  "server/harness/tests/briefValidator.test.ts": {
-    "mtime": 1783659535.0175395,
-    "ast_hash": "6cc6e51ad408e47cbc4f212dda2cf49f",
-    "semantic_hash": ""
-  },
-  "server/harness/tests/systemPrompt.test.ts": {
-    "mtime": 1783659550.3574433,
-    "ast_hash": "4ca75c2aa963d7f44813857c01ba3510",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/_base.ts": {
-    "mtime": 1783659143.7297986,
-    "ast_hash": "840b85d634713fe588ea140933482e90",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/askUser.ts": {
-    "mtime": 1783659317.3166404,
-    "ast_hash": "a899d98691b8ef508d8a52fa4f1a323c",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/captureViewport.ts": {
-    "mtime": 1783659285.4185288,
-    "ast_hash": "70beb03cf1b27b5a0f70e846870999d1",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/exportArtifact.ts": {
-    "mtime": 1783659301.9006875,
-    "ast_hash": "584a0c081c3f6abfc394ad77a364b5ca",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/index.ts": {
-    "mtime": 1783659128.8960824,
-    "ast_hash": "109b58145a0bc0e1b2409ba44c001b1e",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/inspectGeometry.ts": {
-    "mtime": 1783659259.3067105,
-    "ast_hash": "ef035fb63baf6d5f9bdb13a8afe12b35",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/runPicoGK.ts": {
-    "mtime": 1783659240.3094876,
-    "ast_hash": "4620361e11faf7ebc12cd481315a745c",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/searchDocs.ts": {
-    "mtime": 1783659161.5414596,
-    "ast_hash": "c759f5a90b04dab7ac45e8ce82f857e2",
-    "semantic_hash": ""
-  },
-  "server/harness/tools/submitDesignBrief.ts": {
-    "mtime": 1783659207.565613,
-    "ast_hash": "55db44fd11bdecb10cc2aec9b55f7a93",
     "semantic_hash": ""
   }
 }
