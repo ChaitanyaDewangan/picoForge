@@ -2,7 +2,14 @@
 // driveRun: tool budget, repair loop, cancel, queue, state emission
 
 import { makeLogger } from "../log.ts";
-import { type AnthropicMessage, createMessageStream, type ToolDefinition } from "./anthropic.ts";
+import {
+  type AnthropicMessage,
+  createMessageStream,
+  type StreamCallbacks,
+  type ToolDefinition,
+  type TurnResult,
+} from "./anthropic.ts";
+import { type Result } from "../domain/result.ts";
 import { TOOL_MAP, TOOLS } from "./tools/index.ts";
 import type { RunCtx } from "./tools/_base.ts";
 import {
@@ -51,6 +58,20 @@ export interface OrchestratorCallbacks {
 
 // ─── Main driver ─────────────────────────────────────────────────────────────
 
+/** Injectable stream function — defaults to real Anthropic client; tests inject mock */
+export type StreamFn = (
+  args: {
+    model: string;
+    maxTokens: number;
+    temperature: number;
+    system: string;
+    messages: AnthropicMessage[];
+    tools: ToolDefinition[];
+    signal?: AbortSignal;
+  },
+  callbacks?: StreamCallbacks,
+) => Promise<Result<TurnResult, Error>>;
+
 export async function driveRun(
   {
     runId,
@@ -62,6 +83,7 @@ export async function driveRun(
     ctx: runCtxOverrides,
     callbacks,
     settings,
+    streamFn,
   }: {
     runId: string;
     projectId: string;
@@ -72,6 +94,8 @@ export async function driveRun(
     ctx?: Partial<RunCtx>;
     callbacks?: OrchestratorCallbacks;
     settings?: Partial<typeof DEFAULT_SETTINGS>;
+    /** Inject a mock stream function in tests; omit in production */
+    streamFn?: StreamFn;
   },
 ): Promise<{ state: RunState }> {
   const s = { ...DEFAULT_SETTINGS, ...settings };
@@ -115,7 +139,7 @@ export async function driveRun(
       return { state: "cancelled" };
     }
 
-    const turnResult = await createMessageStream(
+    const turnResult = await (streamFn ?? createMessageStream)(
       {
         model: s.model,
         maxTokens: s.maxTokens,
