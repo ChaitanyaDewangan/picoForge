@@ -108,3 +108,11 @@ Clean machine + README §5 → working app; fan-impeller golden path <60 s with 
 ## 8. When stuck (in order)
 
 1. `graphify query` the question; `graphify explain` the symbol. 2. Re-read the spec section the code references. 3. Write the failing test that states the confusion. 4. Make the smallest change that passes (ponytail rung 6–7). 5. Still stuck after two attempts → write a `DECISION:` note in the PR describing the fork and pick the option that adds the least code. Never widen a type, delete a validator, or bypass the sandbox to get unstuck.
+
+## 9. Git Workflow & Commits
+
+As an agent operating in this workspace, follow this Git hygiene:
+1. **When to Commit**: Commit code immediately after a logical chunk of work is verified and working. This includes passing a milestone gate (M0–M8), implementing a full component, or fixing a bug. Never leave the workspace with uncommitted code after a major transition.
+2. **Pre-Commit Checks**: Before staging, ensure `deno task check` (for TS) or `dotnet build/test` (for C#) passes. If structural files changed, ensure `graphify update .` has run.
+3. **Commit Messages**: Write concise, descriptive commit messages prefixing the milestone or component (e.g., `M2: Add anthropic tool schemas and headless orchestrator`).
+4. **Push Automatically**: After committing, immediately push to `origin main` to keep the remote synchronized and prevent data loss.
