@@ -1,12 +1,11 @@
 {
-  "workspace": ["./server", "./scripts"],
   "tasks": {
     "dev": "deno task server:dev & deno task app:dev",
     "server:dev": "deno run --watch --env-file=.env --allow-net=127.0.0.1:7317,api.anthropic.com --allow-read --allow-write --allow-run=dotnet,forge-engine server/main.ts",
     "app:dev": "cd app && npm run dev",
     "check": "deno fmt --check && deno lint && deno task typecheck && deno task test",
     "typecheck": "deno check server/main.ts server/harness/orchestrator.ts scripts/setup.ts",
-    "test": "deno test --allow-read --allow-write --allow-net=127.0.0.1 server/harness/tests/",
+    "test": "deno test --allow-read --allow-write --allow-net=127.0.0.1 --allow-env server/harness/tests/",
     "bench": "deno bench --allow-read --allow-net=127.0.0.1",
     "setup": "deno run --allow-read --allow-write --allow-run --allow-net scripts/setup.ts",
     "db:reset": "deno run --allow-read --allow-write scripts/db_reset.ts",

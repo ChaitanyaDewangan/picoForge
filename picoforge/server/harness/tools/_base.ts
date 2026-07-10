@@ -26,7 +26,7 @@ export interface RunCtx {
 export interface ToolModule<TInput> {
   name: string;
   description: string;
-  zodInput: z.ZodType<TInput>;
+  zodInput: z.ZodType<TInput, z.ZodTypeDef, unknown>;
   jsonSchema: ToolDefinition["input_schema"];
   execute(input: TInput, ctx: RunCtx): Promise<Result<unknown, Error>>;
   /** Assembled Anthropic-format tool definition. */
