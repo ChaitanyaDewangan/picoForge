@@ -1,0 +1,55 @@
+/* app/src/chat/Composer.css */
+
+.composer {
+  border-top: 1px solid var(--line);
+  padding: var(--pad);
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  background: var(--bg-1);
+  flex-shrink: 0;
+}
+
+.composer-input {
+  flex: 1;
+  min-height: 38px;
+  max-height: 140px;
+  resize: none;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color var(--t-micro);
+  overflow-y: auto;
+  field-sizing: content;
+}
+.composer-input::placeholder { color: var(--ink-2); }
+.composer-input:focus        { border-color: var(--amber); }
+.composer-input:focus-visible {
+  border-color: var(--amber);
+  outline: none; /* using border instead */
+  box-shadow: 0 0 0 1px var(--amber);
+}
+.composer-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.composer-send {
+  min-width: 44px;
+  height: 38px;
+  padding: 0 14px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.composer-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+.composer-send--queue {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 0 10px;
+  background: var(--amber-dim);
+}
+.composer-send--queue:hover { background: var(--amber-dim); opacity: 0.9; }

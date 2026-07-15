@@ -1,0 +1,130 @@
+/* app/src/panels/ConsoleDrawer.css */
+
+.console-drawer {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  transition: height var(--t-state);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Collapsed handle */
+.console-handle {
+  height: var(--console-h-collapsed);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--pad);
+  gap: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background var(--t-micro);
+}
+.console-handle:hover { background: color-mix(in srgb, var(--ink-2) 4%, transparent); }
+.console-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+.console-drawer--open .console-handle { border-bottom-color: var(--line); }
+
+/* Tab buttons inline with handle */
+.console-tabs-row {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.console-tab {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--r);
+  transition: color var(--t-micro), background var(--t-micro);
+}
+.console-tab:hover { color: var(--ink); }
+.console-tab.active {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink-2) 10%, transparent);
+}
+
+/* Content area */
+.console-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.console-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px var(--pad);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.console-filter-input {
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink);
+  outline: none;
+  flex: 1;
+}
+.console-filter-input::placeholder { color: var(--ink-2); }
+
+/* Log list */
+.console-log-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0;
+}
+.console-empty {
+  padding: 8px var(--pad);
+  color: var(--ink-2);
+}
+
+/* Log row */
+.console-log-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 2px var(--pad);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  transition: background var(--t-micro);
+  position: relative;
+}
+.console-log-row:hover { background: color-mix(in srgb, var(--ink-2) 5%, transparent); }
+.console-ts {
+  font-size: 10px;
+  color: var(--amber-dim);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+.console-line {
+  flex: 1;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--ink);
+}
+
+/* Copy button — hidden until row hover */
+.console-copy-btn {
+  opacity: 0;
+  transition: opacity var(--t-micro);
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.console-log-row:hover .console-copy-btn { opacity: 1; }

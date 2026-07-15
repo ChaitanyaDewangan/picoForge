@@ -1,0 +1,163 @@
+/* app/src/panels/FirstRunWizard.css */
+
+.wizard-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: 1px solid var(--amber-dim);
+  border-radius: var(--r);
+  background: transparent;
+  padding: 0;
+  max-width: 520px;
+  width: calc(100vw - 48px);
+  overflow: hidden;
+  color: var(--ink);
+}
+.wizard-dialog::backdrop {
+  background: color-mix(in srgb, var(--bg-0) 85%, transparent);
+}
+
+.wizard-panel {
+  background: var(--bg-1);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+/* Stepper header */
+.wizard-stepper {
+  display: flex;
+  align-items: center;
+  padding: 16px var(--pad-lg);
+  border-bottom: 1px solid var(--line);
+  gap: 0;
+}
+.wizard-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.wizard-step-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-2);
+  flex-shrink: 0;
+  transition: border-color var(--t-micro), background var(--t-micro), color var(--t-micro);
+}
+.wizard-step.active .wizard-step-dot {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.wizard-step.done .wizard-step-dot {
+  border-color: var(--ok);
+  background: var(--ok);
+  color: var(--bg-0);
+}
+.wizard-step-label { color: var(--ink-2); transition: color var(--t-micro); }
+.wizard-step.active .wizard-step-label { color: var(--ink); }
+.wizard-step.done .wizard-step-label  { color: var(--ok); }
+
+.wizard-step-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  margin: 0 8px;
+}
+
+/* Content */
+.wizard-content {
+  flex: 1;
+  padding: var(--pad-lg);
+  overflow-y: auto;
+}
+.wizard-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wizard-step-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.wizard-step-desc {
+  font-size: var(--text-body);
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+.wizard-step-desc code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--bg-0);
+  padding: 1px 4px;
+  border-radius: var(--r);
+  color: var(--ink);
+}
+
+/* Input row */
+.wizard-input-row {
+  display: flex;
+  gap: 8px;
+}
+.wizard-input {
+  flex: 1;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color var(--t-micro);
+}
+.wizard-input:focus { border-color: var(--amber); }
+.wizard-input::placeholder { color: var(--ink-2); }
+
+/* Checklist */
+.wizard-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+}
+.wizard-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wizard-check-icon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: color var(--t-micro);
+}
+.wizard-check-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+/* Detail / hint */
+.wizard-detail { color: var(--ink-2); font-size: 12px; }
+.wizard-hint { font-size: 11px; line-height: 1.7; color: var(--ink-2); }
+.wizard-hint code {
+  font-family: var(--font-mono);
+  background: var(--bg-0);
+  padding: 1px 4px;
+  border-radius: var(--r);
+  color: var(--amber);
+}
+
+/* Next button */
+.wizard-next { align-self: flex-end; min-width: 140px; justify-content: center; }

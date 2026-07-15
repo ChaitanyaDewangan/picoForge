@@ -1,0 +1,90 @@
+/* app/src/chat/MessageList.css — message bubble & layout */
+
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px var(--pad-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Row layout */
+.message-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.message-row--user {
+  flex-direction: row-reverse;
+}
+.message-row--user .message-content {
+  align-items: flex-end;
+}
+
+.message-avatar {
+  color: var(--amber);
+  font-size: 12px;
+  padding-top: 3px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* Message content column */
+.message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: calc(100% - 28px);
+  min-width: 0;
+}
+
+/* Text bubble */
+.message-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* User bubble */
+.message-row--user .message-text {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 8px 12px;
+}
+
+/* Streaming cursor */
+.streaming-cursor {
+  display: inline-block;
+  color: var(--amber);
+  animation: blink-cursor 1s steps(2) infinite;
+  font-weight: 400;
+  margin-left: 1px;
+}
+@keyframes blink-cursor {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Starter chips (empty state) */
+.starter-chip {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color var(--t-micro), color var(--t-micro);
+}
+.starter-chip:hover {
+  border-color: var(--amber);
+  color: var(--ink);
+}

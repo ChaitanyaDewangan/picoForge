@@ -1,0 +1,129 @@
+/* app/src/panels/SettingsDialog.css */
+
+/* Native <dialog> reset + positioning */
+.settings-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: transparent;
+  padding: 0;
+  max-width: 480px;
+  width: calc(100vw - 48px);
+  max-height: calc(100vh - 64px);
+  overflow: hidden;
+  color: var(--ink);
+}
+.settings-dialog::backdrop {
+  background: color-mix(in srgb, var(--bg-0) 75%, transparent);
+  backdrop-filter: blur(1px);
+}
+
+.settings-panel {
+  background: var(--bg-1);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--pad-lg);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.settings-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: var(--pad-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settings-footer {
+  border-top: 1px solid var(--line);
+  padding: 12px var(--pad-lg);
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Sections */
+.settings-section { display: flex; flex-direction: column; gap: 8px; }
+.settings-section-title { margin-bottom: 4px; }
+
+/* Row (api key + test btn) */
+.settings-row { display: flex; gap: 8px; }
+
+/* Input */
+.settings-input {
+  flex: 1;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 7px 10px;
+  outline: none;
+  transition: border-color var(--t-micro);
+  width: 100%;
+}
+.settings-input:focus { border-color: var(--amber); }
+.settings-input::placeholder { color: var(--ink-2); }
+
+.settings-number {
+  width: 80px;
+  flex: none;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Select */
+.settings-select {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 7px 10px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--t-micro);
+}
+.settings-select:focus { border-color: var(--amber); }
+
+/* Test button */
+.settings-test-btn { flex-shrink: 0; font-size: 11px; padding: 0 12px; height: 34px; }
+
+/* Grid for number fields */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.settings-field { display: flex; flex-direction: column; gap: 4px; }
+.settings-field-label { color: var(--ink-2); }
+
+/* Telemetry toggle */
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: var(--text-body);
+  user-select: none;
+}
+.settings-toggle {
+  width: 16px; height: 16px;
+  accent-color: var(--amber);
+  cursor: pointer;
+}
