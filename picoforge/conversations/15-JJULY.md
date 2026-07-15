@@ -785,3 +785,32 @@ Done. Here's what was implemented:
 ### User Input
 
 coninue 
+
+### Planner Response
+
+Continuing from API key integration. Next milestone: **M5 — Viewport raster**.
+
+Read RENDERING.md spec, checked existing viewport/ dir (empty except hud/.gitkeep), verified three.js@0.170.0 + camera-controls@2.10.1 + three-gpu-pathtracer@0.0.20 already installed.
+
+Installed `meshoptimizer` for triangle decimation.
+
+Built all M5 files:
+
+- [ViewportEngine.ts](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/ViewportEngine.ts) — single imperative class owning one WebGL2 context. Studio lighting (key 2.2/fill 0.6/rim 1.4), RoomEnvironment IBL, camera-controls (Fusion-360 feel), ortho-default, GPU tier probe (A/B/C), turntable at 0.15 rad/s, section clipping, material presets (alu/clay/resin), on-demand raster rendering (idle GPU ≈ 0%), context-loss recovery (drop one tier).
+- [ViewportPane.tsx](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/ViewportPane.tsx) — React wrapper. ResizeObserver, keyboard shortcuts (F/0-6/P/T/G), 4Hz status poll, loading bar, empty state, context-loss veil.
+- [ViewCube.tsx](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/hud/ViewCube.tsx) — 3×3 clickable grid, amber front-face border, tier badge. Pure CSS.
+- [DROStrip.tsx](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/hud/DROStrip.tsx) — VOL/TRIS/WATERTIGHT + viewport state badges. Tabular mono numbers.
+- [ViewportToolbar.tsx](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/hud/ViewportToolbar.tsx) — right-rail vertical: view presets, projection, materials (alu/clay/resin), turntable/section/grid, capture PNG.
+- [ViewportPane.css](file:///v:/_PORJECTS/001_picogk_X7/picoforge/app/src/viewport/ViewportPane.css) — full styles for canvas, empty state, loading bar, veil, ViewCube, toolbar, DRO.
+
+Fixed: `WebGLPathTracer` is not an export of v0.0.20 — the actual export is `PathTracingRenderer`. PT is deferred to M7 (the spec gate); M5 gate is raster-only. Fixed via `import type` stub.
+
+Wired `ViewportPane` into `App.tsx`. Added `lastArtifact` field to chat store — set on `GEOMETRY_READY` events — forwarded to `<ViewportPane artifact={...}>`.
+
+Removed old placeholder `function ViewportPane()` stub from App.tsx (caused Babel duplicate-declaration error).
+
+All checks green: typecheck ✅, 63 tests ✅, pushed to origin.
+
+**M5 gate: raster viewport live, full HUD (ViewCube + DRO + toolbar), geometry auto-loads from chat, keyboard shortcuts working.**
+
+**Next: M6 — End-to-end wiring** (harness↔WS↔UI↔viewport join, F2 golden path live, export flow, cancel).
