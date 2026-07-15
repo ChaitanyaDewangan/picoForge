@@ -1,11 +1,15 @@
 // app/src/panels/SettingsDialog.tsx — UIUX §3.9 + §6
 // Uses <dialog> natively (ponytail rung 4). No modal manager library.
+// Fetches available models from /api/models, saves key to keystore via PUT.
 
 import { useEffect, useRef, useState } from "react";
 import "./SettingsDialog.css";
 
+interface ModelInfo { id: string; label: string; maxTokens: number; }
+
 interface Settings {
   model: string;
+  maxOutputTokens: number;
   maxRepairAttempts: number;
   voxelCellCapWarn: number;
   voxelCellCapHard: number;
@@ -13,22 +17,29 @@ interface Settings {
   telemetry: boolean;
 }
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
-  initialSettings?: Partial<Settings>;
-}
-
-const MODELS = ["claude-sonnet-4-6", "claude-opus-4-5", "claude-haiku-4-5"];
-
 const DEFAULTS: Settings = {
   model: "claude-sonnet-4-6",
+  maxOutputTokens: 4096,
   maxRepairAttempts: 3,
   voxelCellCapWarn: 20_000_000,
   voxelCellCapHard: 40_000_000,
   runTimeoutS: 120,
   telemetry: false,
 };
+
+// Fallback model list (shown while /api/models loads)
+const FALLBACK_MODELS: ModelInfo[] = [
+  { id: "claude-sonnet-4-5",  label: "Claude Sonnet 4.5",       maxTokens: 8192 },
+  { id: "claude-sonnet-4-6",  label: "Claude Sonnet 4.6",       maxTokens: 8192 },
+  { id: "claude-haiku-4-5",   label: "Claude Haiku 4.5 (fast)", maxTokens: 4096 },
+  { id: "claude-opus-4-5",    label: "Claude Opus 4.5 (slow)",  maxTokens: 8192 },
+];
+
+interface Props {
+  open: boolean;
+  onClose: () => void;
+  initialSettings?: Partial<Settings>;
+}
 
 export function SettingsDialog({ open, onClose, initialSettings }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -37,6 +48,23 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
   const [saved, setSaved] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState("");
   const [testStatus, setTestStatus] = useState<"idle" | "testing" | "ok" | "fail">("idle");
+  const [models, setModels] = useState<ModelInfo[]>(FALLBACK_MODELS);
+
+  // Fetch available models from server
+  useEffect(() => {
+    if (!open) return;
+    fetch("/api/models")
+      .then((r) => r.json())
+      .then((j: { models?: ModelInfo[] }) => { if (j.models?.length) setModels(j.models); })
+      .catch(() => {/* use fallback */});
+    // Also load current settings
+    fetch("/api/settings")
+      .then((r) => r.json())
+      .then((j: { settings?: Partial<Settings> }) => {
+        if (j.settings) setSettings((s) => ({ ...s, ...j.settings }));
+      })
+      .catch(() => {});
+  }, [open]);
 
   // Native <dialog> open/close
   useEffect(() => {
@@ -46,7 +74,6 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     if (!open && el.open) el.close();
   }, [open]);
 
-  // Close on Escape (dialog natively handles this, wire onClose)
   useEffect(() => {
     const el = dialogRef.current;
     if (!el) return;
@@ -55,7 +82,6 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     return () => el.removeEventListener("close", handler);
   }, [onClose]);
 
-  // Close on backdrop click
   function handleDialogClick(e: React.MouseEvent<HTMLDialogElement>) {
     const rect = dialogRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -68,7 +94,6 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     if (!apiKeyInput.trim()) return;
     setTestStatus("testing");
     try {
-      // Ping via server proxy (M6 wires this; for now just pass-through)
       const res = await fetch("/api/settings/test-key", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -86,15 +111,18 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     try {
       const body: Record<string, unknown> = { ...settings };
       if (apiKeyInput.trim()) body.apiKey = apiKeyInput;
-      await fetch("/api/settings", {
+      const res = await fetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
+      if (res.ok) {
+        setSaved(true);
+        setApiKeyInput(""); // clear after save
+        setTimeout(() => setSaved(false), 2000);
+      }
     } catch {
-      /* logged server-side */
+      /* server-side logged */
     }
     setSaving(false);
   }
@@ -102,6 +130,10 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
   function set<K extends keyof Settings>(key: K, value: Settings[K]) {
     setSettings((s) => ({ ...s, [key]: value }));
   }
+
+  // Max tokens for currently selected model
+  const selectedModel = models.find((m) => m.id === settings.model);
+  const maxForModel = selectedModel?.maxTokens ?? 8192;
 
   return (
     <dialog
@@ -112,21 +144,13 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
       onClick={handleDialogClick}
     >
       <div className="settings-panel">
-        {/* Header */}
         <div className="settings-header">
           <span className="micro-label">SETTINGS</span>
-          <button
-            id="settings-close"
-            className="btn-tertiary"
-            aria-label="Close settings"
-            onClick={onClose}
-          >
-            ✕
-          </button>
+          <button id="settings-close" className="btn-tertiary" aria-label="Close settings" onClick={onClose}>✕</button>
         </div>
 
         <div className="settings-body">
-          {/* API Key section */}
+          {/* API Key */}
           <section className="settings-section">
             <div className="settings-section-title micro-label">API KEY</div>
             <div className="settings-row">
@@ -134,7 +158,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
                 id="api-key-input"
                 type="password"
                 className="settings-input"
-                placeholder="sk-ant-…  (write-only, never echoed)"
+                placeholder="sk-…  (write-only, stored in ~/PicoForge/secret.env)"
                 value={apiKeyInput}
                 onChange={(e) => setApiKeyInput(e.target.value)}
                 aria-label="Anthropic API key"
@@ -146,8 +170,14 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
                 onClick={testApiKey}
                 disabled={!apiKeyInput.trim() || testStatus === "testing"}
               >
-                {testStatus === "testing" ? "…" : testStatus === "ok" ? "✓ OK" : testStatus === "fail" ? "✗ FAIL" : "TEST"}
+                {testStatus === "testing" ? "…"
+                  : testStatus === "ok" ? "✓ OK"
+                  : testStatus === "fail" ? "✗ FAIL"
+                  : "TEST"}
               </button>
+            </div>
+            <div className="micro-label" style={{ color: "var(--ink-2)", marginTop: 4 }}>
+              Key is stored locally only — never sent except to Anthropic.
             </div>
           </section>
 
@@ -158,13 +188,49 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
               id="model-select"
               className="settings-select"
               value={settings.model}
-              onChange={(e) => set("model", e.target.value)}
+              onChange={(e) => {
+                const m = models.find((x) => x.id === e.target.value);
+                set("model", e.target.value);
+                // Auto-clamp output tokens to new model's max
+                if (m && settings.maxOutputTokens > m.maxTokens) {
+                  set("maxOutputTokens", m.maxTokens);
+                }
+              }}
               aria-label="Model"
             >
-              {MODELS.map((m) => (
-                <option key={m} value={m}>{m}</option>
+              {models.map((m) => (
+                <option key={m.id} value={m.id}>{m.label}</option>
               ))}
             </select>
+            {selectedModel && (
+              <div className="micro-label" style={{ color: "var(--ink-2)", marginTop: 4 }}>
+                Max output: {selectedModel.maxTokens.toLocaleString()} tokens
+              </div>
+            )}
+          </section>
+
+          {/* Token limits */}
+          <section className="settings-section">
+            <div className="settings-section-title micro-label">TOKEN LIMITS (subscription-safe)</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <label className="settings-field-label micro-label" htmlFor="max-output-tokens">
+                Max output tokens per turn: <span style={{ color: "var(--amber)" }}>{settings.maxOutputTokens.toLocaleString()}</span>
+              </label>
+              <input
+                id="max-output-tokens"
+                type="range"
+                min={512}
+                max={maxForModel}
+                step={256}
+                value={settings.maxOutputTokens}
+                onChange={(e) => set("maxOutputTokens", Number(e.target.value))}
+                style={{ accentColor: "var(--amber)", width: "100%" }}
+                aria-label="Max output tokens"
+              />
+              <div className="micro-label" style={{ color: "var(--ink-2)" }}>
+                512 ▸▸ {maxForModel.toLocaleString()} · lower = fewer tokens consumed per call
+              </div>
+            </div>
           </section>
 
           {/* Engine limits */}
@@ -218,10 +284,9 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
           </section>
         </div>
 
-        {/* Footer */}
         <div className="settings-footer">
           <button id="settings-save" className="btn-primary" onClick={save} disabled={saving}>
-            {saved ? "✓ Saved" : saving ? "Saving…" : "Save"}
+            {saved ? "✓ Saved" : saving ? "Saving…" : "Save settings"}
           </button>
           <button className="btn-secondary" onClick={onClose}>Cancel</button>
         </div>
@@ -233,12 +298,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
 function SettingsField({
   id, label, value, min, max, onChange,
 }: {
-  id: string;
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  onChange: (v: number) => void;
+  id: string; label: string; value: number; min: number; max: number; onChange: (v: number) => void;
 }) {
   return (
     <div className="settings-field">

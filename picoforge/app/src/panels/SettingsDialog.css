@@ -1,5 +1,27 @@
 /* app/src/panels/SettingsDialog.css */
 
+/* Range slider — amber tinted */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--line);
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--amber);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background var(--t-micro);
+}
+input[type="range"]::-webkit-slider-thumb:hover { background: #FFC02E; }
+
 /* Native <dialog> reset + positioning */
 .settings-dialog {
   position: fixed;

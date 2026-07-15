@@ -1,10 +1,12 @@
 // server/harness/anthropic.ts — Anthropic streaming client
 // LLM_HARNESS §2: "createMessageStream with retry/backoff"
 // AGENTS.md §3.11: verify shapes against https://docs.claude.com/en/api/overview
+// OpenCode subscription key: stored in ~/PicoForge/secret.env, hot-reloaded per call.
 
 import Anthropic from "npm:@anthropic-ai/sdk@^0.54.0";
 import { makeLogger } from "../log.ts";
 import { err, ok, Result } from "../domain/result.ts";
+import { getConfig } from "../config.ts";
 
 const log = makeLogger("harness.anthropic");
 
@@ -50,21 +52,50 @@ const RETRYABLE = new Set([429, 529, 500, 503]);
 const BACKOFF_MS = [1000, 2000, 4000, 8000, 16000] as const;
 const MAX_ATTEMPTS = 6; // F6 per LLM_HARNESS §2
 
-// ─── Client ──────────────────────────────────────────────────────────────────
+// ─── Token budget guard (subscription-safe) ──────────────────────────────────
+// Hard cap on output tokens per call. The subscription plan has limits;
+// we never blow past this regardless of settings.
+export const TOKEN_BUDGET_CAP = 8192;
 
+// ─── Available models (user-selectable in Settings) ──────────────────────────
+export const AVAILABLE_MODELS: Array<{ id: string; label: string; maxTokens: number }> = [
+  { id: "claude-sonnet-4-5", label: "Claude Sonnet 4.5", maxTokens: 8192 },
+  { id: "claude-sonnet-4-6", label: "Claude Sonnet 4.6", maxTokens: 8192 },
+  { id: "claude-haiku-4-5", label: "Claude Haiku 4.5 (fast)", maxTokens: 4096 },
+  { id: "claude-opus-4-5", label: "Claude Opus 4.5 (slow)", maxTokens: 8192 },
+];
+
+export function modelMaxTokens(modelId: string): number {
+  return AVAILABLE_MODELS.find((m) => m.id === modelId)?.maxTokens ?? TOKEN_BUDGET_CAP;
+}
+
+// ─── Client (hot-reload key per call) ───────────────────────────────────────
+
+// Track last key used so we only recreate when key changes
 let _client: Anthropic | null = null;
+let _clientKey = "";
 
 function getClient(): Anthropic {
-  if (!_client) {
-    const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
-    if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
+  // Read key from config each time — writeApiKey() hot-reloads it
+  let apiKey: string | undefined;
+  try {
+    apiKey = getConfig().ANTHROPIC_API_KEY;
+  } catch {
+    // Config not yet loaded — fall back to env (test context)
+    apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+  }
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set — configure it in Settings");
+  // Recreate client only if key changed
+  if (!_client || _clientKey !== apiKey) {
     _client = new Anthropic({ apiKey });
+    _clientKey = apiKey;
   }
   return _client;
 }
 
 /**
  * Stream one assistant turn with F6 retry/backoff on transient errors.
+ * maxTokens is clamped to TOKEN_BUDGET_CAP (subscription-safe).
  * Returns a Result; never throws.
  */
 export async function createMessageStream(
@@ -87,6 +118,8 @@ export async function createMessageStream(
   },
   callbacks?: StreamCallbacks,
 ): Promise<Result<TurnResult, Error>> {
+  // Enforce budget cap — never exceed this regardless of caller setting
+  const cappedMaxTokens = Math.min(maxTokens, TOKEN_BUDGET_CAP, modelMaxTokens(model));
   const client = getClient();
 
   for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
@@ -95,9 +128,10 @@ export async function createMessageStream(
     try {
       const result = await runStream(
         client,
-        { model, maxTokens, temperature, system, messages, tools, signal },
+        { model, maxTokens: cappedMaxTokens, temperature, system, messages, tools, signal },
         callbacks,
       );
+
       return ok(result);
     } catch (e) {
       const status = (e as { status?: number }).status;

@@ -40,6 +40,33 @@ async function loadApiKey(dataDir: string): Promise<string | undefined> {
   }
 }
 
+/**
+ * Persist a new API key to ~/PicoForge/secret.env and hot-reload config.
+ * Key is NEVER logged. Returns true on success.
+ */
+export async function writeApiKey(newKey: string): Promise<boolean> {
+  try {
+    const cfg = getConfig();
+    const secretPath = join(cfg.DATA_DIR, "secret.env");
+    let existing = "";
+    try {
+      existing = await Deno.readTextFile(secretPath);
+    } catch { /* new file */ }
+    // Replace or append the key line — keep any other lines untouched
+    const updated = existing.includes("ANTHROPIC_API_KEY=")
+      ? existing.replace(/^ANTHROPIC_API_KEY=.+$/m, `ANTHROPIC_API_KEY=${newKey}`)
+      : existing + `\nANTHROPIC_API_KEY=${newKey}`;
+    await Deno.writeTextFile(secretPath, updated.trim() + "\n");
+    // Hot-reload: update in-memory config (no restart needed)
+    _config = { ...cfg, ANTHROPIC_API_KEY: newKey };
+    log.info("API key updated", { hasKey: true }); // never log key value
+    return true;
+  } catch (e) {
+    log.error("Failed to write API key", { error: String(e) });
+    return false;
+  }
+}
+
 export async function loadConfig(): Promise<Config> {
   if (_config) return _config;
 

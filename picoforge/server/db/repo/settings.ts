@@ -9,6 +9,7 @@ import { getDb, withTx } from "../db.ts";
 export const SettingsSchema = z.object({
   model: z.string().default("claude-sonnet-4-6"),
   temperature: z.number().min(0).max(1).default(1.0),
+  maxOutputTokens: z.number().int().min(512).max(8192).default(4096),
   maxRepairAttempts: z.number().int().min(1).max(10).default(3),
   voxelCellCapHard: z.number().default(1_500_000_000),
   voxelCellCapWarn: z.number().default(250_000_000),

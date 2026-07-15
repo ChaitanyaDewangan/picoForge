@@ -18,6 +18,8 @@ import { conversationCreate, conversationGet, conversationList } from "../db/rep
 import { messageList } from "../db/repo/messages.ts";
 import { artifactGet } from "../db/repo/runs.ts";
 import { settingsGet, SettingsSchema, settingsSet } from "../db/repo/settings.ts";
+import { writeApiKey } from "../config.ts";
+import { AVAILABLE_MODELS } from "../harness/anthropic.ts";
 import type { EngineSupervisor } from "../engine/supervisor.ts";
 
 const log = makeLogger("http");
@@ -159,6 +161,12 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
     return c.json({ artifact });
   });
 
+  // ── Models (available models list for UI) ──────────────────────────────────
+
+  app.get("/api/models", (c) => {
+    return c.json({ models: AVAILABLE_MODELS });
+  });
+
   // ── Settings ───────────────────────────────────────────────────────────────
 
   app.get("/api/settings", (c) => {
@@ -167,12 +175,46 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
   });
 
   app.put("/api/settings", async (c) => {
-    const parsed = await parseBody(c, SettingsSchema.partial());
+    // Allow apiKey field in PUT body — written to keystore, never to DB
+    const BodySchema = SettingsSchema.partial().extend({
+      apiKey: z.string().min(10).optional(),
+    });
+    const parsed = await parseBody(c, BodySchema);
     if (!parsed.ok) return c.json(errRes("INVALID_INPUT", "Validation failed"), 422);
-    // API key is write-only — stored to keyfile, never echoed (SYS_DESIGN §3.4)
-    const { ...patch } = parsed.data;
+    const { apiKey, ...patch } = parsed.data;
+    // Persist API key to keystore (never DB, never logged)
+    if (apiKey) {
+      const ok = await writeApiKey(apiKey);
+      if (!ok) {
+        return c.json(errRes("KEYSTORE_WRITE_FAILED", "Could not write key to keystore"), 500);
+      }
+    }
     const settings = settingsSet(patch as Parameters<typeof settingsSet>[0]);
     return c.json({ settings });
+  });
+
+  // ── Test API key ──────────────────────────────────────────────────────────
+
+  app.post("/api/settings/test-key", async (c) => {
+    const parsed = await parseBody(c, z.object({ key: z.string().min(10) }));
+    if (!parsed.ok) return c.json(errRes("INVALID_INPUT", "key required"), 422);
+    try {
+      // 1-token ping to verify key works — cheapest possible call
+      const { default: Anthropic } = await import("npm:@anthropic-ai/sdk@^0.54.0");
+      const client = new Anthropic({ apiKey: parsed.data.key });
+      await client.messages.create({
+        model: "claude-haiku-4-5",
+        max_tokens: 1,
+        messages: [{ role: "user", content: "hi" }],
+      });
+      return c.json({ ok: true });
+    } catch (e) {
+      const status = (e as { status?: number }).status;
+      // 401 = bad key; 4xx = key ok but other issue; log errId only
+      const errId = crypto.randomUUID();
+      log.warn("API key test failed", { errId, status });
+      return c.json({ ok: false, errId }, status === 401 ? 401 : 400);
+    }
   });
 
   // ── Self-test ──────────────────────────────────────────────────────────────
