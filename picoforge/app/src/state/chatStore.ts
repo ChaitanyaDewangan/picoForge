@@ -75,6 +75,8 @@ export interface ChatState {
   consoleLogs: { area: "build" | "engine" | "events"; line: string; ts: number }[];
   connected: boolean;
   pendingQueue: number; // messages queued while a run is active
+  /** Most recently built geometry — forwarded to the viewport */
+  lastArtifact: { url: string; format: "glb" | "stl"; stats: GeometryInfo["stats"] } | null;
 }
 
 const INITIAL: ChatState = {
@@ -84,6 +86,7 @@ const INITIAL: ChatState = {
   consoleLogs: [],
   connected: false,
   pendingQueue: 0,
+  lastArtifact: null,
 };
 
 // ─── Actions ──────────────────────────────────────────────────────────────────
@@ -230,7 +233,15 @@ function reducer(state: ChatState, action: Action): ChatState {
     case "GEOMETRY_READY": {
       const geo = new Map(state.geometry);
       geo.set(action.runId, action.info);
-      return { ...state, geometry: geo };
+      return {
+        ...state,
+        geometry: geo,
+        lastArtifact: {
+          url: action.info.url,
+          format: action.info.format,
+          stats: action.info.stats,
+        },
+      };
     }
 
     default:

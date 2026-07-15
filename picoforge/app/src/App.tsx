@@ -9,6 +9,7 @@ import { ConsoleDrawer } from "./panels/ConsoleDrawer.tsx";
 import { SettingsDialog } from "./panels/SettingsDialog.tsx";
 import { FirstRunWizard } from "./panels/FirstRunWizard.tsx";
 import { useChatStore } from "./state/chatStore.ts";
+import { ViewportPane } from "./viewport/ViewportPane.tsx";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -125,72 +126,9 @@ function Topbar({ connected, projectName, onSettings, onConsole }: TopbarProps) 
   );
 }
 
-// ─── Viewport pane (placeholder — filled in M5) ───────────────────────────────
-
-function ViewportPane() {
-  return (
-    <div
-      id="viewport-pane"
-      className="viewport-backdrop"
-      style={{
-        flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        position: "relative",
-        overflow: "hidden",
-        minWidth: 0,
-      }}
-    >
-      {/* Empty state */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 8,
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "20px",
-            fontWeight: 600,
-            color: "var(--ink-2)",
-            letterSpacing: "0.04em",
-          }}
-        >
-          NOTHING ON THE PLATE.
-        </div>
-        <div className="micro-label">DESCRIBE A PART IN THE CHAT — IT BUILDS HERE.</div>
-        <div className="micro-label" style={{ marginTop: 4, color: "var(--amber-dim)" }}>
-          three.js viewport arrives in M5
-        </div>
-      </div>
-
-      {/* DRO strip */}
-      <div
-        id="dro-strip"
-        style={{
-          borderTop: "1px solid var(--line)",
-          background: "var(--bg-1)",
-          padding: "6px var(--pad)",
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-        }}
-      >
-        <div className="readout" style={{ color: "var(--ink-2)" }}>
-          VOL — cm³ · ⌀ — · H — · WT —
-        </div>
-        <div className="micro-label">ORTHO · ISO · IDLE · RT OFF</div>
-      </div>
-    </div>
-  );
-}
 
 // ─── Split divider with drag ──────────────────────────────────────────────────
+
 
 function SplitDivider({
   chatWidthPx,
@@ -363,7 +301,9 @@ export function App() {
           onReset={resetSplit}
         />
 
-        <ViewportPane />
+        <ViewportPane
+          artifact={state.lastArtifact ?? null}
+        />
       </div>
 
       {/* Console drawer */}

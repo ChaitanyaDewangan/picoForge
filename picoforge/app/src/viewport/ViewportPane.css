@@ -1,0 +1,255 @@
+/* app/src/viewport/ViewportPane.css — M5 viewport styles */
+
+.viewport-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  background: var(--bg-0);
+}
+
+/* Canvas fills the pane */
+.viewport-canvas {
+  position: absolute;
+  inset: 0 0 var(--dro-h) 0; /* leave room for DRO */
+  width: 100%;
+  height: calc(100% - var(--dro-h));
+  display: block;
+}
+
+/* ─── Empty state ─────────────────────────────────────────────────────────── */
+
+.viewport-empty {
+  position: absolute;
+  inset: 0 0 var(--dro-h) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.viewport-empty-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: 0.04em;
+}
+.viewport-empty-sub  { color: var(--ink-2); }
+.viewport-empty-hint { color: var(--amber-dim); }
+
+/* ─── Loading bar ─────────────────────────────────────────────────────────── */
+
+.viewport-loading {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  overflow: hidden;
+  z-index: 10;
+}
+.viewport-loading-bar {
+  height: 100%;
+  background: var(--amber);
+  animation: vp-progress 1.2s ease-in-out infinite;
+}
+@keyframes vp-progress {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ─── Context-loss veil ───────────────────────────────────────────────────── */
+
+.viewport-veil {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg-0) 85%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.viewport-veil-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+}
+
+/* ─── ViewCube ───────────────────────────────────────────────────────────── */
+
+.viewcube {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.viewcube-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+  grid-template-rows: repeat(3, 22px);
+  gap: 1px;
+}
+
+.viewcube-face {
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  cursor: pointer;
+  transition: background var(--t-micro), color var(--t-micro), border-color var(--t-micro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  letter-spacing: 0.03em;
+}
+.viewcube-face:hover {
+  background: var(--bg-2);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.viewcube-iso {
+  width: 28px;
+  height: 22px;
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+  border: 1px solid var(--amber-dim);
+  color: var(--amber);
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: 2px;
+  transition: background var(--t-micro), border-color var(--t-micro);
+}
+.viewcube-iso:hover { background: var(--bg-2); border-color: var(--amber); }
+
+.viewcube-tier {
+  margin-top: 4px;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* ─── Viewport toolbar (right rail) ──────────────────────────────────────── */
+
+.viewport-toolbar {
+  position: absolute;
+  top: var(--pad);
+  right: var(--pad);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+  border: 1px solid var(--line);
+  padding: 4px 2px;
+}
+
+.vp-tb-btn {
+  width: 32px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--ink-2);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  transition: background var(--t-micro), color var(--t-micro);
+  border: 1px solid transparent;
+}
+.vp-tb-btn:hover {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+.vp-tb-btn--active {
+  background: color-mix(in srgb, var(--amber) 12%, transparent);
+  border-color: var(--amber-dim);
+  color: var(--amber);
+}
+
+.vp-tb-divider {
+  width: 20px;
+  height: 1px;
+  background: var(--line);
+  margin: 3px 0;
+}
+
+/* ─── DRO strip ─────────────────────────────────────────────────────────── */
+
+:root { --dro-h: 44px; }
+
+.dro-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--dro-h);
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pad);
+  gap: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dro-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.dro-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+
+.dro-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+}
+.dro-label {
+  line-height: 1;
+  color: var(--ink-2);
+}
+.dro-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.dro-badge {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  color: var(--ink-2);
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+.dro-badge--active {
+  border-color: var(--amber-dim);
+  color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 8%, transparent);
+}
