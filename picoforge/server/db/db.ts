@@ -10,7 +10,13 @@ const log = makeLogger("db");
 // Minimal structural interface to avoid `any` while remaining driver-agnostic
 interface DatabaseSync {
   exec(sql: string): void;
-  prepare(sql: string): { get(...args: unknown[]): unknown; run(...args: unknown[]): void };
+  prepare(
+    sql: string,
+  ): {
+    get(...args: unknown[]): unknown;
+    all(...args: unknown[]): unknown[];
+    run(...args: unknown[]): { changes: number; lastInsertRowid: number };
+  };
   close?(): void;
 }
 let DatabaseSyncCtor: new (path: string) => DatabaseSync;
@@ -36,6 +42,12 @@ async function loadDriver(): Promise<new (path: string) => DatabaseSync> {
 }
 
 let _db: DatabaseSync | null = null;
+
+/** Close and reset the DB handle — for test teardown only */
+export function closeDb(): void {
+  _db?.close?.();
+  _db = null;
+}
 
 /** Apply WAL pragmas — called every open */
 function applyPragmas(db: DatabaseSync): void {
@@ -84,7 +96,8 @@ export async function openDb(dataDir: string): Promise<DatabaseSync> {
   );`);
 
   // Read and apply migration files in order
-  const migrationsDir = new URL("./migrations", import.meta.url).pathname;
+  // import.meta.dirname gives the directory of this file as a filesystem path (no URL prefix)
+  const migrationsDir = join(import.meta.dirname ?? ".", "migrations");
   const entries: string[] = [];
   for await (const entry of Deno.readDir(migrationsDir)) {
     if (entry.isFile && entry.name.endsWith(".sql")) {

@@ -40,12 +40,12 @@ export type ClientEvent = z.infer<typeof ClientEventSchema>;
 
 /** Base: every server frame has a monotonic seq */
 const withSeq = <T extends z.ZodRawShape>(shape: T) =>
-  z.object({ seq: z.number().int().nonneg(), ...shape });
+  z.object({ seq: z.number().int().nonnegative(), ...shape });
 
 export const HelloEvent = withSeq({
   type: z.literal("hello"),
   sessionId: z.string(),
-  resumeFrom: z.number().int().nonneg(),
+  resumeFrom: z.number().int().nonnegative(),
 });
 
 export const ChatDeltaEvent = withSeq({
@@ -84,7 +84,7 @@ export const RunStatusEvent = withSeq({
   type: z.literal("run.status"),
   runId: z.string(),
   state: RunState,
-  attempt: z.number().int().nonneg(),
+  attempt: z.number().int().nonnegative(),
   stage: z.string().optional(),
 });
 
