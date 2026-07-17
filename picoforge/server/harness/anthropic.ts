@@ -69,26 +69,37 @@ export function modelMaxTokens(modelId: string): number {
   return AVAILABLE_MODELS.find((m) => m.id === modelId)?.maxTokens ?? TOKEN_BUDGET_CAP;
 }
 
-// ─── Client (hot-reload key per call) ───────────────────────────────────────
+// ─── Client (hot-reload key + base URL per call) ────────────────────────────
 
-// Track last key used so we only recreate when key changes
+// Track last key + base URL so we only recreate when either changes
 let _client: Anthropic | null = null;
 let _clientKey = "";
+let _clientBaseUrl = "";
 
 function getClient(): Anthropic {
-  // Read key from config each time — writeApiKey() hot-reloads it
+  // Read key + base URL from config each time — hot-reloaded by write* helpers
   let apiKey: string | undefined;
+  let baseURL: string | undefined;
   try {
-    apiKey = getConfig().ANTHROPIC_API_KEY;
+    const cfg = getConfig();
+    apiKey = cfg.ANTHROPIC_API_KEY;
+    baseURL = cfg.ANTHROPIC_BASE_URL;
   } catch {
     // Config not yet loaded — fall back to env (test context)
     apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+    baseURL = Deno.env.get("ANTHROPIC_BASE_URL");
   }
   if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set — configure it in Settings");
-  // Recreate client only if key changed
-  if (!_client || _clientKey !== apiKey) {
-    _client = new Anthropic({ apiKey });
+  const resolvedBase = baseURL ?? "";
+  // Recreate client only if key or base URL changed
+  if (!_client || _clientKey !== apiKey || _clientBaseUrl !== resolvedBase) {
+    _client = new Anthropic({
+      apiKey,
+      ...(baseURL ? { baseURL } : {}),
+    });
     _clientKey = apiKey;
+    _clientBaseUrl = resolvedBase;
+    log.info("Anthropic client created", { hasBaseUrl: !!baseURL });
   }
   return _client;
 }

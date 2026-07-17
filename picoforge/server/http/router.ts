@@ -18,7 +18,7 @@ import { conversationCreate, conversationGet, conversationList } from "../db/rep
 import { messageList } from "../db/repo/messages.ts";
 import { artifactGet } from "../db/repo/runs.ts";
 import { settingsGet, SettingsSchema, settingsSet } from "../db/repo/settings.ts";
-import { writeApiKey } from "../config.ts";
+import { writeApiKey, writeBaseUrl, clearBaseUrl, getConfig } from "../config.ts";
 import { AVAILABLE_MODELS } from "../harness/anthropic.ts";
 import type { EngineSupervisor } from "../engine/supervisor.ts";
 
@@ -171,22 +171,40 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
 
   app.get("/api/settings", (c) => {
     const settings = settingsGet();
-    return c.json({ settings });
+    // Include provider info (never expose actual key value)
+    let hasApiKey = false;
+    let apiBaseUrl: string | undefined;
+    try {
+      const cfg = getConfig();
+      hasApiKey = !!cfg.ANTHROPIC_API_KEY;
+      apiBaseUrl = cfg.ANTHROPIC_BASE_URL;
+    } catch { /* config not loaded yet */ }
+    return c.json({ settings, provider: { hasApiKey, apiBaseUrl } });
   });
 
   app.put("/api/settings", async (c) => {
-    // Allow apiKey field in PUT body — written to keystore, never to DB
+    // Allow apiKey + apiBaseUrl in PUT body — written to keystore, never to DB
     const BodySchema = SettingsSchema.partial().extend({
       apiKey: z.string().min(10).optional(),
+      apiBaseUrl: z.string().url().optional().or(z.literal("")),
     });
     const parsed = await parseBody(c, BodySchema);
     if (!parsed.ok) return c.json(errRes("INVALID_INPUT", "Validation failed"), 422);
-    const { apiKey, ...patch } = parsed.data;
+    const { apiKey, apiBaseUrl, ...patch } = parsed.data;
     // Persist API key to keystore (never DB, never logged)
     if (apiKey) {
       const ok = await writeApiKey(apiKey);
       if (!ok) {
         return c.json(errRes("KEYSTORE_WRITE_FAILED", "Could not write key to keystore"), 500);
+      }
+    }
+    // Persist base URL to keystore (or clear if empty)
+    if (apiBaseUrl !== undefined) {
+      const ok = apiBaseUrl
+        ? await writeBaseUrl(apiBaseUrl)
+        : await clearBaseUrl();
+      if (!ok) {
+        return c.json(errRes("KEYSTORE_WRITE_FAILED", "Could not write base URL to keystore"), 500);
       }
     }
     const settings = settingsSet(patch as Parameters<typeof settingsSet>[0]);
@@ -196,12 +214,18 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
   // ── Test API key ──────────────────────────────────────────────────────────
 
   app.post("/api/settings/test-key", async (c) => {
-    const parsed = await parseBody(c, z.object({ key: z.string().min(10) }));
+    const parsed = await parseBody(c, z.object({
+      key: z.string().min(10),
+      baseUrl: z.string().url().optional(),
+    }));
     if (!parsed.ok) return c.json(errRes("INVALID_INPUT", "key required"), 422);
     try {
       // 1-token ping to verify key works — cheapest possible call
       const { default: Anthropic } = await import("npm:@anthropic-ai/sdk@^0.54.0");
-      const client = new Anthropic({ apiKey: parsed.data.key });
+      const client = new Anthropic({
+        apiKey: parsed.data.key,
+        ...(parsed.data.baseUrl ? { baseURL: parsed.data.baseUrl } : {}),
+      });
       await client.messages.create({
         model: "claude-haiku-4-5",
         max_tokens: 1,

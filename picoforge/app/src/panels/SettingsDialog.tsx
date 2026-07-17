@@ -47,6 +47,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState("");
+  const [baseUrlInput, setBaseUrlInput] = useState("");
   const [testStatus, setTestStatus] = useState<"idle" | "testing" | "ok" | "fail">("idle");
   const [models, setModels] = useState<ModelInfo[]>(FALLBACK_MODELS);
 
@@ -57,11 +58,12 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
       .then((r) => r.json())
       .then((j: { models?: ModelInfo[] }) => { if (j.models?.length) setModels(j.models); })
       .catch(() => {/* use fallback */});
-    // Also load current settings
+    // Also load current settings + provider info
     fetch("/api/settings")
       .then((r) => r.json())
-      .then((j: { settings?: Partial<Settings> }) => {
+      .then((j: { settings?: Partial<Settings>; provider?: { hasApiKey?: boolean; apiBaseUrl?: string } }) => {
         if (j.settings) setSettings((s) => ({ ...s, ...j.settings }));
+        if (j.provider?.apiBaseUrl) setBaseUrlInput(j.provider.apiBaseUrl);
       })
       .catch(() => {});
   }, [open]);
@@ -94,10 +96,12 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     if (!apiKeyInput.trim()) return;
     setTestStatus("testing");
     try {
+      const body: Record<string, string> = { key: apiKeyInput };
+      if (baseUrlInput.trim()) body.baseUrl = baseUrlInput;
       const res = await fetch("/api/settings/test-key", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key: apiKeyInput }),
+        body: JSON.stringify(body),
       });
       setTestStatus(res.ok ? "ok" : "fail");
     } catch {
@@ -111,6 +115,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     try {
       const body: Record<string, unknown> = { ...settings };
       if (apiKeyInput.trim()) body.apiKey = apiKeyInput;
+      if (baseUrlInput !== undefined) body.apiBaseUrl = baseUrlInput.trim() || "";
       const res = await fetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -119,6 +124,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
       if (res.ok) {
         setSaved(true);
         setApiKeyInput(""); // clear after save
+        setBaseUrlInput(""); // clear after save
         setTimeout(() => setSaved(false), 2000);
       }
     } catch {
@@ -152,7 +158,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
         <div className="settings-body">
           {/* API Key */}
           <section className="settings-section">
-            <div className="settings-section-title micro-label">API KEY</div>
+            <div className="settings-section-title micro-label">API KEY & ENDPOINT</div>
             <div className="settings-row">
               <input
                 id="api-key-input"
@@ -161,7 +167,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
                 placeholder="sk-…  (write-only, stored in ~/PicoForge/secret.env)"
                 value={apiKeyInput}
                 onChange={(e) => setApiKeyInput(e.target.value)}
-                aria-label="Anthropic API key"
+                aria-label="API key"
                 autoComplete="off"
               />
               <button
@@ -176,8 +182,23 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
                   : "TEST"}
               </button>
             </div>
+            <div style={{ marginTop: 8 }}>
+              <label className="micro-label" htmlFor="base-url-input" style={{ color: "var(--ink-2)", display: "block", marginBottom: 4 }}>
+                BASE URL (leave empty for direct Anthropic)
+              </label>
+              <input
+                id="base-url-input"
+                type="url"
+                className="settings-input"
+                placeholder="https://opencode.ai/api/v1  or custom proxy URL"
+                value={baseUrlInput}
+                onChange={(e) => setBaseUrlInput(e.target.value)}
+                aria-label="API base URL"
+                autoComplete="off"
+              />
+            </div>
             <div className="micro-label" style={{ color: "var(--ink-2)", marginTop: 4 }}>
-              Key is stored locally only — never sent except to Anthropic.
+              Key is stored locally only. Use a base URL for OpenCode, OpenRouter, or other proxies.
             </div>
           </section>
 

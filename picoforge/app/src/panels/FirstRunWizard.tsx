@@ -67,59 +67,167 @@ export function FirstRunWizard({ open, onComplete }: Props) {
   );
 }
 
-// ─── Step 1: API Key ──────────────────────────────────────────────────────────
+type Provider = "anthropic" | "opencode" | "custom";
+
+const PROVIDER_INFO: Record<Provider, { label: string; placeholder: string; baseUrl?: string; desc: string }> = {
+  anthropic: {
+    label: "Anthropic (Direct)",
+    placeholder: "sk-ant-api03-…",
+    desc: "Use your Anthropic API key directly with api.anthropic.com.",
+  },
+  opencode: {
+    label: "OpenCode (Zen / Go)",
+    placeholder: "sk-…",
+    baseUrl: "https://opencode.ai/api/v1",
+    desc: "Use your OpenCode subscription key. Routes through OpenCode's proxy.",
+  },
+  custom: {
+    label: "Custom Proxy",
+    placeholder: "sk-…  or custom key",
+    desc: "Use any Anthropic-compatible proxy endpoint (OpenRouter, Cloudflare, etc.)",
+  },
+};
 
 function ApiKeyStep({ onNext }: { onNext: () => void }) {
+  const [provider, setProvider] = useState<Provider>("anthropic");
   const [key, setKey] = useState("");
+  const [baseUrl, setBaseUrl] = useState("");
   const [status, setStatus] = useState<"idle" | "testing" | "ok" | "fail">("idle");
+  const [failMsg, setFailMsg] = useState("");
+
+  const info = PROVIDER_INFO[provider];
+  // Resolved base URL: preset for opencode, user-entered for custom, empty for anthropic
+  const resolvedBase = provider === "opencode"
+    ? (baseUrl || info.baseUrl!)
+    : provider === "custom"
+      ? baseUrl
+      : "";
 
   async function test() {
     if (!key.trim()) return;
     setStatus("testing");
+    setFailMsg("");
     try {
-      const res = await fetch("/api/settings", {
-        method: "PUT",
+      const body: Record<string, string> = { key };
+      if (resolvedBase) body.baseUrl = resolvedBase;
+      const res = await fetch("/api/settings/test-key", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ apiKey: key }),
+        body: JSON.stringify(body),
       });
-      setStatus(res.ok ? "ok" : "fail");
+      if (res.ok) {
+        setStatus("ok");
+        // Also persist the key + base URL immediately on success
+        const saveBody: Record<string, string> = { apiKey: key };
+        if (resolvedBase) saveBody.apiBaseUrl = resolvedBase;
+        else saveBody.apiBaseUrl = "";
+        await fetch("/api/settings", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(saveBody),
+        });
+      } else {
+        setStatus("fail");
+        setFailMsg(
+          res.status === 401
+            ? "Invalid key — check it and try again"
+            : `Connection failed (HTTP ${res.status})`,
+        );
+      }
     } catch {
       setStatus("fail");
+      setFailMsg("Network error — is the server running?");
     }
   }
 
   return (
     <div className="wizard-step-content">
-      <div className="wizard-step-title">Anthropic API Key</div>
+      <div className="wizard-step-title">API Provider & Key</div>
       <p className="wizard-step-desc">
-        PicoForge calls Claude to design geometry. Your key is stored locally in{" "}
-        <code>~/PicoForge/keystore</code> and never logged or echoed.
+        PicoForge calls Claude to design geometry. Choose your provider and enter your API key.
+        Your key is stored locally in{" "}
+        <code>~/PicoForge/secret.env</code> and never logged.
       </p>
 
+      {/* Provider selector */}
+      <div className="wizard-provider-row">
+        {(["anthropic", "opencode", "custom"] as Provider[]).map((p) => (
+          <button
+            key={p}
+            className={`btn-secondary wizard-provider-btn ${provider === p ? "btn-secondary--active" : ""}`}
+            style={provider === p ? { borderColor: "var(--amber)" } : {}}
+            onClick={() => {
+              setProvider(p);
+              setStatus("idle");
+              setFailMsg("");
+              // Pre-fill opencode base URL
+              if (p === "opencode") setBaseUrl(PROVIDER_INFO.opencode.baseUrl!);
+              else if (p === "anthropic") setBaseUrl("");
+            }}
+          >
+            {PROVIDER_INFO[p].label}
+          </button>
+        ))}
+      </div>
+
+      <div className="micro-label" style={{ color: "var(--ink-2)" }}>
+        {info.desc}
+      </div>
+
+      {/* Base URL (shown for opencode + custom) */}
+      {provider !== "anthropic" && (
+        <div>
+          <label className="micro-label" htmlFor="wizard-base-url" style={{ color: "var(--ink-2)", display: "block", marginBottom: 4 }}>
+            BASE URL
+          </label>
+          <input
+            id="wizard-base-url"
+            type="url"
+            className="wizard-input"
+            placeholder="https://proxy.example.com/v1"
+            value={baseUrl}
+            onChange={(e) => setBaseUrl(e.target.value)}
+            aria-label="API base URL"
+            autoComplete="off"
+          />
+        </div>
+      )}
+
+      {/* API Key */}
       <div className="wizard-input-row">
         <input
           id="wizard-api-key"
           type="password"
           className="wizard-input"
-          placeholder="sk-ant-api03-…"
+          placeholder={info.placeholder}
           value={key}
           onChange={(e) => setKey(e.target.value)}
-          aria-label="Anthropic API key"
+          aria-label="API key"
           autoComplete="off"
           autoFocus
         />
         <button
           id="wizard-test-key"
           className="btn-secondary"
-          disabled={!key.trim() || status === "testing"}
+          disabled={!key.trim() || status === "testing" || (provider !== "anthropic" && !resolvedBase)}
           onClick={test}
         >
           {status === "testing" ? "…" : status === "ok" ? "✓ OK" : status === "fail" ? "✗ FAIL" : "TEST"}
         </button>
       </div>
 
+      {failMsg && (
+        <div className="micro-label" style={{ color: "var(--red, #f44)", marginTop: 2 }}>
+          {failMsg}
+        </div>
+      )}
+
       <div className="wizard-checklist">
-        <CheckItem ok={status === "ok"} pending={status === "testing"} label="1-token ping to claude.ai" />
+        <CheckItem ok={status === "ok"} pending={status === "testing"} label={
+          resolvedBase
+            ? `1-token ping to ${new URL(resolvedBase).hostname}`
+            : "1-token ping to api.anthropic.com"
+        } />
       </div>
 
       <button

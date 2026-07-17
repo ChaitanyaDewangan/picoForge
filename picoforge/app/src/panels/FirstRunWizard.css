@@ -159,5 +159,18 @@
   color: var(--amber);
 }
 
+/* Provider selector row */
+.wizard-provider-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.wizard-provider-btn {
+  flex: 1;
+  min-width: 120px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
 /* Next button */
 .wizard-next { align-self: flex-end; min-width: 140px; justify-content: center; }

@@ -20,31 +20,50 @@ const ConfigSchema = z.object({
   ENGINE_BIN: z.string().default("forge-engine"),
   /** Never echo this value in logs or HTTP responses */
   ANTHROPIC_API_KEY: z.string().optional(),
+  /** Custom base URL for Anthropic-compatible proxies (OpenCode, OpenRouter, etc.) */
+  ANTHROPIC_BASE_URL: z.string().url().optional(),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
 
 let _config: Config | null = null;
 
-async function loadApiKey(dataDir: string): Promise<string | undefined> {
-  // Prefer env; fallback to ~/PicoForge/secret.env
-  const fromEnv = Deno.env.get("ANTHROPIC_API_KEY");
-  if (fromEnv) return fromEnv;
+interface Secrets {
+  apiKey?: string;
+  baseUrl?: string;
+}
+
+async function loadSecrets(dataDir: string): Promise<Secrets> {
+  const result: Secrets = {};
+  // Prefer env vars; fallback to ~/PicoForge/secret.env
+  result.apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+  result.baseUrl = Deno.env.get("ANTHROPIC_BASE_URL");
   try {
     const secretPath = join(dataDir, "secret.env");
     const text = await Deno.readTextFile(secretPath);
-    const match = text.match(/^ANTHROPIC_API_KEY=(.+)$/m);
-    return match?.[1]?.trim();
+    if (!result.apiKey) {
+      const keyMatch = text.match(/^ANTHROPIC_API_KEY=(.+)$/m);
+      result.apiKey = keyMatch?.[1]?.trim();
+    }
+    if (!result.baseUrl) {
+      const urlMatch = text.match(/^ANTHROPIC_BASE_URL=(.+)$/m);
+      result.baseUrl = urlMatch?.[1]?.trim();
+    }
   } catch {
-    return undefined;
+    // No secret.env yet — that's fine
   }
+  return result;
 }
 
 /**
  * Persist a new API key to ~/PicoForge/secret.env and hot-reload config.
  * Key is NEVER logged. Returns true on success.
  */
-export async function writeApiKey(newKey: string): Promise<boolean> {
+/**
+ * Write or update a single line in ~/PicoForge/secret.env.
+ * Hot-reloads the in-memory config. Never logs secret values.
+ */
+async function writeSecretLine(envKey: string, value: string): Promise<boolean> {
   try {
     const cfg = getConfig();
     const secretPath = join(cfg.DATA_DIR, "secret.env");
@@ -52,17 +71,51 @@ export async function writeApiKey(newKey: string): Promise<boolean> {
     try {
       existing = await Deno.readTextFile(secretPath);
     } catch { /* new file */ }
-    // Replace or append the key line — keep any other lines untouched
-    const updated = existing.includes("ANTHROPIC_API_KEY=")
-      ? existing.replace(/^ANTHROPIC_API_KEY=.+$/m, `ANTHROPIC_API_KEY=${newKey}`)
-      : existing + `\nANTHROPIC_API_KEY=${newKey}`;
+    const pattern = new RegExp(`^${envKey}=.+$`, "m");
+    const updated = pattern.test(existing)
+      ? existing.replace(pattern, `${envKey}=${value}`)
+      : existing + `\n${envKey}=${value}`;
     await Deno.writeTextFile(secretPath, updated.trim() + "\n");
-    // Hot-reload: update in-memory config (no restart needed)
-    _config = { ...cfg, ANTHROPIC_API_KEY: newKey };
-    log.info("API key updated", { hasKey: true }); // never log key value
     return true;
   } catch (e) {
-    log.error("Failed to write API key", { error: String(e) });
+    log.error(`Failed to write ${envKey}`, { error: String(e) });
+    return false;
+  }
+}
+
+export async function writeApiKey(newKey: string): Promise<boolean> {
+  const ok = await writeSecretLine("ANTHROPIC_API_KEY", newKey);
+  if (ok) {
+    _config = { ...getConfig(), ANTHROPIC_API_KEY: newKey };
+    log.info("API key updated", { hasKey: true });
+  }
+  return ok;
+}
+
+export async function writeBaseUrl(newUrl: string): Promise<boolean> {
+  const ok = await writeSecretLine("ANTHROPIC_BASE_URL", newUrl);
+  if (ok) {
+    _config = { ...getConfig(), ANTHROPIC_BASE_URL: newUrl || undefined };
+    log.info("API base URL updated", { hasUrl: !!newUrl });
+  }
+  return ok;
+}
+
+export async function clearBaseUrl(): Promise<boolean> {
+  try {
+    const cfg = getConfig();
+    const secretPath = join(cfg.DATA_DIR, "secret.env");
+    let existing = "";
+    try {
+      existing = await Deno.readTextFile(secretPath);
+    } catch { return true; }
+    const cleaned = existing.replace(/^ANTHROPIC_BASE_URL=.+\n?/m, "");
+    await Deno.writeTextFile(secretPath, cleaned.trim() + "\n");
+    _config = { ...cfg, ANTHROPIC_BASE_URL: undefined };
+    log.info("API base URL cleared");
+    return true;
+  } catch (e) {
+    log.error("Failed to clear base URL", { error: String(e) });
     return false;
   }
 }
@@ -78,10 +131,14 @@ export async function loadConfig(): Promise<Config> {
     ENGINE_BIN: Deno.env.get("ENGINE_BIN"),
   };
 
-  const partial = ConfigSchema.omit({ ANTHROPIC_API_KEY: true }).parse(raw);
-  const apiKey = await loadApiKey(partial.DATA_DIR);
+  const partial = ConfigSchema.omit({ ANTHROPIC_API_KEY: true, ANTHROPIC_BASE_URL: true }).parse(raw);
+  const secrets = await loadSecrets(partial.DATA_DIR);
 
-  _config = ConfigSchema.parse({ ...raw, ANTHROPIC_API_KEY: apiKey });
+  _config = ConfigSchema.parse({
+    ...raw,
+    ANTHROPIC_API_KEY: secrets.apiKey,
+    ANTHROPIC_BASE_URL: secrets.baseUrl || undefined,
+  });
 
   await Deno.mkdir(join(_config.DATA_DIR, "logs"), { recursive: true });
   await Deno.mkdir(join(_config.DATA_DIR, "projects"), { recursive: true });
@@ -93,7 +150,8 @@ export async function loadConfig(): Promise<Config> {
     dataDir: _config.DATA_DIR,
     env: _config.NODE_ENV,
     hasApiKey: !!_config.ANTHROPIC_API_KEY,
-    // NEVER log the key itself
+    hasBaseUrl: !!_config.ANTHROPIC_BASE_URL,
+    // NEVER log the key or URL values
   });
 
   return _config;
