@@ -10,15 +10,6 @@ interface Props {
   onView: (v: ViewName) => void;
 }
 
-const FACES: Array<{ view: ViewName; label: string; style: React.CSSProperties }> = [
-  { view: "top",    label: "TOP",   style: { top:   "0%",  left: "33.3%", width: "33.3%", height: "33.3%" } },
-  { view: "bottom", label: "BTM",   style: { top:  "66.6%", left: "33.3%", width: "33.3%", height: "33.3%" } },
-  { view: "front",  label: "FRT",   style: { top:  "33.3%", left: "33.3%", width: "33.3%", height: "33.3%" } },
-  { view: "back",   label: "BCK",   style: { top:  "33.3%", left: "66.6%", width: "33.3%", height: "33.3%" } },
-  { view: "left",   label: "LFT",   style: { top:  "33.3%", left:   "0%",  width: "33.3%", height: "33.3%" } },
-  { view: "right",  label: "RGT",   style: { top:  "33.3%", left: "66.6%", width: "33.3%", height: "33.3%" } },
-  { view: "iso",    label: "ISO",   style: { top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "auto", height: "auto" } },
-];
 
 export function ViewCube({ status, onView }: Props) {
   return (

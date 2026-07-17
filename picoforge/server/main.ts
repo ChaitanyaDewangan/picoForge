@@ -8,6 +8,8 @@ import { repairOrphanRuns } from "./db/repo/runs.ts";
 import { buildRouter } from "./http/router.ts";
 import { EngineSupervisor } from "./engine/supervisor.ts";
 import { log } from "./log.ts";
+import { runGc } from "./db/gc.ts";
+import { launchDesktopApp } from "./desktop.ts";
 
 async function main(): Promise<void> {
   const config = await loadConfig();
@@ -30,6 +32,33 @@ async function main(): Promise<void> {
     });
   }
 
+  // Handle CLI arguments
+  const args = Deno.args;
+  const isSelftest = args.includes("--selftest");
+  const isHeadless = args.includes("--headless");
+
+  if (isSelftest) {
+    log.info("Running self-test...");
+    if (supervisor.client) {
+      try {
+        const res = await supervisor.client.ping();
+        if (res.ok) {
+          log.info("Self-test passed: Engine is ready.");
+          Deno.exit(0);
+        } else {
+          log.error("Self-test failed: Engine ping error", { error: String(res.error) });
+          Deno.exit(1);
+        }
+      } catch (err) {
+        log.error("Self-test failed: Engine ping error", { error: String(err) });
+        Deno.exit(1);
+      }
+    } else {
+      log.error("Self-test failed: Engine supervisor not connected.");
+      Deno.exit(1);
+    }
+  }
+
   const router = buildRouter(supervisor);
 
   log.info("Server starting", { host: config.HOST, port: config.PORT });
@@ -40,10 +69,24 @@ async function main(): Promise<void> {
       port: config.PORT,
       onListen({ hostname, port }) {
         log.info("Server listening", { url: `http://${hostname}:${port}` });
+
+        // Launch desktop window unless headless
+        if (!isHeadless) {
+          launchDesktopApp(
+            `http://${
+              hostname === "127.0.0.1" || hostname === "0.0.0.0" ? "localhost" : hostname
+            }:${port}`,
+          );
+        }
       },
     },
     router.fetch,
   );
+
+  // Schedule Retention GC to run quietly after 30s boot-idle
+  setTimeout(() => {
+    runGc().catch((err) => log.error("Boot GC failed", { error: String(err) }));
+  }, 30_000);
 }
 
 main().catch((err) => {

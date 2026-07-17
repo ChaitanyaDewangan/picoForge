@@ -1,0 +1,117 @@
+.capture-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.capture-modal {
+  background: var(--bg-1, #1a1a1a);
+  border: 1px solid var(--border-1, #333);
+  border-radius: 8px;
+  padding: 24px;
+  width: 400px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: var(--fg-1, #eee);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.capture-modal h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.capture-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.capture-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.capture-form label.checkbox-label {
+  flex-direction: row;
+  align-items: center;
+}
+
+.capture-form select {
+  padding: 8px;
+  background: var(--bg-2, #2a2a2a);
+  border: 1px solid var(--border-1, #333);
+  color: var(--fg-1, #eee);
+  border-radius: 4px;
+}
+
+.capture-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--fg-2, #aaa);
+  text-align: center;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--bg-2, #2a2a2a);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--brand-1, #4a90e2);
+  transition: width 0.1s linear;
+}
+
+.capture-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.capture-actions button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.capture-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--fg-2, #aaa);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-2, #2a2a2a);
+}
+
+.btn-primary {
+  background: var(--brand-1, #4a90e2);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}

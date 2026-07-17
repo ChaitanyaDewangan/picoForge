@@ -4,8 +4,9 @@
 import { Hono } from "hono";
 import { z } from "zod";
 import { makeLogger } from "../log.ts";
-import { broadcast, handleWsUpgrade } from "./ws.ts";
+import { broadcast, handleWsUpgrade, resolveCapture, wsHub } from "./ws.ts";
 import { serveFile } from "./staticFiles.ts";
+import { serveStatic } from "npm:hono@^4/deno";
 import {
   projectCreate,
   projectDelete,
@@ -15,12 +16,14 @@ import {
   projectUpdate,
 } from "../db/repo/projects.ts";
 import { conversationCreate, conversationGet, conversationList } from "../db/repo/conversations.ts";
-import { messageList } from "../db/repo/messages.ts";
-import { artifactGet } from "../db/repo/runs.ts";
+import { messageCreate, messageList } from "../db/repo/messages.ts";
+import { artifactGet, runCreate, runUpdateState } from "../db/repo/runs.ts";
 import { settingsGet, SettingsSchema, settingsSet } from "../db/repo/settings.ts";
-import { writeApiKey, writeBaseUrl, clearBaseUrl, getConfig } from "../config.ts";
+import { clearBaseUrl, getConfig, writeApiKey, writeBaseUrl } from "../config.ts";
 import { AVAILABLE_MODELS } from "../harness/anthropic.ts";
+import { driveRun } from "../harness/orchestrator.ts";
 import type { EngineSupervisor } from "../engine/supervisor.ts";
+import type { ServerEvent } from "../domain/events.ts";
 
 const log = makeLogger("http");
 
@@ -200,9 +203,7 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
     }
     // Persist base URL to keystore (or clear if empty)
     if (apiBaseUrl !== undefined) {
-      const ok = apiBaseUrl
-        ? await writeBaseUrl(apiBaseUrl)
-        : await clearBaseUrl();
+      const ok = apiBaseUrl ? await writeBaseUrl(apiBaseUrl) : await clearBaseUrl();
       if (!ok) {
         return c.json(errRes("KEYSTORE_WRITE_FAILED", "Could not write base URL to keystore"), 500);
       }
@@ -214,10 +215,13 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
   // ── Test API key ──────────────────────────────────────────────────────────
 
   app.post("/api/settings/test-key", async (c) => {
-    const parsed = await parseBody(c, z.object({
-      key: z.string().min(10),
-      baseUrl: z.string().url().optional(),
-    }));
+    const parsed = await parseBody(
+      c,
+      z.object({
+        key: z.string().min(10),
+        baseUrl: z.string().url().optional(),
+      }),
+    );
     if (!parsed.ok) return c.json(errRes("INVALID_INPUT", "key required"), 422);
     try {
       // 1-token ping to verify key works — cheapest possible call
@@ -279,20 +283,162 @@ public class Design {
     if (!conv) return c.json(errRes("NOT_FOUND", "Conversation not found"), 404);
 
     return handleWsUpgrade(c.req.raw, convId, (conversationId, _sessionId, event) => {
-      // Route client events
-      const ev = event as { type: string; runId?: string; text?: string };
+      const ev = event as {
+        type: string;
+        runId?: string;
+        text?: string;
+        requestId?: string;
+        pngBase64?: string;
+        error?: string;
+      };
+      log.debug("WS client event", { conversationId, type: ev.type });
+
       if (ev.type === "run.cancel" && ev.runId) {
         supervisor?.client?.cancel(ev.runId);
+        runUpdateState(ev.runId, "cancelled");
+        broadcast(
+          conversationId,
+          { type: "run.status", runId: ev.runId, state: "cancelled", attempt: 1 } as Omit<
+            ServerEvent,
+            "seq"
+          >,
+        );
       }
-      // user.message and viewport.capture.result are handled by the harness
-      // broadcast is wired in by the orchestrator
-      log.debug("WS client event", { conversationId, type: ev.type });
+
+      if (ev.type === "viewport.capture.result" && ev.requestId) {
+        resolveCapture(ev.requestId, ev.pngBase64);
+      }
+
+      if (ev.type === "user.message" && ev.text) {
+        // 1. Create DB message
+        const msg = messageCreate(conversationId, "user", [{ t: "text", text: ev.text }]);
+        broadcast(
+          conversationId,
+          { type: "message.created", message: msg } as Omit<ServerEvent, "seq">,
+        );
+
+        // 2. Create DB run
+        const projectId = conversationGet(conversationId)?.projectId;
+        if (!projectId) return;
+
+        // Use default model or settings model
+        const model = settingsGet().model || "claude-3-5-sonnet-latest";
+        const run = runCreate(conversationId, model, { messageId: msg.id });
+        broadcast(
+          conversationId,
+          { type: "run.status", runId: run.id, state: "queued", attempt: 1 } as Omit<
+            ServerEvent,
+            "seq"
+          >,
+        );
+
+        // 3. Launch headless orchestrator in background
+        setTimeout(async () => {
+          const controller = new AbortController();
+          const history = messageList(conversationId).map((m) => ({
+            role: m.role as "user" | "assistant",
+            blocks: m.content.map((b) => {
+              if (b.t === "text") return { type: "text" as const, text: b.text };
+              if (b.t === "error") return { type: "text" as const, text: `Error: ${b.msg}` };
+              return { type: "text" as const, text: `[${b.t}]` };
+            }),
+          }));
+
+          try {
+            runUpdateState(run.id, "understanding");
+            broadcast(conversationId, {
+              type: "run.status",
+              runId: run.id,
+              state: "understanding",
+              attempt: 1,
+            } as Omit<ServerEvent, "seq">);
+
+            const result = await driveRun({
+              runId: run.id,
+              projectId,
+              conversationId,
+              userMessage: ev.text!,
+              history,
+              signal: controller.signal,
+              ctx: { wsHub },
+              callbacks: {
+                onStateChange(rId, state) {
+                  runUpdateState(rId, state);
+                  broadcast(
+                    conversationId,
+                    { type: "run.status", runId: rId, state, attempt: 1 } as Omit<
+                      ServerEvent,
+                      "seq"
+                    >,
+                  );
+                },
+                onTextDelta(rId, delta) {
+                  broadcast(conversationId, {
+                    type: "chat.delta",
+                    messageId: rId,
+                    textDelta: delta,
+                  } as Omit<ServerEvent, "seq">);
+                },
+                onGeometryReady(rId, artifactId, stats) {
+                  broadcast(conversationId, {
+                    type: "geometry.ready",
+                    runId: rId,
+                    info: {
+                      artifactId,
+                      url: `/files/projects/${projectId}/artifacts/${artifactId}`,
+                      format: "stl",
+                      stats: stats as Record<string, unknown>,
+                    },
+                  } as Omit<ServerEvent, "seq">);
+                },
+                onError(rId, code, detail) {
+                  runUpdateState(rId, "failed", { errorCode: code, errorDetail: String(detail) });
+                  broadcast(
+                    conversationId,
+                    { type: "run.status", runId: rId, state: "failed", attempt: 1 } as Omit<
+                      ServerEvent,
+                      "seq"
+                    >,
+                  );
+                },
+              },
+            });
+
+            // 4. Create assistant message if done
+            if (result.state === "done") {
+              // We'll broadcast chat.done to let UI finalize
+              broadcast(
+                conversationId,
+                {
+                  type: "chat.done",
+                  messageId: run.id,
+                  usage: { inputTokens: 0, outputTokens: 0 },
+                } as Omit<ServerEvent, "seq">,
+              );
+            }
+          } catch (e) {
+            log.error("driveRun unhandled error", { runId: run.id, error: String(e) });
+            runUpdateState(run.id, "failed", { errorCode: "INTERNAL", errorDetail: String(e) });
+            broadcast(
+              conversationId,
+              { type: "run.status", runId: run.id, state: "failed", attempt: 1 } as Omit<
+                ServerEvent,
+                "seq"
+              >,
+            );
+          }
+        }, 0);
+      }
     });
   });
 
   // ── Static files ──────────────────────────────────────────────────────────
 
   app.get("/files/:path{.+}", serveFile);
+
+  // ── Frontend App ──────────────────────────────────────────────────────────
+
+  app.get("/*", serveStatic({ root: "./app/dist" }));
 
   // ── 404 fallback ──────────────────────────────────────────────────────────
 

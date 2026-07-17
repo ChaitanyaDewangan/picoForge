@@ -10,7 +10,8 @@
     "bench": "deno bench --allow-read --allow-net=127.0.0.1",
     "setup": "deno run --allow-read --allow-write --allow-run --allow-net scripts/setup.ts",
     "db:reset": "deno run --allow-read --allow-write scripts/db_reset.ts",
-    "harness:once": "deno run --env-file=.env --allow-net --allow-read --allow-write --allow-run server/harness/cli.ts"
+    "harness:once": "deno run --env-file=.env --allow-net --allow-read --allow-write --allow-run server/harness/cli.ts",
+    "build": "deno run --allow-all scripts/build.ts"
   },
   "fmt": {
     "useTabs": false,

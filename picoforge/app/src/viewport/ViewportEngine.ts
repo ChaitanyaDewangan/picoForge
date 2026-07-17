@@ -7,8 +7,7 @@ import CameraControls from "camera-controls";
 import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
-// ponytail: PathTracingRenderer wired in M7 — import kept for type checking
-import type { PathTracingRenderer } from "three-gpu-pathtracer";
+import { PathTracingRenderer, PathTracingSceneGenerator } from "three-gpu-pathtracer";
 import { MeshoptDecoder } from "meshoptimizer";
 
 // Patch CameraControls to use Three.js (required by the library)
@@ -79,7 +78,7 @@ export class ViewportEngine {
   private controls: CameraControls;
   private clock: THREE.Clock;
   private pmremGenerator: THREE.PMREMGenerator;
-  private pathTracer: PathTracingRenderer | null = null;
+  public pathTracer: any | null = null;
 
   // State
   private tier: GpuTier;
@@ -90,7 +89,6 @@ export class ViewportEngine {
   private fpsTime = 0;
   private lastTris = 0;
   private lodActive = false;
-  private useLod = false;
 
   // Geometry
   private partGroup: THREE.Group;
@@ -108,17 +106,14 @@ export class ViewportEngine {
 
   // Section
   private sectionPlane: THREE.Plane | null = null;
-  private clippingEnabled = false;
 
   // Turntable
   private turntable = false;
   private turntableYaw = 0;
   private turntableIdleTimer: ReturnType<typeof setTimeout> | null = null;
-  private lastInteractTime = 0;
 
   // PT idle timer
   private ptIdleTimer: ReturnType<typeof setTimeout> | null = null;
-  private cameraIdle = false;
 
   // RAF
   private rafId: number | null = null;
@@ -212,6 +207,24 @@ export class ViewportEngine {
     });
 
     this.clock = new THREE.Clock();
+    
+    // PT initialization
+    if (TIER_CONFIG[this.tier].ptEnabled) {
+      try {
+        this.pathTracer = new PathTracingRenderer(this.renderer);
+        this.pathTracer.camera = this.activeCam;
+        this.pathTracer.alpha = true;
+        this.pathTracer.bounces = 5;
+        this.pathTracer.filterGlossyFactor = 0.25;
+        this.pathTracer.renderScale = TIER_CONFIG[this.tier].renderScale;
+        this.pathTracer.tiles.set(...TIER_CONFIG[this.tier].tiles);
+      } catch (err) {
+        // Handle no support
+        this.tier = "C";
+        this.pathTracer = null;
+      }
+    }
+
     this._startRaf();
     this.setView("iso", false);
   }
@@ -237,11 +250,9 @@ export class ViewportEngine {
       // Decimation: if > 1.5M tris, build display LOD
       if (triCount > 1_500_000) {
         this.dispGeom = await this._decimate(geom, 1_000_000);
-        this.useLod = true;
         this.lodActive = true;
       } else {
         this.dispGeom = geom;
-        this.useLod = false;
         this.lodActive = false;
       }
 
@@ -298,6 +309,11 @@ export class ViewportEngine {
       this.controls.camera = this.orthoCam;
       this.activeCam = this.orthoCam;
     }
+    if (this.pathTracer) {
+      this.pathTracer.camera = this.activeCam;
+      this.pathTracer.updateCamera();
+      this.spp = 0;
+    }
     this.needsRender = true;
   }
 
@@ -310,7 +326,6 @@ export class ViewportEngine {
   setSection(s: null | { axis: AxisId; offsetMm: number }): void {
     if (!s) {
       this.sectionPlane = null;
-      this.clippingEnabled = false;
       this.renderer.clippingPlanes = [];
     } else {
       const normal = s.axis === "x"
@@ -319,7 +334,6 @@ export class ViewportEngine {
         ? new THREE.Vector3(0, 1, 0)
         : new THREE.Vector3(0, 0, 1);
       this.sectionPlane = new THREE.Plane(normal, -s.offsetMm);
-      this.clippingEnabled = true;
       this.renderer.clippingPlanes = [this.sectionPlane];
     }
     this._schedulePtBuild(); // section change → BVH rebuild
@@ -338,25 +352,61 @@ export class ViewportEngine {
     width: number;
     height: number;
     studio?: boolean;
+    onProgress?: (spp: number, maxSpp: number) => void;
   }): Promise<Blob> {
     return new Promise<Blob>((resolve, reject) => {
-      const timeout = setTimeout(() => reject(new Error("CAPTURE_TIMEOUT")), 10_000);
+      const timeoutMs = req.studio ? 35_000 : 10_000;
+      const timeout = setTimeout(() => reject(new Error("CAPTURE_TIMEOUT")), timeoutMs);
       try {
-        // Temporarily render at the requested size
         const prevSize = new THREE.Vector2();
         this.renderer.getSize(prevSize);
         this.renderer.setSize(req.width, req.height, false);
 
         if (req.view !== "current") this.setView(req.view, false);
 
-        this.renderer.render(this.scene, this.activeCam);
-        this.canvas.toBlob((blob) => {
-          clearTimeout(timeout);
-          this.renderer.setSize(prevSize.x, prevSize.y, false);
-          this.needsRender = true;
-          if (blob) resolve(blob);
-          else reject(new Error("CAPTURE_TIMEOUT"));
-        }, "image/png");
+        if (req.studio && this.pathTracer) {
+          this.pathTracer.updateCamera();
+          this.spp = 0;
+          
+          const targetSpp = 1024;
+          const startTime = performance.now();
+          
+          const renderLoop = () => {
+            if (this.spp >= targetSpp || performance.now() - startTime > 30_000) {
+              // Done
+              this.canvas.toBlob((blob) => {
+                clearTimeout(timeout);
+                this.renderer.setSize(prevSize.x, prevSize.y, false);
+                this.needsRender = true;
+                if (blob) resolve(blob);
+                else reject(new Error("CAPTURE_TIMEOUT"));
+              }, "image/png");
+              return;
+            }
+            
+            // Render a batch of samples to not block UI entirely
+            for (let i = 0; i < 4; i++) {
+              if (this.spp < targetSpp) {
+                this.pathTracer!.renderSample();
+                this.spp++;
+              }
+            }
+            
+            req.onProgress?.(this.spp, targetSpp);
+            requestAnimationFrame(renderLoop);
+          };
+          renderLoop();
+        } else {
+          // Raster
+          this.renderer.render(this.scene, this.activeCam);
+          this.canvas.toBlob((blob) => {
+            clearTimeout(timeout);
+            this.renderer.setSize(prevSize.x, prevSize.y, false);
+            this.needsRender = true;
+            if (blob) resolve(blob);
+            else reject(new Error("CAPTURE_TIMEOUT"));
+          }, "image/png");
+        }
       } catch (e) {
         clearTimeout(timeout);
         reject(new Error("CAPTURE_TIMEOUT"));
@@ -390,6 +440,10 @@ export class ViewportEngine {
     this.orthoCam.top    = half;
     this.orthoCam.bottom = -half;
     this.orthoCam.updateProjectionMatrix();
+    if (this.pathTracer) {
+      this.pathTracer.updateCamera();
+      this.spp = 0;
+    }
     this.needsRender = true;
   }
 
@@ -462,9 +516,20 @@ export class ViewportEngine {
   private _tickPt(): void {
     if (!this.pathTracer) return;
     if (this.spp >= 512) return; // max samples
+    
     this.pathTracer.renderSample();
     this.spp++;
     this.needsRender = true;
+    
+    // Raster->PT blend for first 16 spp
+    if (this.spp <= 16) {
+      this.renderer.autoClear = false;
+      this.renderer.domElement.style.opacity = "1";
+      // To blend properly, we can render the raster first then PT
+      // However, three-gpu-pathtracer writes directly to canvas on update/renderSample
+      // We will just let it draw.
+    }
+    
     // PT watchdog: < 2 spp/s → disable
     if (this.spp === 10 && this.clock.getElapsedTime() > 8) {
       this._exitPt();
@@ -480,12 +545,32 @@ export class ViewportEngine {
   }
 
   private _buildPt(): void {
-    // ponytail: PT wired fully in M7 — raster-only for M5 gate
-    // The PathTracingRenderer setup requires scene BVH generator;
-    // kept as a no-op stub so the call sites are in place.
-    if (!TIER_CONFIG[this.tier].ptEnabled || !this.partMesh) return;
-    // PT disabled in M5 — mode stays raster
-    this.spp = 0;
+    if (!TIER_CONFIG[this.tier].ptEnabled || !this.partMesh || !this.pathTracer) return;
+    
+    try {
+      const generator = new PathTracingSceneGenerator();
+      const { bvh, textures, materials } = generator.generate(this.scene);
+      
+      const ptGeom = bvh.geometry;
+      const ptMat = this.pathTracer.material;
+      ptMat.bvh.updateFrom(bvh);
+      ptMat.attributesArray.updateFrom(
+        ptGeom.attributes.normal,
+        ptGeom.attributes.tangent,
+        ptGeom.attributes.uv,
+        ptGeom.attributes.color
+      );
+      ptMat.materialIndexAttribute.updateFrom(ptGeom.attributes.materialIndex);
+      ptMat.materials.updateFrom(materials, textures);
+      
+      this.pathTracer.setScene(this.scene, this.activeCam);
+      this.spp = 0;
+    } catch (e) {
+      console.warn("PT build failed:", e);
+      this.tier = "C";
+      this.pathTracer.dispose();
+      this.pathTracer = null;
+    }
   }
 
   private _enterPtMaybe(): void {
@@ -514,7 +599,7 @@ export class ViewportEngine {
 
   private _onInteract(): void {
     this._exitPt();
-    this.lastInteractTime = Date.now();
+    // Interaction resets PT
     // Turntable: pause on interaction, resume after 10 s
     if (this.turntable) {
       if (this.turntableIdleTimer) clearTimeout(this.turntableIdleTimer);

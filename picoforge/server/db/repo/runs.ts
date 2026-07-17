@@ -9,7 +9,11 @@ import { getDb, withTx } from "../db.ts";
 
 export const RunStateSchema = z.enum([
   "queued",
+  "understanding",
   "briefing",
+  "building",
+  "inspecting",
+  "awaiting_user",
   "codegen",
   "compiling",
   "executing",

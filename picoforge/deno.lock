@@ -5,6 +5,7 @@
     "jsr:@std/internal@^1.0.12": "1.0.14",
     "npm:@anthropic-ai/sdk@0.54": "0.54.0",
     "npm:hono@4": "4.12.28",
+    "npm:ripgrep-bin@*": "13.0.0",
     "npm:ulid@2": "2.4.0",
     "npm:zod@3": "3.25.76",
     "npm:zod@^3.23.0": "3.25.76"
@@ -27,6 +28,11 @@
     },
     "hono@4.12.28": {
       "integrity": "sha512-YwUvVpSF7m1yOblFPrU3Hbo8XhPheBoiyfGuII6z19LnOr6JpDnyyp7LFNrfV56wS8tpvtBFGRISHN02pDdLOA=="
+    },
+    "ripgrep-bin@13.0.0": {
+      "integrity": "sha512-lwFAmnB4ssW3H0RYApOHcViuIfuPiEp2S4vRvpdyKdidfGLrjfESvz8XuIGaFzS24KY+6c8NMmEXgoNdSm8uzw==",
+      "scripts": true,
+      "bin": true
     },
     "ulid@2.4.0": {
       "integrity": "sha512-fIRiVTJNcSRmXKPZtGzFQv9WRrZ3M9eoptl/teFJvjOzmpU+/K/JH6HZ8deBfb5vMEpicJcLn7JmvdknlMq7Zg==",

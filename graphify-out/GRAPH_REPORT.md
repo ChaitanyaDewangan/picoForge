@@ -1,16 +1,16 @@
-# Graph Report - 001_picogk_X7  (2026-07-10)
+# Graph Report - 001_picogk_X7  (2026-07-17)
 
 ## Corpus Check
-- 209 files · ~167,377 words
+- 246 files · ~232,600 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1818 nodes · 2342 edges · 152 communities (139 shown, 13 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 56 edges (avg confidence: 0.55)
+- 4649 nodes · 8781 edges · 320 communities (209 shown, 111 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 530 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `19a8783f`
+- Built from commit: `688b09a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -149,53 +149,212 @@
 - graphify.md
 - ponytail.md
 - graphify.md
+- ids.ts
 - after-install.md
 - ponytail.md
 - ponytail.md
 - ponytail-statusline.sh script
 - ponytail.md
 - ponytail.md
+- t
+- ve
+- Dt
+- .toJSON
+- .setValues
+- Chat Conversation
+- router.ts
+- l
+- .add
+- uI
+- Bt
+- API Key Integration — Complete ✅
+- ct
+- .load
+- _k
+- qT
+- ke
+- mi
+- .copy
+- Ma
+- .dot
+- M3: Server + DB — Complete ✅
+- ft
+- .applyMatrix4
+- Qe
+- ri
+- Chat Conversation
+- .distanceTo
+- Hp
+- Lo
+- .invert
+- kw
+- ol
+- .fromJSON
+- .push
+- vt
+- Jy
+- .dispatchEvent
+- ._onChangeCallback
+- zp
+- sn
+- l3
+- .multiplyScalar
+- iw
+- jT
+- AR
+- .fromArray
+- kI
+- .constructor
+- uw
+- Params
+- KitGoldenTests
+- Fo
+- h3
+- .updateProjectionMatrix
+- .addScaledVector
+- ra
+- ch
+- .dispose
+- qy
+- .makeEmpty
+- Qu
+- rk
+- cards.tsx
+- WsClient
+- vh
+- c9
+- ck
+- MessageList.tsx
+- chatStore.ts
+- Create PicoForge data dir and write the key to secret.env (never echoed)
+- ao
+- .isEmpty
+- dx
+- yA
+- .distanceSqToSegment
+- Do
+- .prepScene
+- .updateMatrixWorld
+- xh
+- Vn
+- BuildCard.tsx
+- FirstRunWizard.tsx
+- system.ts
+- .loadTextureImage
+- wk
+- .union
+- jw
+- .raycast
+- vl
+- zC
+- Ai
+- .applyMatrix3
+- qa
+- .setValue
+- fn
+- kk
+- SettingsDialog.tsx
+- .getY
+- .intersectsTriangle
+- sk
+- xk
+- zT
+- M5 Gate: Live at `http://localhost:5174/`
+- .updateMatrixWorld
+- .bind
+- tw
+- bk
+- ek
+- ER
+- jI
+- mx
+- no
+- om
+- vk
+- What was built this session
+- .aNaca4
+- fx
+- Hu
+- Ze
+- .premultiply
+- sm
+- vm
+- build.ts
+- am
+- bm
+- .copySampleValue_
+- lk
+- nm
+- Po
+- Qp
+- uU
+- Yy
+- Session Log: 10/07/2026 12:11 PM
+- .updateMatrixWorld
+- bh
+- g3
+- gm
+- hm
+- lx
+- Mh
+- NI
+- pm
+- um
+- yx
+- three-gpu-pathtracer.d.ts
+- dh
+- ex
+- f3
+- Gy
+- i9
+- o9
+- r9
+- rm
+- s9
+- wR
+- XR
+- yu
 
 ## God Nodes (most connected - your core abstractions)
-1. `M1 Engine — Complete ✅` - 28 edges
-2. `Kit` - 27 edges
-3. `Ctx` - 23 edges
-4. `compilerOptions` - 19 edges
-5. `M0 Complete ✅` - 19 edges
-6. `ok` - 18 edges
-7. `err` - 18 edges
-8. `PicoForge — What I Understood` - 18 edges
-9. `getPonytailInstructions()` - 16 edges
-10. `KitGoldenTests` - 16 edges
+1. `P` - 144 edges
+2. `ct` - 83 edges
+3. `cI()` - 76 edges
+4. `t()` - 69 edges
+5. `ve` - 60 edges
+6. `l()` - 58 edges
+7. `n()` - 54 edges
+8. `Dt` - 53 edges
+9. `Ma()` - 52 edges
+10. `Bt` - 47 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `main()` --indirect_call--> `outPath()`  [INFERRED]
-  picoforge/scripts/setup.ts → picoforge/.tools/ponytail/scripts/build-openclaw-skills.js
-- `readMode()` --calls--> `normalizePersistedMode()`  [EXTRACTED]
-  picoforge/.tools/ponytail/.opencode/plugins/ponytail.mjs → picoforge/.tools/ponytail/hooks/ponytail-config.js
-- `register()` --references--> `skillsDir`  [EXTRACTED]
-  picoforge/.tools/ponytail/__init__.py → picoforge/.tools/ponytail/scripts/publish-openclaw-skills.js
-- `register()` --references--> `skillCommands`  [EXTRACTED]
-  picoforge/.tools/ponytail/__init__.py → picoforge/.tools/ponytail/tests/hermes-plugin.test.js
-- `parse_complete()` --calls--> `parse_score()`  [INFERRED]
-  picoforge/.tools/ponytail/benchmarks/agentic/complete.py → picoforge/.tools/ponytail/benchmarks/agentic/judge.py
+- `GpuStep()` --indirect_call--> `t()`  [INFERRED]
+  picoforge/app/src/panels/FirstRunWizard.tsx → picoforge/server/public/assets/index-8CSqSFYa.js
+- `ViewportPane()` --indirect_call--> `err`  [INFERRED]
+  picoforge/app/src/viewport/ViewportPane.tsx → picoforge/server/domain/result.ts
+- `ViewportPane()` --indirect_call--> `b()`  [INFERRED]
+  picoforge/app/src/viewport/ViewportPane.tsx → picoforge/server/public/assets/index-8CSqSFYa.js
+- `buildRouter()` --references--> `hono`  [EXTRACTED]
+  picoforge/server/http/router.ts → picoforge/deno.json
+- `runGc()` --indirect_call--> `err`  [INFERRED]
+  picoforge/server/db/gc.ts → picoforge/server/domain/result.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (152 total, 13 thin omitted)
+## Communities (320 total, 111 thin omitted)
 
 ### Community 0 - "Kit"
-Cohesion: 0.07
-Nodes (26): BBox3, PicoForge.Kit, Kit.Tests, Fact, float, Func, IImplicit, Matrix4x4 (+18 more)
+Cohesion: 0.16
+Nodes (11): BBox3, IImplicit, Matrix4x4, Mesh, Ctx, IReadOnlyList, Vector3, Voxels (+3 more)
 
 ### Community 1 - "Compiler"
 Cohesion: 0.05
 Nodes (28): AttributeSyntax, ConcurrentDictionary, ForgeEngine, CSharpSyntaxWalker, int, JsonNode, MemberAccessExpressionSyntax, HashSet (+20 more)
 
 ### Community 2 - "log.ts"
-Cohesion: 0.07
-Nodes (37): log, main(), ROOT, run(), step(), Config, ConfigSchema, loadApiKey() (+29 more)
+Cohesion: 0.26
+Nodes (9): applyMigration(), applyPragmas(), closeDb(), DatabaseSync, loadDriver(), log, openDb(), SqliteModule (+1 more)
 
 ### Community 3 - "__init__.py"
 Cohesion: 0.07
@@ -206,44 +365,44 @@ Cohesion: 0.05
 Nodes (40): assert, claudeEnv, codexData, codexEnv, codexState, copilotData, customConfigDir, { DEFAULT_MODE, getDefaultMode, isShellSafe, writeDefaultMode } (+32 more)
 
 ### Community 5 - "index.ts"
-Cohesion: 0.09
-Nodes (32): ToolDefinition, askUserTool, Input, jsonSchema, zodInput, makeDef(), RunCtx, ToolModule (+24 more)
+Cohesion: 0.05
+Nodes (43): err, ok, Result, EngineClient, ToolDefinition, TurnResult, MockModel, MockToolCall (+35 more)
 
 ### Community 6 - "tasks"
 Cohesion: 0.05
-Nodes (37): compilerOptions, lib, noFallthroughCasesInSwitch, noImplicitAny, noUnusedLocals, noUnusedParameters, strict, strictNullChecks (+29 more)
+Nodes (39): compilerOptions, lib, noFallthroughCasesInSwitch, noImplicitAny, noUnusedLocals, noUnusedParameters, strict, strictNullChecks (+31 more)
 
 ### Community 7 - "run.py"
 Cohesion: 0.12
 Nodes (31): aggregate(), chat_code_loc(), _claude_version(), code_stats(), _count(), _git(), git_diff_stats(), _git_snapshot() (+23 more)
 
 ### Community 8 - "M1 Engine — Complete ✅"
-Cohesion: 0.06
-Nodes (32): Deno Server (M1 additions), ForgeEngine (C# — managed-only host), ForgeSandbox (C# — only project touching PicoGK), Kit.Tests — [8 golden-volume tests](file:///v:/_PORJECTS/001_picogk_X7/picoforge/engine/Kit.Tests/PlaceholderTest.cs), M1 Engine — Complete ✅, Planner Response, Planner Response, Planner Response (+24 more)
+Cohesion: 0.07
+Nodes (27): M1 Engine — Complete ✅, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+19 more)
 
 ### Community 9 - "robustness-audit.js"
 Cohesion: 0.08
 Nodes (25): { checkPy, pyBlock, TASKS }, email, fs, kv, MODELS, path, skill, { checkPy, pyBlock, TASKS } (+17 more)
 
 ### Community 10 - "tasks.py"
-Cohesion: 0.17
-Nodes (28): _contained(), _fail(), _find(), _find_class(), _import(), _import_pkg(), _ok(), Path (+20 more)
+Cohesion: 0.09
+Nodes (47): main(), parse_complete(), _rank_ok(), scores: {(task_id, label): {SCORE_KEY: int}}. For each task the 'complete' label, Live: the judge model must rank each complete ref above its stub., No API, no key: prove the GATE catches under-delivery. A well-ordered matrix mus, run(), selftest() (+39 more)
 
 ### Community 11 - "orchestrator.ts"
-Cohesion: 0.11
-Nodes (21): AnthropicMessage, ac, userPrompt, DEFAULT_SETTINGS, driveRun(), log, OrchestratorCallbacks, RunState (+13 more)
+Cohesion: 0.08
+Nodes (31): AnthropicMessage, AVAILABLE_MODELS, BACKOFF_MS, createMessageStream(), getClient(), log, MessageContent, modelMaxTokens() (+23 more)
 
 ### Community 12 - "err"
-Cohesion: 0.13
-Nodes (10): err, ok, Result, EngineClient, EngineCompileResult, EngineHelloResult, EnginePingResult, EngineRunParams (+2 more)
+Cohesion: 0.02
+Nodes (93): _0, _3(), a9, AS, b0, bA, BE, bf (+85 more)
 
 ### Community 13 - "package.json"
 Cohesion: 0.08
 Nodes (25): author, name, url, bugs, url, description, exports, ./plugin (+17 more)
 
 ### Community 14 - "ponytail-runtime.js"
-Cohesion: 0.12
-Nodes (22): getConfigDir(), isDeactivationCommand(), { clearMode, isQoder, readMode, setMode, writeHookOutput }, finish(), { getDefaultMode, isDeactivationCommand, writeDefaultMode }, { getPonytailInstructions }, clearMode(), fs (+14 more)
+Cohesion: 0.14
+Nodes (20): isDeactivationCommand(), { clearMode, isQoder, readMode, setMode, writeHookOutput }, finish(), { getDefaultMode, isDeactivationCommand, writeDefaultMode }, { getPonytailInstructions }, clearMode(), fs, { getClaudeDir, getConfigDir } (+12 more)
 
 ### Community 15 - "LLM_HARNESS.md — The Agent Core"
 Cohesion: 0.08
@@ -251,15 +410,15 @@ Nodes (23): 10. Multi-turn edits ("make the blades thicker"), 11. Harness test s
 
 ### Community 16 - "package.json"
 Cohesion: 0.08
-Nodes (23): dependencies, @base-ui/react, camera-controls, react, react-dom, three, three-gpu-pathtracer, devDependencies (+15 more)
+Nodes (24): dependencies, @base-ui/react, camera-controls, meshoptimizer, react, react-dom, three, three-gpu-pathtracer (+16 more)
 
 ### Community 17 - "LLM_HARNESS.md — The Agent Core"
 Cohesion: 0.08
 Nodes (23): 10. Multi-turn edits ("make the blades thicker"), 11. Harness test suite (must exist before UI work — AGENTS M2), 1. Why this design is hard to fail (the eight load-bearing decisions), 2. Components, 3. SYSTEM PROMPT (verbatim template), 4.1 Structural check (regex + Roslyn syntax tree), 4.2 Banned-symbol analyzer (engine `Analyzers.cs`), 4.3 Unknown-symbol pre-pass (+15 more)
 
 ### Community 18 - "events.ts"
-Cohesion: 0.08
-Nodes (22): ChatBlockEvent, ChatDeltaEvent, ChatDoneEvent, ClientEvent, ClientEventSchema, ErrorEvent, GeometryReadyEvent, GeometryStats (+14 more)
+Cohesion: 0.06
+Nodes (36): AskUserEvent, ChatBlockEvent, ChatDeltaEvent, ChatDoneEvent, ClientEvent, ClientEventSchema, ErrorEvent, GeometryReadyEvent (+28 more)
 
 ### Community 19 - "correctness.js"
 Cohesion: 0.10
@@ -278,12 +437,12 @@ Cohesion: 0.10
 Nodes (20): 10. Security posture (local app, still disciplined), 11. Packaging & modes, 1. Design goals → architectural consequences, 2. Process topology, 3.1 Module map, 3.2 HTTP API (REST, JSON), 3.3 WebSocket protocol (`/ws?conversationId=`), 3.4 Settings & secrets (+12 more)
 
 ### Community 23 - "judge.py"
-Cohesion: 0.20
-Nodes (19): main(), parse_complete(), _rank_ok(), scores: {(task_id, label): {SCORE_KEY: int}}. For each task the 'complete' label, Live: the judge model must rank each complete ref above its stub., No API, no key: prove the GATE catches under-delivery. A well-ordered matrix mus, run(), selftest() (+11 more)
+Cohesion: 0.05
+Nodes (11): aE(), cI(), co(), CS, df, fI, i0, k0 (+3 more)
 
 ### Community 24 - "index.js"
-Cohesion: 0.17
-Nodes (18): normalizeMode(), normalizePersistedMode(), { DEFAULT_MODE, normalizeMode, normalizePersistedMode }, filterSkillBodyForMode(), fs, getFallbackInstructions(), getPonytailInstructions(), INDEPENDENT_MODES (+10 more)
+Cohesion: 0.13
+Nodes (25): fs, getConfigDir(), getConfigPath(), getDefaultMode(), getHideStatus(), getQuietStartup(), normalizeConfigMode(), normalizeMode() (+17 more)
 
 ### Community 25 - "uninstall.test.js"
 Cohesion: 0.10
@@ -302,8 +461,8 @@ Cohesion: 0.11
 Nodes (19): Files created (24 total), M0 Complete ✅, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+11 more)
 
 ### Community 29 - "anthropic.ts"
-Cohesion: 0.15
-Nodes (14): BACKOFF_MS, createMessageStream(), getClient(), log, MessageContent, RETRYABLE, runStream(), sleep() (+6 more)
+Cohesion: 0.07
+Nodes (10): Hy(), lU(), pE, pk, qk, v3(), w3(), y3() (+2 more)
 
 ### Community 30 - "SandboxPool"
 Cohesion: 0.15
@@ -330,12 +489,12 @@ Cohesion: 0.13
 Nodes (14): 10. Acceptance gate (M9), 1. Concept, 2. Architecture, 3. Sessions, 4.1 Tools (names and schemas are the LLM_HARNESS §5 schemas, verbatim), 4.2 Resources (read-only; URIs stable), 4.3 Prompts, 4. Exposed surface (+6 more)
 
 ### Community 36 - "EngineSupervisor"
-Cohesion: 0.18
-Nodes (5): BACKOFF_MS, EngineStatus, EngineSupervisor, log, SupervisorState
+Cohesion: 0.09
+Nodes (23): runGc(), repairOrphanRuns(), launchDesktopApp(), log, EngineCompileResult, EngineHelloResult, EnginePingResult, EngineRunParams (+15 more)
 
 ### Community 37 - "submitDesignBrief.ts"
-Cohesion: 0.16
-Nodes (12): BriefValidationResult, CATEGORIES, Input, jsonSchema, MATERIALS, parameterSchema, physicsCheckSchema, PROJECT_ENVELOPE_MM (+4 more)
+Cohesion: 0.18
+Nodes (11): BriefValidationResult, CATEGORIES, Input, jsonSchema, MATERIALS, parameterSchema, physicsCheckSchema, PROJECT_ENVELOPE_MM (+3 more)
 
 ### Community 38 - "README.ko.md"
 Cohesion: 0.13
@@ -354,24 +513,24 @@ Cohesion: 0.14
 Nodes (11): Ponytail, lazy senior dev mode, Ponytail, lazy senior dev mode, Before / after, Commands, Development, FAQ, How it works, License (+3 more)
 
 ### Community 42 - "ponytail-config.js"
-Cohesion: 0.16
-Nodes (11): fs, getClaudeDir(), isShellSafe(), normalizeConfigMode(), os, path, VALID_MODES, fs (+3 more)
+Cohesion: 0.29
+Nodes (5): getClaudeDir(), fs, { getConfigPath, getClaudeDir }, path, settingsPath
 
 ### Community 43 - "openclaw-skills.test.js"
-Cohesion: 0.21
-Nodes (12): DESCRIPTIONS, fs, NAMES, outPath(), path, render(), ROOT, sourceBody() (+4 more)
+Cohesion: 0.14
+Nodes (17): log, main(), ROOT, run(), step(), DESCRIPTIONS, fs, NAMES (+9 more)
 
 ### Community 44 - "generate-examples.mjs"
-Cohesion: 0.18
-Nodes (10): isHaiku(), j, meta, pick(), rows, tbl, assert, cases (+2 more)
+Cohesion: 0.20
+Nodes (9): isHaiku(), meta, pick(), rows, tbl, assert, cases, loc (+1 more)
 
 ### Community 45 - "AGENTS.md — PicoForge Build Playbook"
 Cohesion: 0.17
 Nodes (11): 0. Prime directive, 1. PONYTAIL — how you write code here (active: `full`), 2. GRAPHIFY — how you navigate and remember here, 3. Engineering doctrine — the "no crashes" law, 4. Milestones (build in order; a gate failing blocks the next milestone), 5. Testing strategy (summary — details live per milestone), 6. Risk register (check when entering the related milestone), 7. Definition of done (the whole project) (+3 more)
 
 ### Community 46 - "PicoForge — What I Understood"
-Cohesion: 0.17
-Nodes (12): Current State of the Workspace, How PicoGK is Used, PicoForge — What I Understood, Tech Stack (Locked), The 9 Milestones (Build Order), The Big Idea, The Build Pipeline (What Happens When You Send a Message), The DumpApi Tool (The Critical Link) (+4 more)
+Cohesion: 0.13
+Nodes (15): Current State of the Workspace, How PicoGK is Used, PicoForge — What I Understood, Planner Response, Tech Stack (Locked), The 9 Milestones (Build Order), The Big Idea, The Build Pipeline (What Happens When You Send a Message) (+7 more)
 
 ### Community 47 - "README.es.md"
 Cohesion: 0.17
@@ -410,8 +569,8 @@ Cohesion: 0.18
 Nodes (10): 0. Prime directive, 1. PONYTAIL — how you write code here (active: `full`), 2. GRAPHIFY — how you navigate and remember here, 3. Engineering doctrine — the "no crashes" law, 4. Milestones (build in order; a gate failing blocks the next milestone), 5. Testing strategy (summary — details live per milestone), 6. Risk register (check when entering the related milestone), 7. Definition of done (the whole project) (+2 more)
 
 ### Community 56 - "App.tsx"
-Cohesion: 0.20
-Nodes (3): App(), DotStatus, root
+Cohesion: 0.13
+Nodes (11): DotStatus, TopbarProps, Composer(), PLACEHOLDERS, Props, MessageList(), ConsoleArea, ConsoleDrawer() (+3 more)
 
 ### Community 57 - "PICOGK_KNOWLEDGE.md — Kernel API, Kit Helpers, Recipes, Physics"
 Cohesion: 0.18
@@ -426,8 +585,8 @@ Cohesion: 0.18
 Nodes (11): A contamination bug we found in our own numbers, Agentic benchmark: does ponytail cut code without cutting safety?, Axis 1: lines of code on real features (12 tasks), Axis 2: does minimizing drop a guard? (6 tasks), Conclusion, Limitations (so this can't be the next thing someone debunks), Reproduce, Setup (+3 more)
 
 ### Community 60 - "getDefaultMode"
-Cohesion: 0.20
-Nodes (9): getDefaultMode(), RUNTIME_MODES, __dirname, { getDefaultMode, normalizePersistedMode }, { getPonytailInstructions }, { parseCommandFile }, readMode(), require (+1 more)
+Cohesion: 0.15
+Nodes (14): { DEFAULT_MODE, normalizeMode, normalizePersistedMode }, filterSkillBodyForMode(), fs, getFallbackInstructions(), getPonytailInstructions(), INDEPENDENT_MODES, path, SKILL_PATH (+6 more)
 
 ### Community 61 - "Instalación"
 Cohesion: 0.18
@@ -466,18 +625,18 @@ Cohesion: 0.20
 Nodes (10): 1. **Using `slowapi` (Recommended - Easiest)**, 2. **Using `limits` Library (More Control)**, 3. **Custom Middleware (Full Control)**, 4. **Per-User Rate Limiting (With Authentication)**, 5. **Redis-Based Rate Limiting (Production)**, 6. **Complete Example with Multiple Endpoints**, Comparison Table, Rate Limiting in FastAPI (+2 more)
 
 ### Community 70 - "ponytail-activate.js"
-Cohesion: 0.20
-Nodes (9): claudeDir, {
+Cohesion: 0.17
+Nodes (11): claudeDir, {
   clearMode,
   isCodex,
   isCopilot,
   setMode,
   writeHookOutput,
-}, fs, { getDefaultMode, getClaudeDir, isShellSafe }, { getPonytailInstructions }, mode, output, path (+1 more)
+}, fs, { getDefaultMode, getClaudeDir, isShellSafe }, { getPonytailInstructions }, mode, output, path (+3 more)
 
 ### Community 71 - "ponytailExtension"
-Cohesion: 0.27
-Nodes (6): getConfigPath(), getHideStatus(), getQuietStartup(), writeDefaultMode(), ponytailExtension(), createPiHarness()
+Cohesion: 0.06
+Nodes (26): probeGpuTierAsync(), CaptureModal(), Props, ArtifactMeta, DROStrip(), fmtNum(), Props, Props (+18 more)
 
 ### Community 72 - "opencode-plugin.test.js"
 Cohesion: 0.20
@@ -696,28 +855,272 @@ Cohesion: 0.50
 Nodes (3): Boundaries, Output, Scan
 
 ### Community 127 - "What I Was About to Do"
+Cohesion: 0.04
+Nodes (6): bC(), cN(), dN(), Fg, P, yC()
+
+### Community 134 - "ids.ts"
+Cohesion: 0.08
+Nodes (53): getDb(), withTx(), Conversation, conversationCreate(), conversationGet(), conversationList(), conversationUpdateTitle(), rowToConversation() (+45 more)
+
+### Community 152 - "t"
+Cohesion: 0.07
+Nodes (35): AC(), bL(), _C(), $D(), fC(), gl, gS(), HE() (+27 more)
+
+### Community 153 - "ve"
+Cohesion: 0.04
+Nodes (3): o3(), r3(), ve
+
+### Community 155 - ".toJSON"
+Cohesion: 0.05
+Nodes (9): ak, ax, cw, DR(), fm, fU, gk, Oo (+1 more)
+
+### Community 156 - ".setValues"
+Cohesion: 0.05
+Nodes (10): bw, dw, fw, hw, Ky, lw, mw, pw (+2 more)
+
+### Community 157 - "Chat Conversation"
+Cohesion: 0.04
+Nodes (45): Chat Conversation, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+37 more)
+
+### Community 158 - "router.ts"
+Cohesion: 0.11
+Nodes (35): clearBaseUrl(), Config, ConfigSchema, getConfig(), loadConfig(), loadSecrets(), log, Secrets (+27 more)
+
+### Community 159 - "l"
+Cohesion: 0.11
+Nodes (23): aN(), b(), cC(), cL(), cx(), dC(), dL(), _h (+15 more)
+
+### Community 160 - ".add"
+Cohesion: 0.10
+Nodes (4): io, IT, kO, To
+
+### Community 161 - "uI"
+Cohesion: 0.07
+Nodes (3): aw, nw, uI()
+
+### Community 163 - "API Key Integration — Complete ✅"
+Cohesion: 0.06
+Nodes (36): API Key Integration — Complete ✅, 🔄 Hot-Reload, 🔑 Key Storage (secure, not DB), 🧪 Key Test Route, 🎛️ Model Picker (live from server), Planner Response, Planner Response, Planner Response (+28 more)
+
+### Community 164 - "ct"
+Cohesion: 0.11
+Nodes (19): Ah, bN(), ct, eN(), Fe, gN(), jN(), kn (+11 more)
+
+### Community 165 - ".load"
+Cohesion: 0.14
+Nodes (5): kU(), $R, Rt, sw(), wU()
+
+### Community 167 - "qT"
+Cohesion: 0.09
+Nodes (4): aU, p0(), qT(), ua
+
+### Community 168 - "ke"
+Cohesion: 0.09
+Nodes (4): e0(), ke, Ns(), rl()
+
+### Community 169 - "mi"
+Cohesion: 0.07
+Nodes (18): _a(), fl(), gI(), h9(), hx, iA(), iy(), lI() (+10 more)
+
+### Community 170 - ".copy"
+Cohesion: 0.07
+Nodes (8): CR(), eA(), lm, mm, RR(), Sh, xl, ym
+
+### Community 172 - ".dot"
+Cohesion: 0.12
+Nodes (5): Ei, $g, jd, On, zk
+
+### Community 173 - "M3: Server + DB — Complete ✅"
+Cohesion: 0.07
+Nodes (28): M3: Server + DB — Complete ✅, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+20 more)
+
+### Community 175 - ".applyMatrix4"
+Cohesion: 0.11
+Nodes (5): qR, Su, Vd, wA, $y
+
+### Community 178 - "Chat Conversation"
+Cohesion: 0.07
+Nodes (26): Chat Conversation, How to use your OpenCode key:, ✅ OpenCode API Key + Custom Base URL Support, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+18 more)
+
+### Community 179 - ".distanceTo"
+Cohesion: 0.08
+Nodes (20): af(), b3(), Bd, cA(), dA, eE, g0, lf (+12 more)
+
+### Community 180 - "Hp"
+Cohesion: 0.09
+Nodes (6): dE, Hp, IE, n3, RE(), uy()
+
+### Community 181 - "Lo"
+Cohesion: 0.10
+Nodes (15): al(), dm(), dU, eU(), hh(), lh(), Lo(), oU (+7 more)
+
+### Community 182 - ".invert"
+Cohesion: 0.11
+Nodes (3): em, gu, OS
+
+### Community 185 - ".fromJSON"
+Cohesion: 0.18
+Nodes (3): h0, nk, tk
+
+### Community 186 - ".push"
+Cohesion: 0.16
+Nodes (3): addEventListener(), ly(), yO
+
+### Community 188 - "Jy"
+Cohesion: 0.10
+Nodes (9): Bg(), bI(), dispatchEvent(), Jy, kT(), oh(), OT, px (+1 more)
+
+### Community 190 - "._onChangeCallback"
+Cohesion: 0.13
+Nodes (3): DS, Ka, RS
+
+### Community 191 - "zp"
+Cohesion: 0.19
+Nodes (5): iN(), qS(), wS, Wy(), zp
+
+### Community 193 - "l3"
+Cohesion: 0.10
+Nodes (13): a3(), Ay(), ff, gE(), If(), jc, l3, M3() (+5 more)
+
+### Community 197 - "AR"
+Cohesion: 0.12
+Nodes (3): AR(), fy(), uO
+
+### Community 198 - ".fromArray"
+Cohesion: 0.10
+Nodes (3): ew, ox, xx
+
+### Community 200 - ".constructor"
+Cohesion: 0.14
+Nodes (9): CE, FR(), Kg, LS, uE, wE, xE, Yg (+1 more)
+
+### Community 202 - "Params"
+Cohesion: 0.12
+Nodes (8): PicoForge.Kit, Kit.Tests, Dictionary, Vector3, Material, Params, Rng, Random
+
+### Community 203 - "KitGoldenTests"
+Cohesion: 0.34
+Nodes (4): Fact, float, Func, KitGoldenTests
+
+### Community 205 - "h3"
+Cohesion: 0.24
+Nodes (7): e3(), Ey(), h3, i3(), s3(), t3(), wI()
+
+### Community 206 - ".updateProjectionMatrix"
+Cohesion: 0.19
+Nodes (4): _f, jo, pI(), j
+
+### Community 210 - ".dispose"
+Cohesion: 0.13
+Nodes (4): dk, Ho, jk, py
+
+### Community 211 - "qy"
+Cohesion: 0.16
+Nodes (3): gA, pA, qy
+
+### Community 212 - ".makeEmpty"
+Cohesion: 0.20
+Nodes (3): nA, Od, Si
+
+### Community 213 - "Qu"
+Cohesion: 0.13
+Nodes (3): Qu(), rx, sx
+
+### Community 215 - "cards.tsx"
+Cohesion: 0.16
+Nodes (8): App(), ErrorCard(), Props, BRIEF_COLLAPSED, BRIEF_FULL, CardsFixturePage(), RUNS, root
+
+### Community 216 - "WsClient"
+Cohesion: 0.25
+Nodes (3): reducer(), useChatStore(), WsClient
+
+### Community 220 - "MessageList.tsx"
+Cohesion: 0.21
+Nodes (8): BriefCard(), BriefData, Props, Props, renderText(), STARTER_PROMPTS, TextBlock(), ChatMessage
+
+### Community 221 - "chatStore.ts"
+Cohesion: 0.17
+Nodes (11): ChatState, GeometryInfo, INITIAL, MsgBlock, RunState, RunStep, RECONNECT_DELAYS_MS, ServerEventType (+3 more)
+
+### Community 222 - "Create PicoForge data dir and write the key to secret.env (never echoed)"
+Cohesion: 0.15
+Nodes (12): Create PicoForge data dir and write the key to secret.env (never echoed), Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response, Planner Response (+4 more)
+
+### Community 223 - "ao"
+Cohesion: 0.15
+Nodes (3): ao, ik, so
+
+### Community 227 - ".distanceSqToSegment"
+Cohesion: 0.18
+Nodes (7): Aa, Bp, Gg, hf(), iI(), Pd, Pp
+
+### Community 234 - "BuildCard.tsx"
+Cohesion: 0.31
+Nodes (8): BuildCard(), getProgressPercent(), isTerminal(), Props, Stage, stageFromRunState(), STAGES, RunInfo
+
+### Community 235 - "FirstRunWizard.tsx"
+Cohesion: 0.20
+Nodes (6): FirstRunWizard(), GpuStep(), Props, Provider, PROVIDER_INFO, Step
+
+### Community 236 - "system.ts"
+Cohesion: 0.27
+Nodes (8): ApiEntry, ApiManifest, ApiType, buildApiCard(), buildSystemPrompt(), estimateTokens(), log, SystemPromptParams
+
+### Community 240 - ".union"
+Cohesion: 0.24
+Nodes (3): Hg, Hk, tf
+
+### Community 250 - "kk"
+Cohesion: 0.22
+Nodes (4): jA, kk, uk, zA
+
+### Community 251 - "SettingsDialog.tsx"
+Cohesion: 0.25
+Nodes (6): DEFAULTS, FALLBACK_MODELS, ModelInfo, Props, Settings, SettingsDialog()
+
+### Community 254 - ".intersectsTriangle"
+Cohesion: 0.25
+Nodes (5): EC, jg(), Ld, mu, Yr
+
+### Community 260 - "M5 Gate: Live at `http://localhost:5174/`"
+Cohesion: 0.29
+Nodes (7): Agent Response, M5 Gate: Live at `http://localhost:5174/`, Planner Response, Planner Response, User Input, User Input, User Input
+
+### Community 261 - ".updateMatrixWorld"
+Cohesion: 0.29
+Nodes (3): O0(), ok, ro
+
+### Community 273 - "What was built this session"
+Cohesion: 0.40
+Nodes (5): Deno Server (M1 additions), ForgeEngine (C# — managed-only host), ForgeSandbox (C# — only project touching PicoGK), Kit.Tests — [8 golden-volume tests](file:///v:/_PORJECTS/001_picogk_X7/picoforge/engine/Kit.Tests/PlaceholderTest.cs), What was built this session
+
+### Community 277 - "Ze"
+Cohesion: 0.40
+Nodes (4): kf, le, OE, Ze
+
+### Community 282 - "build.ts"
 Cohesion: 0.67
-Nodes (3): Planner Response, User Input, What I Was About to Do
+Nodes (3): build(), rootDir, runCommand()
 
 ## Knowledge Gaps
-- **1052 isolated node(s):** `$schema`, `name`, `description`, `name`, `url` (+1047 more)
+- **1330 isolated node(s):** `$schema`, `name`, `description`, `name`, `url` (+1325 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **111 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ALLOWED_USINGS` connect `index.ts` to `Compiler`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `ForgeEngine` connect `Compiler` to `SandboxPool`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `ViewportPane()` connect `ponytailExtension` to `App.tsx`, `l`, `index.ts`, `WsClient`?**
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
+- **Why does `b()` connect `l` to `.isEmpty`, `.add`, `ct`, `.load`, `AR`, `ponytailExtension`, `.prepScene`, `.copy`, `.dot`, `err`, `h3`, `.invert`, `judge.py`, `t`, `anthropic.ts`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+- **Why does `err` connect `index.ts` to `orchestrator.ts`, `EngineSupervisor`, `submitDesignBrief.ts`, `ponytailExtension`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Are the 36 inferred relationships involving `t()` (e.g. with `GpuStep()` and `sleep()`) actually correct?**
+  _`t()` has 36 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Run a command; never raises. Returns (exitcode, combined tail output).`, `Always-on ruleset into .agents/rules/ (Antigravity reads it every session).`, `Install the graphifyy package, then wire Antigravity + the git hook.` to the rest of the system?**
-  _1081 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Kit` be split into smaller, more focused modules?**
-  _Cohesion score 0.06912280701754386 - nodes in this community are weakly interconnected._
+  _1359 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Compiler` be split into smaller, more focused modules?**
   _Cohesion score 0.05254901960784314 - nodes in this community are weakly interconnected._
-- **Should `log.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06972789115646258 - nodes in this community are weakly interconnected._
 - **Should `__init__.py` be split into smaller, more focused modules?**
   _Cohesion score 0.07188160676532769 - nodes in this community are weakly interconnected._

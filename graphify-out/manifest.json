@@ -350,18 +350,18 @@
     "semantic_hash": ""
   },
   "picoforge/app/package.json": {
-    "mtime": 1783656447.140857,
-    "ast_hash": "37dbb37aac6679e9879ac9b7df70656d",
+    "mtime": 1784092759.5169642,
+    "ast_hash": "43590ec4fe9bfd118a5f6d98143d962d",
     "semantic_hash": ""
   },
   "picoforge/app/src/App.tsx": {
-    "mtime": 1783656230.0492496,
-    "ast_hash": "6692c2768efe8fb0808470dd27b89867",
+    "mtime": 1784263151.067392,
+    "ast_hash": "bfe41d29a7c9d24aa9807848ead40070",
     "semantic_hash": ""
   },
   "picoforge/app/src/main.tsx": {
-    "mtime": 1783656650.351765,
-    "ast_hash": "f9a9f9bdc997121979c35982e36cc082",
+    "mtime": 1784090843.0606217,
+    "ast_hash": "9a0cf71ed73bb19d8ea3d61af6be29e0",
     "semantic_hash": ""
   },
   "picoforge/app/tsconfig.app.json": {
@@ -385,8 +385,8 @@
     "semantic_hash": ""
   },
   "picoforge/deno.json": {
-    "mtime": 1783660299.9400706,
-    "ast_hash": "e0e1734f95ac19d0ef1a58c120ce1359",
+    "mtime": 1784262706.8193662,
+    "ast_hash": "34f2127b3090dd174a57cbd33c383bbb",
     "semantic_hash": ""
   },
   "picoforge/engine/ForgeEngine/Analyzers.cs": {
@@ -480,13 +480,13 @@
     "semantic_hash": ""
   },
   "picoforge/server/config.ts": {
-    "mtime": 1783655937.1027884,
-    "ast_hash": "10207716c9746eb1ee1a487130daca63",
+    "mtime": 1784261329.9913938,
+    "ast_hash": "0503779884bd7bc728a20f8ba45c6c4d",
     "semantic_hash": ""
   },
   "picoforge/server/db/db.ts": {
-    "mtime": 1783662020.369246,
-    "ast_hash": "f005878b0f2a7ad0f513bda04b33bf7a",
+    "mtime": 1784089921.2695336,
+    "ast_hash": "4e407bcc3cea5a4d1c9bd1a83b9c342d",
     "semantic_hash": ""
   },
   "picoforge/server/db/migrations/0001_init.sql": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "picoforge/server/domain/events.ts": {
-    "mtime": 1783655911.8720183,
-    "ast_hash": "4a5ff698e9e33f0aeaa7b0a297c22acb",
+    "mtime": 1784261822.9707308,
+    "ast_hash": "589087bdc2b8ad90cf1c906f3a6a9f25",
     "semantic_hash": ""
   },
   "picoforge/server/domain/ids.ts": {
@@ -520,8 +520,8 @@
     "semantic_hash": ""
   },
   "picoforge/server/harness/anthropic.ts": {
-    "mtime": 1783661966.956851,
-    "ast_hash": "7206dfe5c9e082a6f7ed8193d333e38f",
+    "mtime": 1784259562.1808484,
+    "ast_hash": "e550a331275f3c3fffd2d76e9d5af923",
     "semantic_hash": ""
   },
   "picoforge/server/harness/cli.ts": {
@@ -615,8 +615,8 @@
     "semantic_hash": ""
   },
   "picoforge/server/http/router.ts": {
-    "mtime": 1783656020.5255766,
-    "ast_hash": "2b7d591bb2a813096bc5ce8475ecd402",
+    "mtime": 1784262778.7214315,
+    "ast_hash": "64a8cc4bb93e79367c7d8f6fa07436b0",
     "semantic_hash": ""
   },
   "picoforge/server/log.ts": {
@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "picoforge/server/main.ts": {
-    "mtime": 1783656030.264609,
-    "ast_hash": "40b503a5d7369fa5640736c07cac3516",
+    "mtime": 1784263316.891109,
+    "ast_hash": "36a60069e6e617542cea51c017beccdd",
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
@@ -1147,6 +1147,196 @@
   "picoforge/.tools/ponytail/assets/waitlist-banner.png": {
     "mtime": 1783655522.9399369,
     "ast_hash": "2c223c2bb087ce98b47ef2dee43c2d7c",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/chat/BriefCard.tsx": {
+    "mtime": 1784090348.1162424,
+    "ast_hash": "d63fabcc201d993271b3528026909b87",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/chat/BuildCard.tsx": {
+    "mtime": 1784091771.644616,
+    "ast_hash": "2b739530d75a32eaf6e8bd2b11e95371",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/chat/Composer.tsx": {
+    "mtime": 1784090430.311599,
+    "ast_hash": "8ed57f843d822763d770cfa9b88c6f82",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/chat/ErrorCard.tsx": {
+    "mtime": 1784090360.7140744,
+    "ast_hash": "75b1d8ae575ff935d1fd91de45b48d79",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/chat/MessageList.tsx": {
+    "mtime": 1784263112.275609,
+    "ast_hash": "863be65c7c17d4e6baf3873b70438aaf",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/dev/cards.tsx": {
+    "mtime": 1784090828.3662393,
+    "ast_hash": "f3ef8d077d984f5f033d85f6749024fc",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/panels/ConsoleDrawer.tsx": {
+    "mtime": 1784090469.1172893,
+    "ast_hash": "b9821721cea7a4fc94a7343c1983fac8",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/panels/FirstRunWizard.tsx": {
+    "mtime": 1784259649.813856,
+    "ast_hash": "19e2fc0f4dc3aced9566a939654411d6",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/panels/SettingsDialog.tsx": {
+    "mtime": 1784259871.775231,
+    "ast_hash": "4f771330c4a71542ef11037b6de877b1",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/state/chatStore.ts": {
+    "mtime": 1784262876.0018225,
+    "ast_hash": "faa30f6644ed409b17726ed93cc38cb2",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/types/three-gpu-pathtracer.d.ts": {
+    "mtime": 1784262848.7646863,
+    "ast_hash": "35fd28a70a197af771a138b63a432b17",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/GpuProbe.ts": {
+    "mtime": 1784262947.891722,
+    "ast_hash": "96e37c3e404bc9ecd37475267810907c",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/ViewportEngine.ts": {
+    "mtime": 1784263083.992597,
+    "ast_hash": "e0fbe2fa0683b1a6be79d28bcc34442c",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/ViewportPane.tsx": {
+    "mtime": 1784263030.4789984,
+    "ast_hash": "5d7d06c182254c2bf47d9201d8f5f643",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/hud/CaptureModal.tsx": {
+    "mtime": 1784262038.680958,
+    "ast_hash": "149de135663786a0cd6a7b25efe8f9a4",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/hud/DROStrip.tsx": {
+    "mtime": 1784092944.12071,
+    "ast_hash": "f113c62139d42fb6831bf90aa508a0f0",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/hud/ViewCube.tsx": {
+    "mtime": 1784263058.5451353,
+    "ast_hash": "d562122bcaf3a96faee09299a58e1a9e",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/viewport/hud/ViewportToolbar.tsx": {
+    "mtime": 1784262026.6934235,
+    "ast_hash": "f8b7a2e72ac2dda769c4cfa605851445",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/ws/client.ts": {
+    "mtime": 1784261085.0535843,
+    "ast_hash": "a79c647475bb7db8009c51eefb5a8c25",
+    "semantic_hash": ""
+  },
+  "picoforge/scripts/build.ts": {
+    "mtime": 1784263318.100909,
+    "ast_hash": "7ed030949b579eaa85a6dabc6c3336db",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/gc.ts": {
+    "mtime": 1784262796.0034554,
+    "ast_hash": "8bfd511859483069457a4a6cbf00b14d",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/conversations.ts": {
+    "mtime": 1784089950.1963184,
+    "ast_hash": "7b1b2abc8051fd105399496ca2c9cc72",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/kb.ts": {
+    "mtime": 1784090036.3541636,
+    "ast_hash": "affce8a50b3283bcacbd7d5748dcd054",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/messages.ts": {
+    "mtime": 1784090066.666035,
+    "ast_hash": "b24c0c98aa9c4be6ea7dc1f487748438",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/projects.ts": {
+    "mtime": 1784089942.512597,
+    "ast_hash": "295b56b66f07c7df8577608f4d49d2be",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/runs.ts": {
+    "mtime": 1784261849.364496,
+    "ast_hash": "eeb163e546a62183a597b90303c7bf54",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/repo/settings.ts": {
+    "mtime": 1784092012.5896654,
+    "ast_hash": "19d46ef282b238fe508d192ecffcd51a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/tests/repos.test.ts": {
+    "mtime": 1784090058.2492251,
+    "ast_hash": "f5fae2d8fe1f5dd1fb40006d8ee52572",
+    "semantic_hash": ""
+  },
+  "picoforge/server/desktop.ts": {
+    "mtime": 1784262721.0896902,
+    "ast_hash": "56d62a7371831731cd47da73c5472826",
+    "semantic_hash": ""
+  },
+  "picoforge/server/http/staticFiles.ts": {
+    "mtime": 1784089565.0901985,
+    "ast_hash": "3c47e688c774f2ec7ce0347e9d2ad3ed",
+    "semantic_hash": ""
+  },
+  "picoforge/server/http/ws.ts": {
+    "mtime": 1784261688.4689083,
+    "ast_hash": "e580ba3861c6164fe3fd85bc7cc68ffc",
+    "semantic_hash": ""
+  },
+  "picoforge/server/public/assets/index-8CSqSFYa.js": {
+    "mtime": 1784263336.598676,
+    "ast_hash": "152417aeb1fdf828e8c75d733b3c8adf",
+    "semantic_hash": ""
+  },
+  "start.ps1": {
+    "mtime": 1784260519.5223389,
+    "ast_hash": "717e21e4e497d84cace4e4e6048d8513",
+    "semantic_hash": ""
+  },
+  "conversations/2026-07-10-M2-Completion.md": {
+    "mtime": 1783665742.5550704,
+    "ast_hash": "fc0380d5e3514f25e3f77afef9814103",
+    "semantic_hash": ""
+  },
+  "conversations/log.md": {
+    "mtime": 1784091825.1272304,
+    "ast_hash": "c1327c62edd0465d8cb51027a3cf9e89",
+    "semantic_hash": ""
+  },
+  "picoforge/conversations/15-JJULY.md": {
+    "mtime": 1784259900.7623413,
+    "ast_hash": "65b2bf9c6b0bbb6e1182af21ea5337a2",
+    "semantic_hash": ""
+  },
+  "picoforge/conversations/17-JJULY.md": {
+    "mtime": 1784260267.7112863,
+    "ast_hash": "50911ff119e3cef483356629496927c5",
+    "semantic_hash": ""
+  },
+  "picoforge/server/public/index.html": {
+    "mtime": 1784263336.597663,
+    "ast_hash": "bf5dc2f63e2679fc22953e621e5f34ca",
     "semantic_hash": ""
   }
 }

@@ -13,11 +13,10 @@ interface Props {
   messages: ChatMessage[];
   runs: Map<string, RunInfo>;
   onCancel: (runId: string) => void;
-  onSend: (text: string) => void;
   onViewCode?: (runId: string) => void;
 }
 
-export function MessageList({ messages, runs, onCancel, onSend, onViewCode }: Props) {
+export function MessageList({ messages, runs, onCancel, onViewCode }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +50,6 @@ export function MessageList({ messages, runs, onCancel, onSend, onViewCode }: Pr
           msg={msg}
           runs={runs}
           onCancel={onCancel}
-          onSend={onSend}
           onViewCode={onViewCode}
         />
       ))}
@@ -66,13 +64,11 @@ function MessageRow({
   msg,
   runs,
   onCancel,
-  onSend,
   onViewCode,
 }: {
   msg: ChatMessage;
   runs: Map<string, RunInfo>;
   onCancel: (runId: string) => void;
-  onSend: (text: string) => void;
   onViewCode?: (runId: string) => void;
 }) {
   const isUser = msg.role === "user";
@@ -108,7 +104,6 @@ function MessageRow({
             block={block}
             runs={runs}
             onCancel={onCancel}
-            onSend={onSend}
             onViewCode={onViewCode}
           />
         ))}
@@ -123,13 +118,11 @@ function BlockRenderer({
   block,
   runs,
   onCancel,
-  onSend,
   onViewCode,
 }: {
   block: MsgBlock;
   runs: Map<string, RunInfo>;
   onCancel: (runId: string) => void;
-  onSend: (text: string) => void;
   onViewCode?: (runId: string) => void;
 }) {
   switch (block.t) {

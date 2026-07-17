@@ -286,7 +286,6 @@ export function App() {
             messages={state.messages}
             runs={state.runs}
             onCancel={cancelRun}
-            onSend={sendMessage}
           />
           <Composer
             onSend={sendMessage}

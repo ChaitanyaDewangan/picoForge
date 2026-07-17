@@ -13,6 +13,8 @@ export type ServerEventType =
   | "step.done"
   | "geometry.ready"
   | "viewport.capture.request"
+  | "ask_user"
+  | "message.created"
   | "error"
   | "pong";
 

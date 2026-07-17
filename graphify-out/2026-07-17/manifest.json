@@ -1,0 +1,1152 @@
+{
+  "KNOWLEDGE_BASE/setup_workspace.py": {
+    "mtime": 1783635638.0,
+    "ast_hash": "5c999a94507f14e2b02d73bab696c959",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.agents/plugins/marketplace.json": {
+    "mtime": 1783655522.922429,
+    "ast_hash": "c3cd74c0b7ac03e18cfe92ef4051d5e3",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.claude-plugin/marketplace.json": {
+    "mtime": 1783655522.923429,
+    "ast_hash": "ca299f3c376e645302af7615192f315f",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.claude-plugin/plugin.json": {
+    "mtime": 1783655522.923429,
+    "ast_hash": "93a85361e9c90f2faad5767163c043fc",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.codex-plugin/plugin.json": {
+    "mtime": 1783655522.923429,
+    "ast_hash": "91ef88d2bbc3774e26c8742c7296d152",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.devin-plugin/plugin.json": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "f592c01566d32c4d811909ea69c5180c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/plugin/marketplace.json": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "b75009ddf97b3fb5096a0755d59b7361",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/plugin/plugin.json": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "6d1b7d1d751a17797b1e09d548bb994c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/plugins/ponytail.mjs": {
+    "mtime": 1783655522.9289377,
+    "ast_hash": "db7e606e726a34494cbe23b395fe89c9",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.qoder-plugin/plugin.json": {
+    "mtime": 1783655522.9289377,
+    "ast_hash": "067e5852165862b7e7785eb2c38684de",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/__init__.py": {
+    "mtime": 1783655522.9299376,
+    "ast_hash": "705c2693f36ce9b6980067bbe041f68c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/agentic/complete.py": {
+    "mtime": 1783655522.940937,
+    "ast_hash": "0318bfe6481e3eea4162e7e5ba2a5369",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/agentic/judge.py": {
+    "mtime": 1783655522.940937,
+    "ast_hash": "08582e08f01b1ac46f54a14dab72e6be",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/agentic/run.py": {
+    "mtime": 1783655522.940937,
+    "ast_hash": "f8a60ea5be8c338ef3c2489a6dcd5ba8",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/agentic/tasks.py": {
+    "mtime": 1783655522.940937,
+    "ast_hash": "ef316e09ee71dc534d31ef01d4ed759a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/arms/baseline.js": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "073233d7847b7c6ab8e6379e5d755e4c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/arms/caveman.js": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "e6324bb82fe7688591e6c9f5051b8b85",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/arms/ponytail.js": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "f6bd007f2fb681efe40847f8cd126ee2",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/behavior.js": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "6e9a7ca610943cb1fad56a11c90bbf9c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/benchmark-local.py": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "41a7b549d371d6e3da58ef92c76258b3",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/claude-email.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "baf02a95a2c547a2c5132757b01a69dd",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/correctness.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "0770c9962d796402b21e40a30b3208d3",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/correctness.test.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "588cc05cf9ac2a7985322208c702344f",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/generate-examples.mjs": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "c8c09526736a8be8378c51f08309c8a0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/loc.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "e3e3e740f33fb1581324c2020997a999",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/loc.test.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "886c3042596a5d575adb74f43579e143",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/model-email.js": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "3da9411358aa7c2cacf989efc26458d2",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/prompts.json": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "f28e27909ca8215e87fef603e450f2e9",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/robustness-audit.js": {
+    "mtime": 1783655522.945939,
+    "ast_hash": "88c0defb53a17d2baff80696851c58ed",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/gemini-extension.json": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "f2fab1ebe69c54685579d2bcd1b29318",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/claude-codex-hooks.json": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "384d0c546709819a37347353bf760daf",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/copilot-hooks.json": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "251b4b6a60ea59ceefe888c641517707",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-activate.js": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "4685e4c29612e36d82bd414d457f309a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-config.js": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "b4a41f88d457b34bfccd9f6f18a6dab0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-instructions.js": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "c5e13a48b9bbde5c95c5cb19c57e39cd",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-mode-tracker.js": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "4eb352ea075b4df43978232a6e15e8f0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-runtime.js": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "c42063b2033cd6fbf2520fc23a8b4da4",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-statusline.ps1": {
+    "mtime": 1783655522.9499373,
+    "ast_hash": "4885b4c7b1c32b8128bd5791d0aa3e61",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-statusline.sh": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "3c68bbb1674e65b6bc3a62161da758dd",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/ponytail-subagent.js": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "d3723a31ba4b64e56782eca40e309cd1",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/hooks/qoder-hooks.json": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "f0163bb61a4dd79ed4d37ea138e3785a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/opencode.json": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "12480805d334400bc7fb057cee96931e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/package.json": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "b64042832889ec712553198ad1eb1cb3",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/pi-extension/index.js": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "ba71ef8862fa61750cf87881ace0abf7",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/pi-extension/package.json": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "0c45a7cf9e637fd58fdeb039d4109937",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/pi-extension/test/extension.test.js": {
+    "mtime": 1783655522.950937,
+    "ast_hash": "b24cefc81809f79f59dd7626c18910be",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/pi-extension/test/helpers.test.js": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "c65fbe1da25ab13ed78225f215f34680",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/ponytail-mcp/index.js": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "9b0b601319251c4d1465eacec4f90636",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/ponytail-mcp/instructions.js": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "c2326d71248aa7cac50e41654ede766e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/ponytail-mcp/package.json": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "b2a5d607902772d0347c2f19f14bade2",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/ponytail-mcp/test/instructions.test.js": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "2bfbe70d4fe56e58ea50028d43c3640a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/scripts/build-openclaw-skills.js": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "0055011ab7f4bfc95df429c443726c26",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/scripts/check-rule-copies.js": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "80e481a56c2773aff5542afe6b075a93",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/scripts/check-versions.js": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "a5e3758ba5e66f433e50021f9a0e0a2e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/scripts/publish-openclaw-skills.js": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "d6f16edcfcc54eff1a12cf8647b79460",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/scripts/uninstall.js": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "1da201e1713dd82f9ec90e109ed93ef3",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/behavior.test.js": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "59fd68d918a7cc82eea0edacc76445fa",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/commands.test.js": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "7c3ad9c51608149f57bef1f8536471bf",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/copilot-plugin.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "a99f28dd3010c5d202f791b80328405a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/correctness.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "f7a99c00d3c0666eba246073b5f6b214",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/gemini-extension.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "5f8c29140ebc8355baa7b84024bbe9ca",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/hermes-plugin.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "318fc63da59308289bab647cf86bf74d",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/hooks-windows.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "cca04969b581e6033ad0478a512280fa",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/hooks.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "ad317c3e87f2436a0b2defb7faf70d79",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/openclaw-skills.test.js": {
+    "mtime": 1783655522.9549372,
+    "ast_hash": "dc0db8ff7c7973fd331f497ac77a5c94",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/opencode-plugin.test.js": {
+    "mtime": 1783655522.9559371,
+    "ast_hash": "43b3f5cc384fcd2cc8fcdef45da98347",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/package-scripts.test.js": {
+    "mtime": 1783655522.9559371,
+    "ast_hash": "c64482f165911c6d0c552ae2e7e5e03d",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/package.test.js": {
+    "mtime": 1783655522.9559371,
+    "ast_hash": "5061705c29fe6c13f91b5a4bb04ff8a9",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/qoder-plugin.test.js": {
+    "mtime": 1783655522.9559371,
+    "ast_hash": "962fc60126442a3096fa8cc9cda6d3a0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/tests/uninstall.test.js": {
+    "mtime": 1783655522.9559371,
+    "ast_hash": "bbc61973d3a1ed91cbdc4d7b2b02bcc8",
+    "semantic_hash": ""
+  },
+  "picoforge/app/package.json": {
+    "mtime": 1783656447.140857,
+    "ast_hash": "37dbb37aac6679e9879ac9b7df70656d",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/App.tsx": {
+    "mtime": 1783656230.0492496,
+    "ast_hash": "6692c2768efe8fb0808470dd27b89867",
+    "semantic_hash": ""
+  },
+  "picoforge/app/src/main.tsx": {
+    "mtime": 1783656650.351765,
+    "ast_hash": "f9a9f9bdc997121979c35982e36cc082",
+    "semantic_hash": ""
+  },
+  "picoforge/app/tsconfig.app.json": {
+    "mtime": 1783656081.8018079,
+    "ast_hash": "d824db93b59e9b36bde396ec5731da3e",
+    "semantic_hash": ""
+  },
+  "picoforge/app/tsconfig.json": {
+    "mtime": 1783656073.4513373,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "picoforge/app/tsconfig.node.json": {
+    "mtime": 1783656089.7417183,
+    "ast_hash": "ddf99e9d95c147963a8a128ea527174f",
+    "semantic_hash": ""
+  },
+  "picoforge/app/vite.config.ts": {
+    "mtime": 1783656064.910285,
+    "ast_hash": "6495f13335916c662762d61df7c485bf",
+    "semantic_hash": ""
+  },
+  "picoforge/deno.json": {
+    "mtime": 1783660299.9400706,
+    "ast_hash": "e0e1734f95ac19d0ef1a58c120ce1359",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/Analyzers.cs": {
+    "mtime": 1783656868.5463183,
+    "ast_hash": "eac2dff74940b344d80a277b176de312",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/Compiler.cs": {
+    "mtime": 1783656848.505043,
+    "ast_hash": "282f82fc66ed5a53035928fed5f36d73",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/ForgeEngine.csproj": {
+    "mtime": 1783656968.6374526,
+    "ast_hash": "105a994776362e17022e5e016108d922",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/Program.cs": {
+    "mtime": 1783656957.0097065,
+    "ast_hash": "e9a6f8a0024a7b108ccf113482ffdb49",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/Rpc.cs": {
+    "mtime": 1783656814.1600618,
+    "ast_hash": "b6dc7e5043b391ff9e6c983272ae8da4",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/SandboxPool.cs": {
+    "mtime": 1783656918.6910205,
+    "ast_hash": "f30511ab02c5cc108d0d8cc40566efc3",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeEngine/SymbolTable.cs": {
+    "mtime": 1783656886.263862,
+    "ast_hash": "4aa696d4faed2e3bafd0a53f5cee56d2",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeSandbox/ForgeSandbox.csproj": {
+    "mtime": 1783656294.0569162,
+    "ast_hash": "4b00a0362c0ff3298abc821b296b9f38",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeSandbox/Kit/Ctx.cs": {
+    "mtime": 1783657074.8906252,
+    "ast_hash": "adb923a52376a1bb703dc4302af6f92e",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeSandbox/Kit/Kit.cs": {
+    "mtime": 1783657171.5505373,
+    "ast_hash": "37100d14d94f9c7d57a58cd0eed106fe",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeSandbox/Program.cs": {
+    "mtime": 1783657044.6913712,
+    "ast_hash": "dbcbaef3d664fc4c4e7f17896dab0ae8",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/ForgeSandbox/Runner.cs": {
+    "mtime": 1783657012.0697315,
+    "ast_hash": "8fe2539ffde913ce76aa85dc31a527b0",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/Kit.Tests/Kit.Tests.csproj": {
+    "mtime": 1783656315.6458979,
+    "ast_hash": "04dfaff923e1b37930557d213de837ab",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/Kit.Tests/PlaceholderTest.cs": {
+    "mtime": 1783657215.1764596,
+    "ast_hash": "10bf6fc826b5f064415a35211bb0555d",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/PicoForge.sln": {
+    "mtime": 1783656257.1230395,
+    "ast_hash": "fdc72675da2595c16b61d620142954a2",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/tools/DumpApi/DumpApi.csproj": {
+    "mtime": 1783656338.373934,
+    "ast_hash": "1d4191af0d54536d993b30b9b0614f46",
+    "semantic_hash": ""
+  },
+  "picoforge/engine/tools/DumpApi/Program.cs": {
+    "mtime": 1783657247.570321,
+    "ast_hash": "e4902d307dac56f30aa9bff2f9fbb0bb",
+    "semantic_hash": ""
+  },
+  "picoforge/scripts/setup.ts": {
+    "mtime": 1783661966.9506056,
+    "ast_hash": "767ab6d6c1308c3d1ea04384d27eef7f",
+    "semantic_hash": ""
+  },
+  "picoforge/server/config.ts": {
+    "mtime": 1783655937.1027884,
+    "ast_hash": "10207716c9746eb1ee1a487130daca63",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/db.ts": {
+    "mtime": 1783662020.369246,
+    "ast_hash": "f005878b0f2a7ad0f513bda04b33bf7a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/db/migrations/0001_init.sql": {
+    "mtime": 1783655974.6310427,
+    "ast_hash": "10883594e57bc654fac5a8b64fba373e",
+    "semantic_hash": ""
+  },
+  "picoforge/server/domain/events.ts": {
+    "mtime": 1783655911.8720183,
+    "ast_hash": "4a5ff698e9e33f0aeaa7b0a297c22acb",
+    "semantic_hash": ""
+  },
+  "picoforge/server/domain/ids.ts": {
+    "mtime": 1783655888.3596778,
+    "ast_hash": "3a3fd0766d653018ff644f58474ad38a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/domain/result.ts": {
+    "mtime": 1783655878.4418955,
+    "ast_hash": "0e4224b9f563772f68292f2d875cf8c8",
+    "semantic_hash": ""
+  },
+  "picoforge/server/engine/client.ts": {
+    "mtime": 1783662046.6172812,
+    "ast_hash": "1c884689380bdaff341f6372f913126b",
+    "semantic_hash": ""
+  },
+  "picoforge/server/engine/supervisor.ts": {
+    "mtime": 1783661966.9547448,
+    "ast_hash": "ace349dd2e0f6ae9ef6e0bb8486c73d2",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/anthropic.ts": {
+    "mtime": 1783661966.956851,
+    "ast_hash": "7206dfe5c9e082a6f7ed8193d333e38f",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/cli.ts": {
+    "mtime": 1783662039.179205,
+    "ast_hash": "438a1a5bc7b85cf6997b2e9d52ccc1b9",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/orchestrator.ts": {
+    "mtime": 1783662225.9123292,
+    "ast_hash": "e3d6fee90e2569e3e2f77e940fbe9db5",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/prompts/context.ts": {
+    "mtime": 1783661966.9521115,
+    "ast_hash": "3a627e4e94b8563169b597d94e56d4a2",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/prompts/repair.ts": {
+    "mtime": 1783662037.1685257,
+    "ast_hash": "7249dd8f09eb664111dfd1f231bdb12a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/prompts/system.ts": {
+    "mtime": 1783661966.9506056,
+    "ast_hash": "f1fb2116abb0ebe7be22171e6d8c1013",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tests/briefValidator.test.ts": {
+    "mtime": 1783661966.9558046,
+    "ast_hash": "aa982e6df24c6a831d18fc26a16b7a5a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tests/goldenTranscripts.test.ts": {
+    "mtime": 1783662483.558448,
+    "ast_hash": "d8d6fe2a57fd9da9a71db2a4a5e842c0",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tests/mockModel.ts": {
+    "mtime": 1783662325.3536682,
+    "ast_hash": "42fd8c6369207eee41cdb80ae2e0e2f4",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tests/systemPrompt.test.ts": {
+    "mtime": 1783661966.9486027,
+    "ast_hash": "10eda17998ffb84cdcdf88f051d9248f",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/_base.ts": {
+    "mtime": 1783661966.9476013,
+    "ast_hash": "dbb2f74290c26a100c626f240cb123ab",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/askUser.ts": {
+    "mtime": 1783661966.949602,
+    "ast_hash": "d1251ac9ae0341051b6f8c5d39af74d6",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/captureViewport.ts": {
+    "mtime": 1783661993.776126,
+    "ast_hash": "ade1c217d31f487dbc034ffb7e21ba19",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/exportArtifact.ts": {
+    "mtime": 1783661966.949602,
+    "ast_hash": "fa90c32b774da0697b874e850cbeb72a",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/index.ts": {
+    "mtime": 1783661966.9476013,
+    "ast_hash": "1272a3d2a5bb5b5e7a066613f43b86a1",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/inspectGeometry.ts": {
+    "mtime": 1783661966.9521115,
+    "ast_hash": "db82ec5a3b07a0bd901953cef97ec94b",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/runPicoGK.ts": {
+    "mtime": 1783662080.6630418,
+    "ast_hash": "1bc472bc4c8388fbab29c436549f4d6e",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/searchDocs.ts": {
+    "mtime": 1783661966.949602,
+    "ast_hash": "1525be46a6cda230e45e5e4b8fc098d3",
+    "semantic_hash": ""
+  },
+  "picoforge/server/harness/tools/submitDesignBrief.ts": {
+    "mtime": 1783661966.957857,
+    "ast_hash": "d1d98fb12e587e28083fd1c16fd6ca88",
+    "semantic_hash": ""
+  },
+  "picoforge/server/http/router.ts": {
+    "mtime": 1783656020.5255766,
+    "ast_hash": "2b7d591bb2a813096bc5ce8475ecd402",
+    "semantic_hash": ""
+  },
+  "picoforge/server/log.ts": {
+    "mtime": 1783655868.4980795,
+    "ast_hash": "2a551643a2720c9b00abde5710344a13",
+    "semantic_hash": ""
+  },
+  "picoforge/server/main.ts": {
+    "mtime": 1783656030.264609,
+    "ast_hash": "40b503a5d7369fa5640736c07cac3516",
+    "semantic_hash": ""
+  },
+  ".agents/AGENTS.md": {
+    "mtime": 1783658558.453483,
+    "ast_hash": "d5e2fc8aee2677553676edc9785faece",
+    "semantic_hash": ""
+  },
+  ".agents/rules/00-picoforge.md": {
+    "mtime": 1783658256.351917,
+    "ast_hash": "8278f920f40825fbe8f99ab4d1092708",
+    "semantic_hash": ""
+  },
+  ".agents/rules/global-permission.md": {
+    "mtime": 1783656628.2296026,
+    "ast_hash": "78ee22e19f27b31f5007e1bde86aec4a",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1783655523.5486789,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/rules/ponytail.md": {
+    "mtime": 1783655522.922429,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  ".agents/rules/save-conversations.md": {
+    "mtime": 1783656217.6772156,
+    "ast_hash": "b4011a2ba284adf46095fe781c1276c0",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1783655523.5486789,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/DATA_SCHEMA.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "5a9320dc781462c668b5c91ccf8e3db7",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/LLM_HARNESS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "c63c4155a1e68fd4a475a3133877dba6",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/PICOGK_KNOWLEDGE.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "1e81433adf76b22196242a0f3c8ebe89",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/README.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "596861cc9621ea12379057616e998378",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/RENDERING.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "bf119f902ac8034dafe026f7fda10f72",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/SYS_DESIGN.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d242299943a490149b3cef309c408bed",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/UIUX.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d8db2b6a82efff75f97925bba3e79b4b",
+    "semantic_hash": ""
+  },
+  "KNOWLEDGE_BASE/USER_FLOWS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "6eb209526ead917a8585e7cb2375000b",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.agents/rules/ponytail.md": {
+    "mtime": 1783655522.922429,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.clinerules/ponytail.md": {
+    "mtime": 1783655522.923429,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/FUNDING.yml": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "1c95421c1ec3ffa02d51acf83972c6e4",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/copilot-instructions.md": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/workflows/publish.yml": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "49a523e551e09614745b7506bfbe99d5",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.github/workflows/test.yml": {
+    "mtime": 1783655522.9244292,
+    "ast_hash": "b516312d8b3b84c1a2cc263586e1e384",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.kiro/steering/ponytail.md": {
+    "mtime": 1783655522.9259331,
+    "ast_hash": "af036f3c54f2241c7dc8e8ea64058cdb",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail-audit/SKILL.md": {
+    "mtime": 1783655522.9259331,
+    "ast_hash": "14b0a5b743fe349763c26323d5526539",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail-debt/SKILL.md": {
+    "mtime": 1783655522.9259331,
+    "ast_hash": "72bd269c1559ee41a29dff0b4d95f68f",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail-gain/SKILL.md": {
+    "mtime": 1783655522.926941,
+    "ast_hash": "2f9106922eccfbdde5e6f5fe0063ac32",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail-help/SKILL.md": {
+    "mtime": 1783655522.926941,
+    "ast_hash": "26ae3a4ec5bf36739bc7ba2fe49c631c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail-review/SKILL.md": {
+    "mtime": 1783655522.926941,
+    "ast_hash": "0e4dc0ffba47ca7a35339deb1c052666",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.openclaw/skills/ponytail/SKILL.md": {
+    "mtime": 1783655522.926941,
+    "ast_hash": "701638c238d6b9797e7f8eecb919eb84",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail-audit.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "760d4b0812ee9005002124c0db2b8052",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail-debt.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "84e41d00f3de3cf62a704634a389b20f",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail-gain.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "ced6077c8d53ec2608d5b592647d4108",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail-help.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "9da7f5e2ae24d3274cedddd95aa7d9be",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail-review.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "50d2e63342d72f465d5b7dd5b5f9fa9b",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.opencode/command/ponytail.md": {
+    "mtime": 1783655522.9279373,
+    "ast_hash": "c7edc37c98056293f5341e27d047849a",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.qoder/rules/ponytail.md": {
+    "mtime": 1783655522.9289377,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/.windsurf/rules/ponytail.md": {
+    "mtime": 1783655522.9289377,
+    "ast_hash": "c015b34524a6b541eb95b792e6e61626",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/AGENTS.md": {
+    "mtime": 1783655522.9289377,
+    "ast_hash": "228d722e628b564a86e32fd78ed78df5",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/README.es.md": {
+    "mtime": 1783655522.9299376,
+    "ast_hash": "55920b1737d6b5ba8747303ccb01af59",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/README.ko.md": {
+    "mtime": 1783655522.9299376,
+    "ast_hash": "1c3c24932860f20b4fd9fb467b8446fe",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/README.md": {
+    "mtime": 1783655522.9299376,
+    "ast_hash": "c56815d00e86cd9c4ccc702b55721430",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/after-install.md": {
+    "mtime": 1783655522.9299376,
+    "ast_hash": "57c34f115834fd638a9377df2e4edcb2",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/README.md": {
+    "mtime": 1783655522.9399369,
+    "ast_hash": "76ce692157e316a1721f6194091027de",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/agentic/README.md": {
+    "mtime": 1783655522.9399369,
+    "ast_hash": "2110f73dc979181226d8cd11de19e0ff",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/arms/caveman-SKILL.md": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "c5f031e74f07becd926ad5013207268e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/behavior.yaml": {
+    "mtime": 1783655522.941937,
+    "ast_hash": "a3977ccd494d268533e9b90b00fa574d",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/promptfooconfig.gemini.yaml": {
+    "mtime": 1783655522.9429374,
+    "ast_hash": "97d609a3cc06e3a4840fb3c703ff31f0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/promptfooconfig.gpt-newest.yaml": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "a0f3d1a275dd6f21dd87ab4ec16b5287",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/promptfooconfig.gpt.yaml": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "ad48e31c6e0a12a18c0cebcb97304758",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/promptfooconfig.yaml": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "b50b636bee26e11d67c4ae6a889174ce",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-12-caveman-vs-ponytail.md": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "203e4970502ff6da111b25149f11628e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-12-v4-hardening-vs-caveman.md": {
+    "mtime": 1783655522.9439375,
+    "ast_hash": "b45dfa29e641dc4a2d079b910d7df996",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-15-llama3.2-local.md": {
+    "mtime": 1783655522.9449375,
+    "ast_hash": "4c8057b3fa9ac3a4bc27f80cbb88e1d0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-16-correctness-gate-fix.md": {
+    "mtime": 1783655522.9449375,
+    "ast_hash": "06154d837a458cea705ade22e689a849",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-16-robustness-audit.md": {
+    "mtime": 1783655522.9449375,
+    "ast_hash": "b97e271734683394073e162a9e25c51f",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-17-agentic-safety.md": {
+    "mtime": 1783655522.9449375,
+    "ast_hash": "18d9f1cb59166005acd9f3c9ce23c3da",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-17-cost-verification.md": {
+    "mtime": 1783655522.9449375,
+    "ast_hash": "b2068693bb62620ae0661eb292d12572",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-18-agentic.md": {
+    "mtime": 1783655522.945939,
+    "ast_hash": "6215f48140cf6e396655451651299a09",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/benchmarks/results/2026-06-22-issue-245-217-comprehension.md": {
+    "mtime": 1783655522.945939,
+    "ast_hash": "58fc7e70827dc04b1c3c3efed87b4a11",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/docs/agent-portability.md": {
+    "mtime": 1783655522.9469373,
+    "ast_hash": "daa948ca27f068e8603941c7d358638b",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/docs/platform-native.md": {
+    "mtime": 1783655522.9469373,
+    "ast_hash": "8c288a68c8e58e957081e5eb34969fe1",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/README.md": {
+    "mtime": 1783655522.9469373,
+    "ast_hash": "1ccf04b6982dd6949ccd6ae93f37c789",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/csv-sum.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "654b6922e3a97e0e88e7b82a4a7b1d76",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/debounce.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "5423fe676f023b3b1225753ed91457c0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/deep-clone.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "3746d6eb9863908919b31c7a698f3643",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/email-validation.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "1a482f1e8205b06da1dee0edffaf09b2",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/group-by.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "ba9609a1c861757636b1ddfa88a7989c",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/infinite-scroll.md": {
+    "mtime": 1783655522.9479375,
+    "ast_hash": "b844370bbdecac312c25156cd78137cf",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/modal-dialog.md": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "d837b1cbfa3e27be565e6c7277a9e07e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/number-formatting.md": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "12601f928f9424cc9495a1ed6a8f283d",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/rate-limit.md": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "4b01ce1151172ef3f4a41b6c63627796",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/react-countdown.md": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "c1fe3fc74588421ae88eb0b2399c605e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/examples/url-params.md": {
+    "mtime": 1783655522.948938,
+    "ast_hash": "88a9ab4bf81bfef992f99d5a83d9c61e",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/plugin.yaml": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "1551ebfe6eddd33b8f56190657810811",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/ponytail-mcp/README.md": {
+    "mtime": 1783655522.951937,
+    "ast_hash": "87cf95a35697635b9d823f67699df535",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail-audit/SKILL.md": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "741076540e91247a0bace7b89c27ac6b",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail-debt/SKILL.md": {
+    "mtime": 1783655522.952937,
+    "ast_hash": "19c1eef33c9b109abb5805a762a545c8",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail-gain/SKILL.md": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "8f9cd980326238785d2fc23a9cfddc96",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail-help/SKILL.md": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "25b3214341fdc2f0805d2f8a5da6fefd",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail-review/SKILL.md": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "52f93e973047baa9a906c6dc5879a4a6",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/skills/ponytail/SKILL.md": {
+    "mtime": 1783655522.9539373,
+    "ast_hash": "33f013ce03c8c66a6002ef941a433b81",
+    "semantic_hash": ""
+  },
+  "picoforge/AGENTS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "299f8188ae7da6478e13ca13cb72acf8",
+    "semantic_hash": ""
+  },
+  "picoforge/app/index.html": {
+    "mtime": 1783656042.4640555,
+    "ast_hash": "136d2236210ad7f111f2174bab782a88",
+    "semantic_hash": ""
+  },
+  "picoforge/conversations/10-7-26_BUILD_CONVERSATION.md": {
+    "mtime": 1783660197.3018222,
+    "ast_hash": "a898df30a64940ffe2f1e1dd26861a48",
+    "semantic_hash": ""
+  },
+  "picoforge/conversations/build_log.md": {
+    "mtime": 1783657343.5797489,
+    "ast_hash": "462e3dbab4a2bc434d6ab12b99a63fec",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/DATA_SCHEMA.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "5a9320dc781462c668b5c91ccf8e3db7",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/LLM_HARNESS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "c63c4155a1e68fd4a475a3133877dba6",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/MCP_SERVER_GUIDE.MD": {
+    "mtime": 1783656983.138101,
+    "ast_hash": "998b918ceb9c01fc2ac111e9d99633cf",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/PICOGK_KNOWLEDGE.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "1e81433adf76b22196242a0f3c8ebe89",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/README.md": {
+    "mtime": 1783657089.38923,
+    "ast_hash": "1780b27bbecabe5df8f25a8cab3f92d7",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/RENDERING.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "bf119f902ac8034dafe026f7fda10f72",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/SYS_DESIGN.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d242299943a490149b3cef309c408bed",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/UIUX.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "d8db2b6a82efff75f97925bba3e79b4b",
+    "semantic_hash": ""
+  },
+  "picoforge/docs/USER_FLOWS.md": {
+    "mtime": 1783635638.0,
+    "ast_hash": "6eb209526ead917a8585e7cb2375000b",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/benchmark-3model.svg": {
+    "mtime": 1783655522.9309378,
+    "ast_hash": "c1c3a91776193c98d6ff90de3d6310c0",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/benchmark-agentic.svg": {
+    "mtime": 1783655522.9309378,
+    "ast_hash": "004c0e7f418fa139e431cf7c03c166ee",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/logo-dark.png": {
+    "mtime": 1783655522.931937,
+    "ast_hash": "04333e49586d3a7e52dc0e99524058c8",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/logo-dark.svg": {
+    "mtime": 1783655522.931937,
+    "ast_hash": "e550f610b54f8541d9c48277cc5c8938",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/logo-greenpt-dark.svg": {
+    "mtime": 1783655522.9329376,
+    "ast_hash": "95a1e2b22325784f8fd616b508aa3ec1",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/logo-greenpt.svg": {
+    "mtime": 1783655522.9329376,
+    "ast_hash": "7ce5f5cfd72beebb75789c597ce4291d",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/logo.png": {
+    "mtime": 1783655522.9369369,
+    "ast_hash": "036e892fd1c2bd1bfb329ee7c3b1cd02",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/social-preview.png": {
+    "mtime": 1783655522.937937,
+    "ast_hash": "afeb113daf2e6aa6260af475ac5047a7",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/waitlist-banner-es.png": {
+    "mtime": 1783655522.938937,
+    "ast_hash": "329d29850248f06083c9aaf37033bb72",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/waitlist-banner-ko.png": {
+    "mtime": 1783655522.938937,
+    "ast_hash": "382b77997d73c537f0b6405d36795add",
+    "semantic_hash": ""
+  },
+  "picoforge/.tools/ponytail/assets/waitlist-banner.png": {
+    "mtime": 1783655522.9399369,
+    "ast_hash": "2c223c2bb087ce98b47ef2dee43c2d7c",
+    "semantic_hash": ""
+  }
+}

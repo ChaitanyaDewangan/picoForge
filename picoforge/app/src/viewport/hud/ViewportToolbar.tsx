@@ -16,13 +16,15 @@ interface Props {
   onGrid: (on: boolean) => void;
   onFrame: () => void;
   onCapture: () => void;
+  onExport: () => void;
+  onShowcaseExport: () => void;
   onSetView: (v: ViewName) => void;
 }
 
 export function ViewportToolbar({
   projection, material, turntable, section, grid,
   onProjection, onMaterial, onTurntable, onSection, onGrid,
-  onFrame, onCapture, onSetView,
+  onFrame, onCapture, onExport, onShowcaseExport, onSetView,
 }: Props) {
   return (
     <div id="viewport-toolbar" className="viewport-toolbar" role="toolbar" aria-label="Viewport controls">
@@ -87,8 +89,10 @@ export function ViewportToolbar({
 
       <TBDivider />
 
-      {/* Capture */}
+      {/* Capture & Export */}
       <TBtn id="tb-capture" label="⬡" title="Capture PNG (1920×1080)" onClick={onCapture} />
+      <TBtn id="tb-showcase" label="✨" title="Showcase Export (Studio Path Traced)" onClick={onShowcaseExport} />
+      <TBtn id="tb-export"  label="↓" title="Export Geometry (Ctrl+E)" onClick={onExport} />
     </div>
   );
 }

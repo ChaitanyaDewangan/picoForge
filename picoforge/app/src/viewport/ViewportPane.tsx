@@ -3,29 +3,28 @@
 // ViewportEngine is imperative and owns the WebGL context.
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { ViewportEngine, type ViewName, type MaterialId, type ViewportStatus, type GpuTier } from "./ViewportEngine.ts";
+import { ViewportEngine, type ViewName, type MaterialId, type ViewportStatus } from "./ViewportEngine.ts";
+import { probeGpuTierAsync } from "./GpuProbe.ts";
 import { ViewCube } from "./hud/ViewCube.tsx";
 import { DROStrip } from "./hud/DROStrip.tsx";
 import { ViewportToolbar } from "./hud/ViewportToolbar.tsx";
+import { CaptureModal } from "./hud/CaptureModal.tsx";
 import "./ViewportPane.css";
 
 // ─── GPU tier probe (RENDERING §6) ───────────────────────────────────────────
 
-function probeGpuTier(): GpuTier {
-  const saved = localStorage.getItem("picoforge.gpu.tier");
-  if (saved === "A" || saved === "B" || saved === "C") return saved;
-  // Quick heuristic from WebGL renderer string
-  const canvas = document.createElement("canvas");
-  const gl = canvas.getContext("webgl2");
-  if (!gl) return "C";
-  const dbg = gl.getExtension("WEBGL_debug_renderer_info");
-  if (!dbg) return "B";
-  const renderer = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) as string;
-  const isDiscrete = /nvidia|amd|radeon|geforce|rtx|gtx|rx\s\d|intel\s(arc|xe)/i.test(renderer);
-  const tier: GpuTier = isDiscrete ? "A" : "B";
-  localStorage.setItem("picoforge.gpu.tier", tier);
-  return tier;
-}
+
+
+// ─── Export & Capture ────────────────────────────────────────────────────────
+
+const downloadBlob = (blob: Blob, name: string) => {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(url);
+};
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 
@@ -52,35 +51,78 @@ export function ViewportPane({ onEngineReady, artifact }: ViewportPaneProps) {
   const [grid, setGrid] = useState(false);
   const [contextLost, setContextLost] = useState(false);
 
+  // Showcase Export Modal state
+  const [showcaseModal, setShowcaseModal] = useState(false);
+  const [captureProgress, setCaptureProgress] = useState<{spp: number, maxSpp: number} | null>(null);
+  const [isCapturing, setIsCapturing] = useState(false);
+
   // Init engine once
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const tier = probeGpuTier();
-    const engine = new ViewportEngine(canvas, { tier });
-    engineRef.current = engine;
-    onEngineReady?.(engine);
 
-    // 4 Hz status poll (RENDERING §1)
-    const statusId = setInterval(() => {
-      setStatus(engine.status());
-    }, 250);
+    let engine: ViewportEngine | null = null;
+    let statusId: number | undefined;
 
-    // Context-loss veil
-    canvas.addEventListener("webglcontextlost", () => setContextLost(true));
-    canvas.addEventListener("webglcontextrestored", () => setContextLost(false));
+    const onDblClick = () => { engine?.frame(true); };
+    const onContextLost = () => setContextLost(true);
+    const onContextRestored = () => setContextLost(false);
+    
+    const onCapture = (e: Event) => {
+      const ce = e as CustomEvent;
+      const { requestId, view, ws } = ce.detail;
+      if (!engine || !ws) return;
+      engine.capture({ view, width: 400, height: 400 })
+        .then((pngBase64) => {
+          ws.send({ type: "viewport.capture.result", requestId, pngBase64 });
+        })
+        .catch((err) => {
+          ws.send({ type: "viewport.capture.result", requestId, error: String(err) });
+        });
+    };
 
-    // Double-click → frame (pivot reset)
-    const onDblClick = () => { engine.frame(true); };
-    canvas.addEventListener("dblclick", onDblClick);
+    probeGpuTierAsync().then((tier) => {
+      if (!canvasRef.current) return; // unmounted
+      engine = new ViewportEngine(canvas, { tier });
+      engineRef.current = engine;
+      onEngineReady?.(engine);
+
+      // 4 Hz status poll (RENDERING §1)
+      statusId = setInterval(() => {
+        setStatus(engine!.status());
+      }, 250);
+
+      // Context-loss veil
+      canvas.addEventListener("webglcontextlost", onContextLost);
+      canvas.addEventListener("webglcontextrestored", onContextRestored);
+
+      // Double-click → frame (pivot reset)
+      canvas.addEventListener("dblclick", onDblClick);
+
+      // Capture event from WS
+      window.addEventListener("picoforge.viewport.capture", onCapture);
+      
+      // If artifact was already requested, load it now
+      if (artifact) {
+        setLoading(true);
+        engine.loadArtifact(artifact)
+          .catch(console.error)
+          .finally(() => setLoading(false));
+      }
+    });
 
     return () => {
       clearInterval(statusId);
+      canvas.removeEventListener("webglcontextlost", onContextLost);
+      canvas.removeEventListener("webglcontextrestored", onContextRestored);
       canvas.removeEventListener("dblclick", onDblClick);
-      engine.dispose();
+      window.removeEventListener("picoforge.viewport.capture", onCapture);
+      if (engine) {
+        engine.dispose();
+      }
       engineRef.current = null;
     };
-  }, []);
+  }, []); // Note: leaving artifact out of deps for init, it's handled in the separate effect below
 
   // Notify parent
   useEffect(() => {
@@ -133,6 +175,12 @@ export function ViewportPane({ onEngineReady, artifact }: ViewportPaneProps) {
           break;
         }
         case "g": setGrid((g) => !g); break;
+        case "e":
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            document.getElementById("tb-export")?.click();
+          }
+          break;
       }
     }
     window.addEventListener("keydown", onKey);
@@ -165,16 +213,43 @@ export function ViewportPane({ onEngineReady, artifact }: ViewportPaneProps) {
     );
   }, []);
 
-  const handleCapture = useCallback(async () => {
-    const blob = await engineRef.current?.capture({ view: "current", width: 1920, height: 1080 });
-    if (!blob) return;
-    const url = URL.createObjectURL(blob);
+  const onCapture = () => {
+    if (!engineRef.current) return;
+    engineRef.current.capture({ view: "current", width: 1920, height: 1080 })
+      .then(b => downloadBlob(b, `capture_${Date.now()}.png`))
+      .catch(console.error);
+  };
+
+  const onShowcaseExportSubmit = async (size: number, pt: boolean) => {
+    if (!engineRef.current) return;
+    setIsCapturing(true);
+    setCaptureProgress({ spp: 0, maxSpp: pt ? 1024 : 1 });
+    
+    try {
+      const blob = await engineRef.current.capture({
+        view: "current",
+        width: size,
+        height: size,
+        studio: pt,
+        onProgress: (spp, maxSpp) => setCaptureProgress({ spp, maxSpp }),
+      });
+      downloadBlob(blob, `showcase_${Date.now()}.png`);
+      setShowcaseModal(false);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsCapturing(false);
+      setCaptureProgress(null);
+    }
+  };
+
+  const handleExport = useCallback(() => {
+    if (!artifact?.url) return;
     const a = document.createElement("a");
-    a.href = url;
-    a.download = `picoforge-capture-${Date.now()}.png`;
+    a.href = artifact.url;
+    a.download = `geometry.${artifact.format}`;
     a.click();
-    URL.revokeObjectURL(url);
-  }, []);
+  }, [artifact]);
 
   const isEmpty = !artifact && !loading;
 
@@ -204,6 +279,16 @@ export function ViewportPane({ onEngineReady, artifact }: ViewportPaneProps) {
         </div>
       )}
 
+      {/* Showcase Modal */}
+      {showcaseModal && (
+        <CaptureModal
+          onClose={() => setShowcaseModal(false)}
+          onCapture={onShowcaseExportSubmit}
+          isCapturing={isCapturing}
+          progress={captureProgress}
+        />
+      )}
+
       {/* Empty state */}
       {isEmpty && (
         <div className="viewport-empty">
@@ -228,7 +313,9 @@ export function ViewportPane({ onEngineReady, artifact }: ViewportPaneProps) {
         onSection={handleSection}
         onGrid={setGrid}
         onFrame={() => engineRef.current?.frame(true)}
-        onCapture={handleCapture}
+        onCapture={onCapture}
+        onShowcaseExport={() => setShowcaseModal(true)}
+        onExport={handleExport}
         onSetView={handleSetView}
       />
 

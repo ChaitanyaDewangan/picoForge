@@ -74,6 +74,59 @@ export function sendToSession(session: Session, frame: string, type: string): vo
   }
 }
 
+// ─── Viewport Capture Request/Response ────────────────────────────────────────
+
+const pendingCaptures = new Map<string, (base64: string | null) => void>();
+
+export function requestCapture(
+  conversationId: string,
+  view: string,
+  timeoutMs: number,
+): Promise<string | null> {
+  return new Promise((resolve) => {
+    const requestId = crypto.randomUUID();
+    let timedOut = false;
+
+    const timer = setTimeout(() => {
+      timedOut = true;
+      pendingCaptures.delete(requestId);
+      resolve(null);
+    }, timeoutMs);
+
+    pendingCaptures.set(requestId, (base64: string | null) => {
+      if (timedOut) return;
+      clearTimeout(timer);
+      pendingCaptures.delete(requestId);
+      resolve(base64);
+    });
+
+    broadcast(conversationId, {
+      type: "viewport.capture.request",
+      requestId,
+      view,
+      width: 1024,
+      height: 1024,
+    } as Omit<ServerEvent, "seq">);
+  });
+}
+
+export function resolveCapture(requestId: string, base64png?: string): void {
+  const resolver = pendingCaptures.get(requestId);
+  if (resolver) {
+    resolver(base64png ?? null);
+  }
+}
+
+// ─── wsHub for tools ──────────────────────────────────────────────────────────
+
+export const wsHub = {
+  requestCapture,
+  sendToConversation: (id: string, event: unknown) => {
+    broadcast(id, event as Omit<ServerEvent, "seq">);
+    return Promise.resolve();
+  },
+};
+
 // ─── Upgrade handler ──────────────────────────────────────────────────────────
 
 /** Handles incoming WebSocket upgrade requests (called from router) */

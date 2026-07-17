@@ -108,7 +108,9 @@ export async function clearBaseUrl(): Promise<boolean> {
     let existing = "";
     try {
       existing = await Deno.readTextFile(secretPath);
-    } catch { return true; }
+    } catch {
+      return true;
+    }
     const cleaned = existing.replace(/^ANTHROPIC_BASE_URL=.+\n?/m, "");
     await Deno.writeTextFile(secretPath, cleaned.trim() + "\n");
     _config = { ...cfg, ANTHROPIC_BASE_URL: undefined };
@@ -131,7 +133,9 @@ export async function loadConfig(): Promise<Config> {
     ENGINE_BIN: Deno.env.get("ENGINE_BIN"),
   };
 
-  const partial = ConfigSchema.omit({ ANTHROPIC_API_KEY: true, ANTHROPIC_BASE_URL: true }).parse(raw);
+  const partial = ConfigSchema.omit({ ANTHROPIC_API_KEY: true, ANTHROPIC_BASE_URL: true }).parse(
+    raw,
+  );
   const secrets = await loadSecrets(partial.DATA_DIR);
 
   _config = ConfigSchema.parse({

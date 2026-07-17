@@ -68,7 +68,11 @@ export const ChatDoneEvent = withSeq({
 
 export const RunState = z.enum([
   "queued",
+  "understanding",
   "briefing",
+  "building",
+  "inspecting",
+  "awaiting_user",
   "codegen",
   "compiling",
   "executing",
@@ -152,8 +156,26 @@ export const PongEvent = withSeq({
   type: z.literal("pong"),
 });
 
+export const AskUserEvent = withSeq({
+  type: z.literal("ask_user"),
+  runId: z.string(),
+  question: z.string(),
+  options: z.array(z.string()),
+});
+
+export const MessageCreatedEvent = withSeq({
+  type: z.literal("message.created"),
+  message: z.object({
+    id: z.string(),
+    role: z.string(),
+    content: z.string(),
+    createdAt: z.number(),
+  }),
+});
+
 export const ServerEventSchema = z.discriminatedUnion("type", [
   HelloEvent,
+  MessageCreatedEvent,
   ChatDeltaEvent,
   ChatBlockEvent,
   ChatDoneEvent,
@@ -163,6 +185,7 @@ export const ServerEventSchema = z.discriminatedUnion("type", [
   StepDoneEvent,
   GeometryReadyEvent,
   ViewportCaptureRequestEvent,
+  AskUserEvent,
   ErrorEvent,
   PongEvent,
 ]);

@@ -64,6 +64,7 @@ export interface ChatMessage {
   createdAt: number;
   /** For streaming assistant messages: accumulated text before a block is finalized */
   streamingText?: string;
+  askUserOptions?: string[];
 }
 
 // ─── Store state ──────────────────────────────────────────────────────────────
@@ -103,6 +104,8 @@ type Action =
   | { type: "STEP_DONE"; runId: string; stepId: string; ok: boolean; summaryJson: unknown }
   | { type: "GEOMETRY_READY"; runId: string; info: GeometryInfo }
   | { type: "USER_SEND"; text: string; messageId: string }
+  | { type: "MESSAGE_CREATED"; message: { id: string; role: string; content: string; createdAt: number } }
+  | { type: "ASK_USER"; runId: string; question: string; options: string[] }
   | { type: "ASSISTANT_PLACEHOLDER"; messageId: string };
 
 function reducer(state: ChatState, action: Action): ChatState {
@@ -119,6 +122,30 @@ function reducer(state: ChatState, action: Action): ChatState {
         role: "user",
         blocks: [{ t: "text", text: action.text }],
         createdAt: Date.now(),
+      };
+      return { ...state, messages: [...state.messages, msg] };
+    }
+
+    case "MESSAGE_CREATED": {
+      // Prevent duplicating USER_SEND message
+      if (state.messages.some((m) => m.id === action.message.id)) return state;
+      const msg: ChatMessage = {
+        id: action.message.id,
+        role: action.message.role as "user" | "assistant",
+        blocks: action.message.content ? [{ t: "text", text: action.message.content }] : [],
+        createdAt: action.message.createdAt,
+      };
+      return { ...state, messages: [...state.messages, msg] };
+    }
+
+    case "ASK_USER": {
+      // Create a special message for the ask_user fork
+      const msg: ChatMessage = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        blocks: [{ t: "text", text: action.question }],
+        createdAt: Date.now(),
+        askUserOptions: action.options,
       };
       return { ...state, messages: [...state.messages, msg] };
     }
@@ -327,14 +354,35 @@ export function useChatStore(conversationId: string) {
           dispatch({
             type: "GEOMETRY_READY",
             runId: event.runId as string,
-            info: {
-              artifactId: event.artifactId as string,
-              url: event.url as string,
-              format: event.format as "glb" | "stl",
-              stats: event.stats as GeometryInfo["stats"],
-            },
+            info: event.info as GeometryInfo,
           });
           break;
+        case "message.created":
+          dispatch({
+            type: "MESSAGE_CREATED",
+            message: event.message as any,
+          });
+          break;
+        case "ask_user":
+          dispatch({
+            type: "ASK_USER",
+            runId: event.runId as string,
+            question: event.question as string,
+            options: event.options as string[],
+          });
+          break;
+        case "viewport.capture.request": {
+          // Dispatch a custom DOM event for the ViewportPane to intercept
+          const evt = new CustomEvent("picoforge.viewport.capture", {
+            detail: {
+              requestId: event.requestId,
+              view: event.view,
+              ws: wsRef.current,
+            },
+          });
+          window.dispatchEvent(evt);
+          break;
+        }
         default:
           break;
       }
