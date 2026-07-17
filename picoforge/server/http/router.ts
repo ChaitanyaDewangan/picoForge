@@ -24,6 +24,7 @@ import { AVAILABLE_MODELS } from "../harness/anthropic.ts";
 import { driveRun } from "../harness/orchestrator.ts";
 import type { EngineSupervisor } from "../engine/supervisor.ts";
 import type { ServerEvent } from "../domain/events.ts";
+import { getBootToken } from "../config.ts";
 
 const log = makeLogger("http");
 
@@ -53,6 +54,19 @@ async function parseBody<T>(
 export function buildRouter(supervisor?: EngineSupervisor): Hono {
   const app = new Hono();
 
+  // ── Security token middleware (SYS_DESIGN §10) ──────────────────────────
+  // Skip for: health check, static frontend, WS upgrade (token in query)
+  app.use("/api/*", async (c, next) => {
+    const path = c.req.path;
+    // Health endpoint is always public
+    if (path === "/api/health") return await next();
+    const token = c.req.header("X-PicoForge-Token") ?? new URL(c.req.url).searchParams.get("t");
+    if (token !== getBootToken()) {
+      return c.json({ error: { code: "UNAUTHORIZED", message: "Invalid or missing token" } }, 401);
+    }
+    return await next();
+  });
+
   // ── GET /api/health ────────────────────────────────────────────────────────
   app.get("/api/health", (c) => {
     log.debug("health check");
@@ -73,6 +87,24 @@ export function buildRouter(supervisor?: EngineSupervisor): Hono {
       db: { ok: true },
       gpuHintsCached: false,
     });
+  });
+
+  // ── POST /api/selftest ──────────────────────────────────────────────────
+  // F0 first-run wizard: runs a mini engine connectivity check
+  app.post("/api/selftest", async (c) => {
+    if (!supervisor?.client) {
+      return c.json({ ok: false, error: "Engine supervisor not connected" }, 503);
+    }
+    try {
+      const pingResult = await supervisor.client.ping();
+      if (pingResult.ok) {
+        return c.json({ ok: true, engine: pingResult.value });
+      } else {
+        return c.json({ ok: false, error: String(pingResult.error) }, 503);
+      }
+    } catch (err) {
+      return c.json({ ok: false, error: String(err) }, 503);
+    }
   });
 
   // ── Projects ───────────────────────────────────────────────────────────────

@@ -4,6 +4,7 @@
 
 import { makeLogger } from "../log.ts";
 import { ClientEventSchema, ServerEvent, ServerEventSchema } from "../domain/events.ts";
+import { getBootToken } from "../config.ts";
 
 const log = makeLogger("ws");
 
@@ -135,9 +136,16 @@ export function handleWsUpgrade(
   conversationId: string,
   onClientEvent: (conversationId: string, sessionId: string, event: unknown) => void,
 ): Response {
+  // Verify boot token (SYS_DESIGN §10)
+  const url = new URL(req.url);
+  const token = url.searchParams.get("t");
+  if (token !== getBootToken()) {
+    return new Response("Unauthorized", { status: 401 });
+  }
+
   const { socket, response } = Deno.upgradeWebSocket(req);
   const sessionId = crypto.randomUUID();
-  const resumeFrom = Number(new URL(req.url).searchParams.get("resume") ?? "0");
+  const resumeFrom = Number(url.searchParams.get("resume") ?? "0");
 
   const session: Session = { id: sessionId, conversationId, socket, seq: resumeFrom };
 

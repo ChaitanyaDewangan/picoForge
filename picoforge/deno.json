@@ -11,7 +11,9 @@
     "setup": "deno run --allow-read --allow-write --allow-run --allow-net scripts/setup.ts",
     "db:reset": "deno run --allow-read --allow-write scripts/db_reset.ts",
     "harness:once": "deno run --env-file=.env --allow-net --allow-read --allow-write --allow-run server/harness/cli.ts",
-    "build": "deno run --allow-all scripts/build.ts"
+    "build": "deno run --allow-all scripts/build.ts",
+    "bench:perf": "deno run --allow-all server/bench/startup.bench.ts",
+    "e2e": "npx playwright test --config=playwright.config.ts"
   },
   "fmt": {
     "useTabs": false,

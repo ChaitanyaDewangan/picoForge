@@ -3,6 +3,7 @@
 // Uses <dialog> natively, mono checklist aesthetic.
 
 import { useEffect, useRef, useState } from "react";
+import { apiFetch } from "../api.ts";
 import "./FirstRunWizard.css";
 
 type Step = "api-key" | "engine" | "gpu";
@@ -110,7 +111,7 @@ function ApiKeyStep({ onNext }: { onNext: () => void }) {
     try {
       const body: Record<string, string> = { key };
       if (resolvedBase) body.baseUrl = resolvedBase;
-      const res = await fetch("/api/settings/test-key", {
+      const res = await apiFetch("/api/settings/test-key", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -121,7 +122,7 @@ function ApiKeyStep({ onNext }: { onNext: () => void }) {
         const saveBody: Record<string, string> = { apiKey: key };
         if (resolvedBase) saveBody.apiBaseUrl = resolvedBase;
         else saveBody.apiBaseUrl = "";
-        await fetch("/api/settings", {
+        await apiFetch("/api/settings", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(saveBody),
@@ -252,7 +253,7 @@ function EngineStep({ onNext }: { onNext: () => void }) {
     setStatus("running");
     setDetail("building test cube…");
     try {
-      const res = await fetch("/api/selftest", { method: "POST" });
+      const res = await apiFetch("/api/selftest", { method: "POST" });
       const json = (await res.json()) as { ok: boolean; error?: string };
       if (json.ok) {
         setStatus("ok");

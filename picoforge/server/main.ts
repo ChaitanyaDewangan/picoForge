@@ -2,7 +2,7 @@
 // Boot order: config → db (migrations + orphan repair) → supervisor → server
 // SYS_DESIGN §3, §4.4, DATA_SCHEMA §6
 
-import { loadConfig } from "./config.ts";
+import { getBootToken, loadConfig } from "./config.ts";
 import { openDb } from "./db/db.ts";
 import { repairOrphanRuns } from "./db/repo/runs.ts";
 import { buildRouter } from "./http/router.ts";
@@ -63,20 +63,29 @@ async function main(): Promise<void> {
 
   log.info("Server starting", { host: config.HOST, port: config.PORT });
 
+  // Generate and display boot token for security
+  const token = getBootToken();
+
   await Deno.serve(
     {
       hostname: config.HOST,
       port: config.PORT,
       onListen({ hostname, port }) {
-        log.info("Server listening", { url: `http://${hostname}:${port}` });
+        const url = `http://${
+          hostname === "127.0.0.1" || hostname === "0.0.0.0" ? "localhost" : hostname
+        }:${port}`;
+        log.info("Server listening", { url });
+
+        // Print token to console (SYS_DESIGN §10)
+        console.log(`\n  ╭───────────────────────────────────────────────────╮`);
+        console.log(`  │  PicoForge server ready                          │`);
+        console.log(`  │  URL:   ${url.padEnd(40)}│`);
+        console.log(`  │  Token: ${token.substring(0, 36).padEnd(40)}│`);
+        console.log(`  ╰───────────────────────────────────────────────────╯\n`);
 
         // Launch desktop window unless headless
         if (!isHeadless) {
-          launchDesktopApp(
-            `http://${
-              hostname === "127.0.0.1" || hostname === "0.0.0.0" ? "localhost" : hostname
-            }:${port}`,
-          );
+          launchDesktopApp(`${url}?t=${token}`);
         }
       },
     },

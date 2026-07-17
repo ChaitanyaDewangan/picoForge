@@ -3,6 +3,7 @@
 // Fetches available models from /api/models, saves key to keystore via PUT.
 
 import { useEffect, useRef, useState } from "react";
+import { apiFetch } from "../api.ts";
 import "./SettingsDialog.css";
 
 interface ModelInfo { id: string; label: string; maxTokens: number; }
@@ -54,12 +55,12 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
   // Fetch available models from server
   useEffect(() => {
     if (!open) return;
-    fetch("/api/models")
+    apiFetch("/api/models")
       .then((r) => r.json())
       .then((j: { models?: ModelInfo[] }) => { if (j.models?.length) setModels(j.models); })
       .catch(() => {/* use fallback */});
     // Also load current settings + provider info
-    fetch("/api/settings")
+    apiFetch("/api/settings")
       .then((r) => r.json())
       .then((j: { settings?: Partial<Settings>; provider?: { hasApiKey?: boolean; apiBaseUrl?: string } }) => {
         if (j.settings) setSettings((s) => ({ ...s, ...j.settings }));
@@ -98,7 +99,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
     try {
       const body: Record<string, string> = { key: apiKeyInput };
       if (baseUrlInput.trim()) body.baseUrl = baseUrlInput;
-      const res = await fetch("/api/settings/test-key", {
+      const res = await apiFetch("/api/settings/test-key", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -116,7 +117,7 @@ export function SettingsDialog({ open, onClose, initialSettings }: Props) {
       const body: Record<string, unknown> = { ...settings };
       if (apiKeyInput.trim()) body.apiKey = apiKeyInput;
       if (baseUrlInput !== undefined) body.apiBaseUrl = baseUrlInput.trim() || "";
-      const res = await fetch("/api/settings", {
+      const res = await apiFetch("/api/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

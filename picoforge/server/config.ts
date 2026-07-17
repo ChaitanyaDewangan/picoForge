@@ -28,6 +28,17 @@ export type Config = z.infer<typeof ConfigSchema>;
 
 let _config: Config | null = null;
 
+// Boot-time security token — printed to console, required on all API/WS requests
+// SYS_DESIGN §10: defeats drive-by localhost attacks from other browser tabs
+let _bootToken: string | null = null;
+
+export function getBootToken(): string {
+  if (!_bootToken) {
+    _bootToken = crypto.randomUUID();
+  }
+  return _bootToken;
+}
+
 interface Secrets {
   apiKey?: string;
   baseUrl?: string;

@@ -85,7 +85,9 @@ export class WsClient {
   }
 
   private _openSocket(): void {
-    const url = `${this.baseUrl}/ws?conversationId=${this.conversationId}&resume=${this._lastSeq}`;
+    // Include security token from page URL query string (SYS_DESIGN §10)
+    const pageToken = new URLSearchParams(location.search).get("t") ?? "";
+    const url = `${this.baseUrl}/ws?conversationId=${this.conversationId}&resume=${this._lastSeq}&t=${pageToken}`;
     const ws = new WebSocket(url);
     this._ws = ws;
 
