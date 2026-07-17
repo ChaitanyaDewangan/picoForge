@@ -1,7 +1,7 @@
 {
   "tasks": {
     "dev": "deno task server:dev & deno task app:dev",
-    "server:dev": "deno run --watch --env-file=.env --allow-net=127.0.0.1:7317,api.anthropic.com --allow-read --allow-write --allow-run=dotnet,forge-engine server/main.ts",
+    "server:dev": "deno run --watch --env-file=.env --allow-net --allow-read --allow-write --allow-run=dotnet,forge-engine --allow-env server/main.ts",
     "app:dev": "cd app && npm run dev",
     "check": "deno fmt --check && deno lint && deno task typecheck && deno task test",
     "typecheck": "deno check server/main.ts server/harness/orchestrator.ts server/http/router.ts server/http/ws.ts scripts/setup.ts",
